@@ -15,6 +15,10 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('main_image');
+            $table->string('image');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCreditsTable extends Migration
+class CreateVacancyDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateCreditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('credits', function (Blueprint $table) {
+        Schema::create('vacancy_details', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->text('content');
+            $table->bigInteger('vacancy_id');
+            $table->string('name_detail');
+            $table->jsonb('text_detail')->nullable();
+            $table->string('phones');
+            $table->string('email');
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateCreditsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('credits');
+        Schema::dropIfExists('vacancy_details');
     }
 }
