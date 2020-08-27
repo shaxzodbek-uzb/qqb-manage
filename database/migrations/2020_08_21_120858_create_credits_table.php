@@ -17,6 +17,7 @@ class CreateCreditsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
+            $table->string('image');
             $table->text('content');
             $table->timestamps();
         });

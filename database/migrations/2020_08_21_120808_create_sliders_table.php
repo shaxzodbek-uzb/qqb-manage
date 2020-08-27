@@ -15,10 +15,8 @@ class CreateSlidersTable extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('img_url');
-            $table->string('name')->nullable();
-            $table->string('subname')->nullable();
-            $table->string('url')->nullable();
+            $table->string('name');
+            $table->string('slug');
             $table->timestamps();
         });
     }
