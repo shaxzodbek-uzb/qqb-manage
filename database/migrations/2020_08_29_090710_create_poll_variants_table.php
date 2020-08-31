@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSlidesTable extends Migration
+class CreatePollVariantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateSlidesTable extends Migration
      */
     public function up()
     {
-        Schema::create('slides', function (Blueprint $table) {
+        Schema::create('poll_variants', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('');
-            $table->string('description')->default('');
-            $table->string('image');
-            $table->bigInteger('slider_id');
-            $table->timestamps();
+            $table->string('name');
+            $table->bigInteger('poll_id');
         });
     }
 
@@ -30,6 +27,6 @@ class CreateSlidesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slides');
+        Schema::dropIfExists('poll_variants');
     }
 }

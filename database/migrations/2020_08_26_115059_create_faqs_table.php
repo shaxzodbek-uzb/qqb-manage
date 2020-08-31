@@ -17,8 +17,6 @@ class CreateFaqsTable extends Migration
             $table->id();
             $table->string('question');
             $table->string('answer');
-            $table->string('resource_type');
-            $table->string('resource_id');
             $table->timestamps();
         });
     }

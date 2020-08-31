@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSlidesTable extends Migration
+class CreateResourceDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateSlidesTable extends Migration
      */
     public function up()
     {
-        Schema::create('slides', function (Blueprint $table) {
+        Schema::create('resource_documents', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('');
-            $table->string('description')->default('');
-            $table->string('image');
-            $table->bigInteger('slider_id');
-            $table->timestamps();
+            $table->bigInteger('resource_id');
+            $table->string('resource_type');
+            $table->bigInteger('document_id');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateSlidesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slides');
+        Schema::dropIfExists('resource_documents');
     }
 }

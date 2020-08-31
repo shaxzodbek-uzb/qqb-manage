@@ -18,9 +18,9 @@ class CreateVacancyDetailsTable extends Migration
             $table->bigInteger('vacancy_id');
             $table->string('name_detail');
             $table->jsonb('text_detail')->nullable();
-            $table->string('phones');
-            $table->string('email');
-            $table->string('address');
+            $table->string('phones')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

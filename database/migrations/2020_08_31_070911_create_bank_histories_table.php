@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSlidesTable extends Migration
+class CreateBankHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateSlidesTable extends Migration
      */
     public function up()
     {
-        Schema::create('slides', function (Blueprint $table) {
+        Schema::create('bank_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('');
-            $table->string('description')->default('');
-            $table->string('image');
-            $table->bigInteger('slider_id');
+            $table->string('year');
+            $table->jsonb('description');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateSlidesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slides');
+        Schema::dropIfExists('bank_histories');
     }
 }
