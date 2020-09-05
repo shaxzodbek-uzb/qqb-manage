@@ -19,7 +19,7 @@ class CreateNewsTable extends Migration
             $table->string('description')->nullable();
             $table->text('content');
             $table->string('image');
-            $table->string('url_vide')->nullable;
+            $table->string('url_video')->nullable;
             $table->enum('is_main',['0','1'])->default('0');
             $table->bigInteger('category_id');
             $table->timestamps();

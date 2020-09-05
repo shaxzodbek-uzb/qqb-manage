@@ -16,7 +16,7 @@ class CreateCouncilItemsTable extends Migration
         Schema::create('council_items', function (Blueprint $table) {
             $table->id();
             $table->string('fulname');
-            $table->jsonb('meta');
+            $table->json('meta');
             $table->string('avatar');
             $table->timestamps();
         });
