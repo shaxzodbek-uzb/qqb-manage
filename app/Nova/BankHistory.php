@@ -5,7 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-
+use Manogi\Tiptap\Tiptap;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 
@@ -26,8 +26,6 @@ class BankHistory extends Resource
      */
 
     public static $title = 'name';
-
-    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -53,7 +51,21 @@ class BankHistory extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             Text::make('Year')->rules('required','numeric'),
-            Textarea::make('Description'),
+            Tiptap::make(__('Description'), 'description')
+              ->buttons([
+                  'heading',
+                  'italic',
+                  'bold',
+                  'code',
+                  'link',
+                  'strike',
+                  'underline',
+                  'bullet_list',
+                  'ordered_list',
+                  'code_block',
+                  'blockquote',
+                  'edit_html'
+              ])->headingLevels([2, 3, 4]),
 
         ];
     }

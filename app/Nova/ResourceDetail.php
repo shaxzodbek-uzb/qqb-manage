@@ -8,7 +8,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Manogi\Tiptap\Tiptap;
-use Laravel\Nova\Fields\Boolean
+use Laravel\Nova\Fields\Boolean;
 
 class ResourceDetail extends Resource
 {
@@ -63,7 +63,7 @@ class ResourceDetail extends Resource
               ])->headingLevels([2, 3, 4]),
               Boolean::make(__('Is main'), 'is_main')
                     ->trueValue('1')
-                    ->falseValue('0')
+                    ->falseValue('0'),
         ];
     }
 

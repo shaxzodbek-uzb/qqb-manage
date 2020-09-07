@@ -62,9 +62,7 @@ class BankCouncil extends Resource
     public static function availableForNavigation(Request $request)
     {
         return false;
-    }
 
-        ];
     }
     /**
      * Get the cards available for the request.

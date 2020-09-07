@@ -27,10 +27,6 @@ class FaqsResource extends Resource
     {
         return false;
     }
-
-
-class FaqsResource extends Resource
-{
     /**
      * The model the resource corresponds to.
      *
