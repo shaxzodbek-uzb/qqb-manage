@@ -47,6 +47,7 @@ class BankCouncil extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+
             Text::make(__('Entry name'),'entry_name')->rules('required'),
             Textarea::make(__('Entry text'), 'entry_text')
         ];
@@ -61,6 +62,9 @@ class BankCouncil extends Resource
     public static function availableForNavigation(Request $request)
     {
         return false;
+    }
+
+        ];
     }
     /**
      * Get the cards available for the request.

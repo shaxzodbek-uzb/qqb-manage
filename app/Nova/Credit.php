@@ -28,6 +28,7 @@ class Credit extends Resource
      * @var string
      */
     public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -36,6 +37,7 @@ class Credit extends Resource
      */
     public static $search = [
         'name',
+        'id',
     ];
 
     /**

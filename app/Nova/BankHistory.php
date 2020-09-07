@@ -5,8 +5,10 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+
 
 class BankHistory extends Resource
 {
@@ -22,7 +24,10 @@ class BankHistory extends Resource
      *
      * @var string
      */
+
     public static $title = 'name';
+
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -30,7 +35,10 @@ class BankHistory extends Resource
      * @var array
      */
     public static $search = [
+
         'name',
+
+        'id',
     ];
 
     /**
@@ -43,8 +51,10 @@ class BankHistory extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+
             Text::make('Year')->rules('required','numeric'),
             Textarea::make('Description'),
+
         ];
     }
 

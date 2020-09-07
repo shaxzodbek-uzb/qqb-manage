@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
@@ -48,6 +49,7 @@ class CouncilItems extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+
             Text::make(__('Fullname'), 'fulname')->rules('required'),
             Textarea::make(__('Meta'), 'meta')->rules('required'),
             Text::make(__('Avatar'),'avatar'),

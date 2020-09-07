@@ -25,6 +25,7 @@
         "laravel/tinker": "^2.0",
         "manogi/nova-tiptap": "^1.0",
         "numaxlab/nova-ckeditor5-classic": "^1.1"
+
     },
     "require-dev": {
         "facade/ignition": "^2.0",
