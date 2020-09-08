@@ -18,6 +18,6 @@ class Credit extends Model
 
     public function faqs()
     {
-        return $this->morphToMany(Faqs::class, 'resource');
+        return $this->morphToMany(Faqs::class,'resource','resource_faqs');
     }
 }

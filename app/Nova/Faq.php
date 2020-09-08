@@ -11,35 +11,23 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Boolen;
 use Laravel\Nova\Fields\Select;
 
-class FaqsResource extends Resource
+class Faq extends Resource
 {
-    
-    /**
-     * Determine if this resource is available for navigation.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
-     */
-    public static function availableForNavigation(Request $request)
-    {
-        return false;
-    }
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\FaqsResource::class;
+    public static $model = \App\Faqs::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'question';
 
     /**
      * The columns that should be searched.
@@ -47,7 +35,7 @@ class FaqsResource extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'question',
     ];
 
     /**
@@ -60,6 +48,9 @@ class FaqsResource extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('Question'),'question'),
+            Textarea::make(__('Answer'),'answer')         
+
         ];
     }
 

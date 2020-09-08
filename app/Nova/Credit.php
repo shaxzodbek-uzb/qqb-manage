@@ -8,6 +8,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\MorphToMany;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Manogi\Tiptap\Tiptap;
 
@@ -66,7 +67,7 @@ class Credit extends Resource
               ])->headingLevels([2, 3, 4])->rules('required'),
             MorphMany::make('Resource details'),
             MorphMany::make('Documents'),
-            // MorphMany::make(__('Faqs'),'faqs'),
+            MorphToMany::make(__('Faqs'),'faqs'),
             
         ];
     }
