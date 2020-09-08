@@ -33,13 +33,14 @@ class Card extends Model //implements HasMedia
 	{
 		return $this->morphMany(Document::class,'resource');
 	}
+	public function advantages()
+	{
+		return $this->morphMany(Advantage::class,'resource');
+	}
 
-	    /**
-     * Get all of the tags for the post.
-     */
     public function faqs()
     {
-        return $this->morphToMany('App\Faqs', 'resource');
+        return $this->morphToMany(Faqs::class,'resource','resource_faqs');
     }
     
 }

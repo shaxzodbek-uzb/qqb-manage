@@ -4,29 +4,26 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\MorphMany;
-use App\ResourceDetail;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 
-class Card extends Resource
+class Advantage extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Card::class;
+    public static $model = \App\Advantage::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -34,7 +31,7 @@ class Card extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'id',
     ];
 
     /**
@@ -46,14 +43,10 @@ class Card extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make( 'id')->sortable(),
-            Text::make('Name')->rules('required'),
-            MediaLibrary::make(__('Cover image'),'cover_image')->preview('thumb'),
-            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
-            Textarea::make('Description'),
-            MorphMany::make('Resource details'),
-            MorphMany::make('Documents'),
-            MorphMany::make('Advantages'),
+            ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('Name'), 'name')->rules('required'),
+            Textarea::make(__('Text advantage'), 'text_advantage')->rules('required'),
+            MediaLibrary::make(__('Icon image'), 'icon_image')
         ];
     }
 
