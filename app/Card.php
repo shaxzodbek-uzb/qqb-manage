@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\ResourceDetail;
 use Spatie\MediaLibrary\Media;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
- use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
 class Card extends Model //implements HasMedia
@@ -29,5 +29,17 @@ class Card extends Model //implements HasMedia
 	{
 		return $this->morphMany(ResourceDetail::class,'resource');
 	}
+	public function documents()
+	{
+		return $this->morphMany(Document::class,'resource');
+	}
+
+	    /**
+     * Get all of the tags for the post.
+     */
+    public function faqs()
+    {
+        return $this->morphToMany('App\Faqs', 'resource');
+    }
     
 }

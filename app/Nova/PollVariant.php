@@ -4,20 +4,28 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Manogi\Tiptap\Tiptap;
-use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class ResourceDetail extends Resource
+class PollVariant extends Resource
 {
+    
+    /**
+     * Determine if this resource is available for navigation.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    public static function availableForNavigation(Request $request)
+    {
+        return false;
+    }
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\ResourceDetail::class;
+    public static $model = \App\PollVariant::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -45,25 +53,8 @@ class ResourceDetail extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->rules('required'),
-            Tiptap::make(__('Text'), 'text')
-              ->buttons([
-                  'heading',
-                  'italic',
-                  'bold',
-                  'code',
-                  'link',
-                  'strike',
-                  'underline',
-                  'bullet_list',
-                  'ordered_list',
-                  'code_block',
-                  'blockquote',
-                  'edit_html'
-              ])->headingLevels([2, 3, 4]),
-              Boolean::make(__('Is main'), 'is_main')
-                    ->trueValue('1')
-                    ->falseValue('0'),
+            Text::make('Name')->rules('required'),
+            Text::make('Count')->rules('numeric')
         ];
     }
 
@@ -76,16 +67,6 @@ class ResourceDetail extends Resource
     public function cards(Request $request)
     {
         return [];
-    }
-    /**
-     * Determine if this resource is available for navigation.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
-     */
-    public static function availableForNavigation(Request $request)
-    {
-        return false;
     }
 
     /**

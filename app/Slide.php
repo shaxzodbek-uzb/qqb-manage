@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Slide extends Model
 {
-    public function slide()
+    public function slides()
     {
         return $this->belongsTo(Slider::class);
     }

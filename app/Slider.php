@@ -8,6 +8,6 @@ class Slider extends Model
 {
     public function slides()
     {
-        return $this->hasMany(Slider::class);
+        return $this->hasMany(Slide::class);
     }
 }

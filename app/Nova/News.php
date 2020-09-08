@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Select;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class News extends Resource
 {
@@ -56,6 +57,7 @@ class News extends Resource
                     '0' => 'No',
                     '1' => 'Yes'
                 ]),
+            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
             BelongsTo::make('CategoryNews'),
 
         ];

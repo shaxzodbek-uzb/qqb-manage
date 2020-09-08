@@ -7,11 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\MorphMany;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Select;
+use Manogi\Tiptap\Tiptap;
 
 class Page extends Resource
 {
@@ -50,7 +46,21 @@ class Page extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->rules('required'),
             Textarea::make(__('Description'), 'description'),
-            Textarea::make(__('Content'), 'content')
+            Tiptap::make(__('Content'), 'content')
+              ->buttons([
+                  'heading',
+                  'italic',
+                  'bold',
+                  'code',
+                  'link',
+                  'strike',
+                  'underline',
+                  'bullet_list',
+                  'ordered_list',
+                  'code_block',
+                  'blockquote',
+                  'edit_html'
+              ])->headingLevels([2, 3, 4])
         ];
     }
 

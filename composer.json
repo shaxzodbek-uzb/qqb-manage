@@ -15,7 +15,6 @@
     ],
     "require": {
         "php": "^7.2.5",
-        "bayareawebpro/nova-field-ckeditor": "^1.0",
         "classic-o/nova-media-library": "^1.0",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
@@ -23,8 +22,7 @@
         "laravel/framework": "^7.24",
         "laravel/nova": "*",
         "laravel/tinker": "^2.0",
-        "manogi/nova-tiptap": "^1.0",
-        "numaxlab/nova-ckeditor5-classic": "^1.1"
+        "manogi/nova-tiptap": "^1.0"
 
     },
     "require-dev": {

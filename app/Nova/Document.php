@@ -7,15 +7,18 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\MorphMany;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
+use Laravel\Nova\Fields\BelongsTo;
 
-class CategoryNews extends Resource
+class Document extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\CategoryNews::class;
+    public static $model = \App\Document::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -43,8 +46,11 @@ class CategoryNews extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name')->rules('required'),
-            Textarea::make('Description'),
+            Text::make(__('Name'),'name'),
+            Text::make(__('Format'),'format'),
+            Text::make(__('Size'),'size'),
+            BelongsTo::make('Documenttype'),
+            MediaLibrary::make('Document')
         ];
     }
 

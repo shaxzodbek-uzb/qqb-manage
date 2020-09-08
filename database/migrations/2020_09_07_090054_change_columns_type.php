@@ -13,7 +13,21 @@ class ChangeColumnsType extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('resource_details', function (Blueprint $table) {
+            $table->text('text')->change();
+        });
+        Schema::table('bank_histories', function (Blueprint $table) {
+            $table->text('description')->change();
+        });
+        Schema::table('council_items', function (Blueprint $table) {
+            $table->text('meta')->change();
+        });
+        Schema::table('performance_attributes', function (Blueprint $table) {
+            $table->text('text')->change();
+        });
+        Schema::table('vacancy_details', function (Blueprint $table) {
+            $table->text('text_detail')->change();
+        });
     }
 
     /**
