@@ -4,32 +4,26 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\MorphMany;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Select;
-use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Manogi\Tiptap\Tiptap;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class News extends Resource
+class VacancyDetail extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\News::class;
+    public static $model = \App\VacancyDetail::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'name_detail';
 
     /**
      * The columns that should be searched.
@@ -37,8 +31,7 @@ class News extends Resource
      * @var array
      */
     public static $search = [
-        'name',
-        'id',
+        'name_detail',
     ];
 
     /**
@@ -51,8 +44,8 @@ class News extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name')->rules('required'),
-            Tiptap::make(__('Content'), 'content')->buttons([
+            Text::make('Name detail')->rules('required'),
+             Tiptap::make(__('Text'), 'text_detail')->buttons([
                   'heading',
                   'italic',
                   'bold',
@@ -66,15 +59,6 @@ class News extends Resource
                   'blockquote',
                   'edit_html'
               ])->headingLevels([2, 3, 4])->rules('required'),
-            Textarea::make('Description'),
-            Text::make('Url video','url_video'),
-            Select::make('Is_main')->options([
-                    '0' => 'No',
-                    '1' => 'Yes'
-                ]),
-            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
-            BelongsTo::make(__('News Category') ,'newscategory'),
-
         ];
     }
 
@@ -120,5 +104,11 @@ class News extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+
+    public static function availableForNavigation(Request $request)
+    {
+        return false;
     }
 }

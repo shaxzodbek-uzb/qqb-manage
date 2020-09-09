@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphMany;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 
-class Card extends Resource
+class PlasticCard extends Resource
 {
     /**
      * The model the resource corresponds to.
@@ -44,8 +44,8 @@ class Card extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make( 'id')->sortable(),
-            Text::make('Name')->rules('required'),
+            ID::make(__('ID'), 'id')->sortable(),
+             Text::make('Name')->rules('required'),
             MediaLibrary::make(__('Cover image'),'cover_image')->preview('thumb'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
             Textarea::make('Description'),

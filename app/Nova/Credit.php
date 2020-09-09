@@ -51,7 +51,7 @@ class Credit extends Resource
             Text::make('Name'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
             Textarea::make('Description'),
-          Tiptap::make(__('Content'), 'content')->buttons([
+            Tiptap::make(__('Content'), 'content')->buttons([
                   'heading',
                   'italic',
                   'bold',
