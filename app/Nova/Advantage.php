@@ -49,6 +49,16 @@ class Advantage extends Resource
             MediaLibrary::make(__('Icon image'), 'icon_image')
         ];
     }
+   /**
+     * Determine if this resource is available for navigation.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    public static function availableForNavigation(Request $request)
+    {
+        return false;
+    }
 
     /**
      * Get the cards available for the request.

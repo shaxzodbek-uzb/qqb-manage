@@ -50,6 +50,7 @@ class Poll extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Name')->rules('required'),
             Text::make('Count')->rules('numeric'),
+            HasMany::make(__('Poll variants') ,'poll_variants')
         ];
     }
 

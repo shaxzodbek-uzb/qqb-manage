@@ -8,8 +8,6 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphMany;
-use App\ResourceDetail;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class Card extends Resource
@@ -53,7 +51,7 @@ class Card extends Resource
             Textarea::make('Description'),
             MorphMany::make('Resource details'),
             MorphMany::make('Documents'),
-            MorphMany::make('Advantages'),
+            MorphMany::make('Advantages')
         ];
     }
 
