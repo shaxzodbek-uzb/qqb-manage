@@ -50,7 +50,7 @@ class Tariff extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'),'name'),
-            BelongsToMany::make(__('Attributes'), 'attributes', TariffAttribute::class)
+            HasMany::make(__('Tariff attributes'), 'tariff_attributes')
         ];
     }
 

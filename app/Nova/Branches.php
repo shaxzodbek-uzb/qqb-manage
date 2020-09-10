@@ -47,7 +47,9 @@ class Branches extends Resource
             Text::make(__('Director'),'director'),
             Text::make(__('Addres'),'addres'),
             Text::make(__('Phone'),'phone'),
-            Text::make(__('Email'),'email')
+            Text::make(__('Email'),'email'),
+            Text::make(__('Lat'),'lat'),
+            Text::make(__('Long'),'long')
         ];
     }
 

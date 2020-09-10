@@ -11,6 +11,29 @@ class ResourceDocumentsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $data = [
+            [
+                'resource_id' => '1',
+                'resource_type' => 'App\Card',
+                'document_id' => '1'
+            ],
+            [
+                'resource_id' => '1',
+                'resource_type' => 'App\Card',
+                'document_id' => '2'
+            ],
+            [
+                'resource_id' => '2',
+                'resource_type' => 'App\Card',
+                'document_id' => '1'
+            ],
+            [
+                'resource_id' => '3',
+                'resource_type' => 'App\Card',
+                'document_id' => '2'
+            ]
+        ];
+        
+      	DB::table('resource_documents')->insert($data);
     }
 }

@@ -11,6 +11,13 @@ class SlidersSeeder extends Seeder
      */
     public function run()
     {
-        //
+         $data = [
+            [
+                'name' => 'Главный слайдер',
+                'slug' => 'home-slider'
+            ]
+        ];
+        
+      	DB::table('sliders')->insert($data);
     }
 }

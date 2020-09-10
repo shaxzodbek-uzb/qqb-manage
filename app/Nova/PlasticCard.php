@@ -47,7 +47,7 @@ class PlasticCard extends Resource
             ID::make(__('ID'), 'id')->sortable(),
              Text::make('Name')->rules('required'),
             MediaLibrary::make(__('Cover image'),'cover_image')->preview('thumb'),
-            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
+            MediaLibrary::make(__('Image'),'image'),
             Textarea::make('Description'),
             MorphMany::make('Resource details'),
             MorphMany::make('Documents'),

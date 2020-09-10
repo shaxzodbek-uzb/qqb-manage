@@ -14,8 +14,26 @@ class CardsSeeder extends Seeder
          $data = [
                 [
                     'name' => 'Visa Gold',
-                    'cover_image' => '/source/cards/card-group.png',
-                    'image' => '/source/cards/card-group.png',
+                    'cover_image' => '1',
+                    'image' => '2',
+                    'description' => '"Кишлок курилиш банк" предоставляет вам уникальную возможность — открыть карты премиум-класса VISA Gold в международной платёжной системе VISA.'
+                ],
+                [
+                    'name' => 'Kobeydjing (UnionPay)',
+                    'cover_image' => '1',
+                    'image' => '2',
+                    'description' => '"Кишлок курилиш банк" предоставляет вам уникальную возможность — открыть карты премиум-класса VISA Gold в международной платёжной системе VISA.'
+                ],
+                [
+                    'name' => 'Uzcard',
+                    'cover_image' => '1',
+                    'image' => '2',
+                    'description' => '"Кишлок курилиш банк" предоставляет вам уникальную возможность — открыть карты премиум-класса VISA Gold в международной платёжной системе VISA.'
+                ],
+                [
+                    'name' => 'HUMO (VISA)',
+                    'cover_image' => '1',
+                    'image' => '2',
                     'description' => '"Кишлок курилиш банк" предоставляет вам уникальную возможность — открыть карты премиум-класса VISA Gold в международной платёжной системе VISA.'
                 ],
             ];

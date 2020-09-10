@@ -8,8 +8,12 @@ class Tariff extends Model
 {
 	protected $table = 'tariffs';
 
-    public function attributes()
+    // public function attributes()
+    // {
+    // 	return $this->belongsToMany('App\TariffAttribute','tariff_attributes', 'tariff_id','id');
+    // }
+     public function tariff_attributes()
     {
-    	return $this->belongsToMany('App\TariffAttribute','tariff_attributes', 'tariff_id','id');
+    	 return $this->hasMany(TariffAttribute::class,'tariff_id');
     }
 }

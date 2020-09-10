@@ -8,8 +8,5 @@ class TariffAttribute extends Model
 {
     protected $table = 'tariff_attributes';
 
-    // public function attributes()
-    // {
-    // 	return $this->belongsToMany('App\Tariff');
-    // }
+     public $timestamps = false;
 }

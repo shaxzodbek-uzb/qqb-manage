@@ -12,5 +12,30 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserSeeder::class);
+        $this->call(BankHistoriesSeeder::class);
+        $this->call(BranchesSeeder::class);
+        $this->call(CardsSeeder::class);
+        $this->call(CouncilItemsSeeder::class);
+        $this->call(CreditsSeeder::class);
+        $this->call(CurrenciessSeeder::class);
+        $this->call(DocumentsSeeder::class);
+        $this->call(DocumentTypesSeeder::class);
+        $this->call(FaqsSeeder::class);
+        $this->call(FinancialPerformancesSeeder::class);
+        $this->call(NewsCategorySeeder::class);
+        $this->call(NewsSeeder::class);
+        $this->call(NovaMediaLibrary::class);
+        $this->call(PagesSeeder::class);
+        $this->call(PerformanceAttributesSeeder::class);
+        $this->call(PollsSeeder::class);
+        $this->call(PollVariants::class);
+        $this->call(ResourceDetailsSeeder::class);
+        $this->call(ResourceDocumentsSeeder::class);
+        $this->call(ResourceFaqsSeeder::class);
+        $this->call(SliderSeeder::class);
+        $this->call(TariffsSeeder::class);
+        $this->call(TariffAttributesSeeder::class);
+        $this->call(VacanciesSeeder::class);
+        $this->call(VacancyDetailsSeeder::class);
     }
 }
