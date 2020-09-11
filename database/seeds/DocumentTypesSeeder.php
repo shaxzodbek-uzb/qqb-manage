@@ -18,7 +18,7 @@ class DocumentTypesSeeder extends Seeder
             ],
             [
                 'name' => 'Типовой договор',
-                'slug' => 'dollor'
+                'slug' => 'tipovoy_dogovor'
             ],
             [
                 'name' => 'Регламент интерактивных услуг',

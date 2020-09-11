@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CardsSeeder::class);
         $this->call(CouncilItemsSeeder::class);
         $this->call(CreditsSeeder::class);
-        $this->call(CurrenciessSeeder::class);
+        $this->call(CurrenciesSeeder::class);
         $this->call(DocumentsSeeder::class);
         $this->call(DocumentTypesSeeder::class);
         $this->call(FaqsSeeder::class);
@@ -28,14 +28,16 @@ class DatabaseSeeder extends Seeder
         $this->call(PagesSeeder::class);
         $this->call(PerformanceAttributesSeeder::class);
         $this->call(PollsSeeder::class);
-        $this->call(PollVariants::class);
+        $this->call(PollVariantsSeeder::class);
         $this->call(ResourceDetailsSeeder::class);
         $this->call(ResourceDocumentsSeeder::class);
         $this->call(ResourceFaqsSeeder::class);
-        $this->call(SliderSeeder::class);
+        $this->call(SlidersSeeder::class);
+        $this->call(SlidesSeeder::class);
         $this->call(TariffsSeeder::class);
         $this->call(TariffAttributesSeeder::class);
         $this->call(VacanciesSeeder::class);
         $this->call(VacancyDetailsSeeder::class);
+        $this->call(AdvantagesSeeder::class);
     }
 }
