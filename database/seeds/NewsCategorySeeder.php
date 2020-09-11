@@ -14,19 +14,19 @@ class NewsCategorySeeder extends Seeder
         $data = [
             [
                 'name' => 'Новости',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,'
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
             ],
             [
                 'name' => 'Мероприятия и Тендеры',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,'
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
             ],
             [
                 'name' => 'Объявления',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,'
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
             ],
             [
                 'name' => 'Аудио и видео',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,'
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
             ],
         ];
 
