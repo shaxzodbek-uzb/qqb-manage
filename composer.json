@@ -19,8 +19,10 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.24",
+        "laravel/nova": "*",
         "laravel/tinker": "^2.0",
-        "laravel/nova": "*"
+        "manogi/nova-tiptap": "^1.0",
+        "numaxlab/nova-ckeditor5-classic": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

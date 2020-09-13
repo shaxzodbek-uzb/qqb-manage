@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a153ad1d6015b1b422befd63cbaacaa",
+    "content-hash": "d473ae81033a77f348423e2a6dd5b6e2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1727,6 +1727,50 @@
             "time": "2020-08-09T10:34:01+00:00"
         },
         {
+            "name": "manogi/nova-tiptap",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/manogi/nova-tiptap.git",
+                "reference": "f9e80e0bcbab971ef87656dc1aadc8bc22dd5693"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/manogi/nova-tiptap/zipball/f9e80e0bcbab971ef87656dc1aadc8bc22dd5693",
+                "reference": "f9e80e0bcbab971ef87656dc1aadc8bc22dd5693",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Manogi\\Tiptap\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Manogi\\Tiptap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tiptap editor field.",
+            "keywords": [
+                "editor",
+                "laravel",
+                "nova",
+                "tiptap",
+                "vue"
+            ],
+            "time": "2020-08-31T07:46:52+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.1.1",
             "source": {
@@ -2008,6 +2052,49 @@
                 "php"
             ],
             "time": "2020-08-30T16:15:20+00:00"
+        },
+        {
+            "name": "numaxlab/nova-ckeditor5-classic",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/numaxlab/nova-ckeditor5-classic.git",
+                "reference": "1a2f045b5df699ada4bae055a0a5c331c74d3c61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/numaxlab/nova-ckeditor5-classic/zipball/1a2f045b5df699ada4bae055a0a5c331c74d3c61",
+                "reference": "1a2f045b5df699ada4bae055a0a5c331c74d3c61",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NumaxLab\\NovaCKEditor5Classic\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NumaxLab\\NovaCKEditor5Classic\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova CKEditor5 Classic Field.",
+            "keywords": [
+                "ckeditor5",
+                "laravel",
+                "nova",
+                "wysiwyg"
+            ],
+            "time": "2020-02-17T15:42:14+00:00"
         },
         {
             "name": "opis/closure",
