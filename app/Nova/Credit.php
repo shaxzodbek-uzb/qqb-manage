@@ -5,6 +5,12 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\MorphToMany;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
+use Manogi\Tiptap\Tiptap;
 
 class Credit extends Resource
 {
@@ -20,7 +26,7 @@ class Credit extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -28,6 +34,7 @@ class Credit extends Resource
      * @var array
      */
     public static $search = [
+        'name',
         'id',
     ];
 
@@ -41,6 +48,27 @@ class Credit extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make('Name'),
+            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
+            Textarea::make('Description'),
+            Tiptap::make(__('Content'), 'content')->buttons([
+                  'heading',
+                  'italic',
+                  'bold',
+                  'code',
+                  'link',
+                  'strike',
+                  'underline',
+                  'bullet_list',
+                  'ordered_list',
+                  'code_block',
+                  'blockquote',
+                  'edit_html'
+              ])->headingLevels([2, 3, 4])->rules('required'),
+            MorphMany::make('Resource details'),
+            MorphMany::make('Documents'),
+            MorphToMany::make(__('Faqs'),'faqs'),
+            
         ];
     }
 

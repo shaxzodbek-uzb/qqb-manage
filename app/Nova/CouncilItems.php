@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use Manogi\Tiptap\Tiptap;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
+
 class CouncilItems extends Resource
 {
     /**
@@ -41,6 +46,23 @@ class CouncilItems extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+
+            Text::make(__('Fullname'), 'fulname')->rules('required'),
+            Tiptap::make(__('Meta'), 'meta')->buttons([
+                  'heading',
+                  'italic',
+                  'bold',
+                  'code',
+                  'link',
+                  'strike',
+                  'underline',
+                  'bullet_list',
+                  'ordered_list',
+                  'code_block',
+                  'blockquote',
+                  'edit_html'
+              ])->headingLevels([2, 3, 4])->rules('required'),
+            MediaLibrary::make(__('Avatar'),'avatar')->preview('thumb')
         ];
     }
 

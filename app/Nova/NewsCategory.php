@@ -7,19 +7,15 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\MorphMany;
-use Laravel\Nova\Fields\BelongsToMany;
-// use App\Nova\ResourceDetail as Detail;
-class Card extends Resource
+
+class NewsCategory extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Card::class;
+    public static $model = \App\NewsCategory::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -47,9 +43,8 @@ class Card extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name')->rules('requied'),
-            Textarea::make(__('Description'),'description'),
-            MorphMany::make('Details')
+            Text::make(__('Name'),'name')->rules('required'),
+            Textarea::make('Description'),
         ];
     }
 

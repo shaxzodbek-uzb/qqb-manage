@@ -16,7 +16,7 @@ class CreatePerformanceAttributesTable extends Migration
         Schema::create('performance_attributes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->jsonb('text');
+            $table->json('text');
             $table->string('total');
             $table->bigInteger('performance_id');
         });

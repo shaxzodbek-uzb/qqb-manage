@@ -41,6 +41,7 @@ class ResourceDocuments extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make('name')
         ];
     }
 
@@ -86,5 +87,16 @@ class ResourceDocuments extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+    
+    /**
+     * Determine if this resource is available for navigation.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    public static function availableForNavigation(Request $request)
+    {
+        return false;
     }
 }

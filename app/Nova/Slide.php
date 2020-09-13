@@ -4,10 +4,24 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class Slide extends Resource
 {
+    
+    /**
+     * Determine if this resource is available for navigation.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    public static function availableForNavigation(Request $request)
+    {
+        return false;
+    }
     /**
      * The model the resource corresponds to.
      *
@@ -20,7 +34,7 @@ class Slide extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -28,7 +42,7 @@ class Slide extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -41,6 +55,10 @@ class Slide extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make('Name')->rules('required'),
+            Textarea::make('Description'),  
+            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
+
         ];
     }
 

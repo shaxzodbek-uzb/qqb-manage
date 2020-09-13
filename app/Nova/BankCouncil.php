@@ -5,6 +5,12 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\BelongsToMany;
 
 class BankCouncil extends Resource
 {
@@ -41,9 +47,23 @@ class BankCouncil extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+
+            Text::make(__('Entry name'),'entry_name')->rules('required'),
+            Textarea::make(__('Entry text'), 'entry_text')
         ];
     }
+       
+    /**
+     * Determine if this resource is available for navigation.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    public static function availableForNavigation(Request $request)
+    {
+        return false;
 
+    }
     /**
      * Get the cards available for the request.
      *

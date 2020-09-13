@@ -5,6 +5,13 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Select;
 
 class Poll extends Resource
 {
@@ -20,7 +27,7 @@ class Poll extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -28,7 +35,7 @@ class Poll extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -41,6 +48,9 @@ class Poll extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make('Name')->rules('required'),
+            Text::make('Count')->rules('numeric'),
+            HasMany::make(__('Poll variants') ,'poll_variants')
         ];
     }
 

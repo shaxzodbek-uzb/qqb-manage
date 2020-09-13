@@ -4,6 +4,8 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Slider extends Resource
@@ -20,7 +22,7 @@ class Slider extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -28,7 +30,7 @@ class Slider extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -41,6 +43,9 @@ class Slider extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make('Name'),
+            Text::make('Slug'),
+            HasMany::make('Slides')
         ];
     }
 

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model
 {
-    public function type()
+    public function Documenttype()
     {
-        return $this->belongsTo(DocumentType::class);
+        return $this->belongsTo(DocumentType::class,'type_id');
     }
 }

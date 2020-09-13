@@ -5,22 +5,29 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Select;
 
-class PerformanceAttributes extends Resource
+class Faq extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\PerformanceAttributes::class;
+    public static $model = \App\Faqs::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'question';
 
     /**
      * The columns that should be searched.
@@ -28,7 +35,7 @@ class PerformanceAttributes extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'question',
     ];
 
     /**
@@ -41,6 +48,9 @@ class PerformanceAttributes extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('Question'),'question'),
+            Textarea::make(__('Answer'),'answer')         
+
         ];
     }
 

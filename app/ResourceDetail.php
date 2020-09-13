@@ -3,11 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Card;
 
 class ResourceDetail extends Model
 {
-    public function card()
+   /**
+     * Get all of the posts that are assigned this tag.
+     */
+    public function cards()
     {
-    	return $this->morphTo();
+        return $this->morphedByMany(Card::class, 'resource_details');
     }
 }

@@ -5,6 +5,10 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use Manogi\Tiptap\Tiptap;
+use Laravel\Nova\Fields\Boolean;
 
 class ResourceDetail extends Resource
 {
@@ -20,7 +24,7 @@ class ResourceDetail extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -28,7 +32,7 @@ class ResourceDetail extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -41,6 +45,25 @@ class ResourceDetail extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('Name'), 'name')->rules('required'),
+            Tiptap::make(__('Text'), 'text')
+              ->buttons([
+                  'heading',
+                  'italic',
+                  'bold',
+                  'code',
+                  'link',
+                  'strike',
+                  'underline',
+                  'bullet_list',
+                  'ordered_list',
+                  'code_block',
+                  'blockquote',
+                  'edit_html'
+              ])->headingLevels([2, 3, 4]),
+              Boolean::make(__('Is main'), 'is_main')
+                    ->trueValue('1')
+                    ->falseValue('0'),
         ];
     }
 

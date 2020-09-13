@@ -17,6 +17,7 @@ class CreatePollVariantsTable extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('poll_id');
+            $table->bigInteger('count');
         });
     }
 

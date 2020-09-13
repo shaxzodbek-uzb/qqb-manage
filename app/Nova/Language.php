@@ -5,6 +5,10 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Select;
 
 class Language extends Resource
 {
@@ -41,6 +45,9 @@ class Language extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('Name'),'name')->rules('required'),
+            Text::make(__('Slug'), 'slug'),
+            Boolean::make(__('Is default'),'is_default')
         ];
     }
 

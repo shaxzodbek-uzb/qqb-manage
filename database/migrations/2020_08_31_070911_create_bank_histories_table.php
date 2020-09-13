@@ -16,7 +16,7 @@ class CreateBankHistoriesTable extends Migration
         Schema::create('bank_histories', function (Blueprint $table) {
             $table->id();
             $table->string('year');
-            $table->jsonb('description');
+            $table->json('description');
             $table->timestamps();
         });
     }

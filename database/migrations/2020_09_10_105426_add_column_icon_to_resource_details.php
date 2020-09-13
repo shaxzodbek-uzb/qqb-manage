@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryNewsTable extends Migration
+class AddColumnIconToResourceDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCategoryNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_news', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
-            $table->timestamps();
+        Schema::table('resource_details', function (Blueprint $table) {
+            $table->string('icon')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreateCategoryNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_news');
+        Schema::table('resource_details', function (Blueprint $table) {
+            $table->dropColumn('icon');
+        });
     }
 }
