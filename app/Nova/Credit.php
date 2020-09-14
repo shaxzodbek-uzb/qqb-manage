@@ -14,6 +14,8 @@ use Manogi\Tiptap\Tiptap;
 
 class Credit extends Resource
 {
+    public static $group = 'Admin';
+
     /**
      * The model the resource corresponds to.
      *

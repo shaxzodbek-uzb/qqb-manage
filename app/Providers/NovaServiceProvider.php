@@ -78,7 +78,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         return [
-             new \ClassicO\NovaMediaLibrary\NovaMediaLibrary()
+             new \ClassicO\NovaMediaLibrary\NovaMediaLibrary,
+             new \OptimistDigital\MenuBuilder\MenuBuilder,
         ];
     }
 

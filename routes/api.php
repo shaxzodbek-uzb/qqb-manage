@@ -19,18 +19,17 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::group([
   'middleware' => 'api',
+  'namespace' => 'Api'
 ], function ($router) {
-
-	Route::get('/history', 'Api\BankHistoryController@history');
-
-	Route::get('/branches', 'Api\BranchesController@branches');
-	Route::get('/cards', 'Api\CardController@cards');
-	Route::get('/council-items', 'Api\CouncilItemsController@councilItems');
-	Route::get('/credits', 'Api\CreditController@credits');
-	Route::get('/currency', 'Api\CurrencyController@currency');
-	Route::get('/documents', 'Api\DocumentController@documents');
-	Route::get('/faqs', 'Api\FaqsController@faqs');
-	Route::get('/financial-performances', 'Api\FinancialPerformanceController@financial_performances');
-	Route::get('/news', 'Api\NewsController@news');
-	Route::get('/pages', 'Api\PageController@pages');
+	// Route::get('/history', 'Api\BankHistoryController@history');
+	// Route::get('/branches', 'Api\BranchesController@branches');
+	// Route::get('/cards', 'Api\CardController@cards');
+	// Route::get('/council-items', 'Api\CouncilItemsController@councilItems');
+	// Route::get('/credits', 'Api\CreditController@credits');
+	// Route::get('/currency', 'Api\CurrencyController@currency');
+	// Route::get('/documents', 'Api\DocumentController@documents');
+	// Route::get('/faqs', 'Api\FaqsController@faqs');
+	// Route::get('/financial-performances', 'Api\FinancialPerformanceController@financial_performances');
+	// Route::get('/news', 'Api\NewsController@news');
+	Route::resource('pages', 'PageController');
 });

@@ -10,6 +10,8 @@ use Laravel\Nova\Fields\Textarea;
 
 class Currency extends Resource
 {
+    public static $group = 'Admin';
+
     /**
      * The model the resource corresponds to.
      *

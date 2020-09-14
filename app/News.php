@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-    public function newscategory()
+    public function newsCategory()
     {
-        return $this->belongsTo('App\NewsCategory');
+        return $this->belongsTo(NewsCategory::class, 'category_id');
     }
 
 }
