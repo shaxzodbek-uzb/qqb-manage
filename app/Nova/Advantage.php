@@ -11,7 +11,6 @@ use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class Advantage extends Resource
 {
-    public static $group = 'Admin';
     /**
      * The model the resource corresponds to.
      *

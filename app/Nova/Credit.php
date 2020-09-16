@@ -14,7 +14,27 @@ use Manogi\Tiptap\Tiptap;
 
 class Credit extends Resource
 {
-    public static $group = 'Admin';
+    public static $group = 'Services';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Credits');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Credit');
+    }
 
     /**
      * The model the resource corresponds to.

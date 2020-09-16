@@ -401,5 +401,14 @@
     ":amount Total": "Jami :amount",
     "Show All Fields": "Hamma qatorni koʻrsatish",
     "There was a problem submitting the form.": "Formani yuborishda muammo yuz berdi.",
-    "There was a problem executing the action.": "Amalni bajarishda muammo yuz berdi."
+    "There was a problem executing the action.": "Amalni bajarishda muammo yuz berdi.",
+    "Credits": "Kreditlar",
+    "Credit": "Kredit",
+    "Currencies": "Valyutalar",
+    "Currency": "Valyuta",
+    "Services": "Xizmatlar",
+    "Service": "Xizmat",
+    "Information": "Ma'lumot",
+    "Bank histories": "Bank tarixlari",
+    "Bank history": "Bank tarixi"
 }

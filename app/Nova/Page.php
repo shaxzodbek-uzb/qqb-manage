@@ -11,6 +11,28 @@ use Manogi\Tiptap\Tiptap;
 
 class Page extends Resource
 {
+    public static $group = 'Content';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Pages');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Page');
+    }
+    
     /**
      * The model the resource corresponds to.
      *

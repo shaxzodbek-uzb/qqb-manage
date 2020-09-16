@@ -12,6 +12,28 @@ use Laravel\Nova\Fields\Textarea;
 
 class BankHistory extends Resource
 {
+    public static $group = 'Information';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Bank histories');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Bank history');
+    }
+    
     /**
      * The model the resource corresponds to.
      *

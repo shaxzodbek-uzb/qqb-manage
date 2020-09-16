@@ -14,8 +14,6 @@ use Laravel\Nova\Fields\BelongsToMany;
 
 class BankCouncil extends Resource
 {
-    public static $group = 'Admin';
-
     /**
      * The model the resource corresponds to.
      *

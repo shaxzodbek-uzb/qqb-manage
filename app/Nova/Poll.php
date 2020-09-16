@@ -14,7 +14,28 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Select;
 
 class Poll extends Resource
-{
+{  
+    public static $group = 'Content';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Polls');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Poll');
+    }
     /**
      * The model the resource corresponds to.
      *

@@ -15,6 +15,27 @@ use Laravel\Nova\Fields\Select;
 
 class Faq extends Resource
 {
+    public static $group = 'Information';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('FAQs');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('FAQ');
+    }
     /**
      * The model the resource corresponds to.
      *

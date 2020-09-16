@@ -15,6 +15,27 @@ use Laravel\Nova\Fields\Select;
 
 class DocumentType extends Resource
 {
+    public static $group = 'Content';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Document types');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Document type');
+    }
     /**
      * The model the resource corresponds to.
      *

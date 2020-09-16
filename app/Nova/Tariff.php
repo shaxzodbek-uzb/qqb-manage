@@ -16,6 +16,29 @@ use Laravel\Nova\Fields\Select;
 
 class Tariff extends Resource
 {
+    
+    public static $group = 'Content';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Tariffs');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Tariff');
+    }
+    
     /**
      * The model the resource corresponds to.
      *

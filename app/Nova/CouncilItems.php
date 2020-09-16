@@ -13,6 +13,27 @@ use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class CouncilItems extends Resource
 {
+    public static $group = 'Content';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Council items');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Council item');
+    }
     /**
      * The model the resource corresponds to.
      *

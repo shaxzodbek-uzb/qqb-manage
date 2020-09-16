@@ -10,6 +10,28 @@ use Laravel\Nova\Fields\Textarea;
 
 class Branches extends Resource
 {
+    public static $group = 'Information';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Branches');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Branch');
+    }
+
     /**
      * The model the resource corresponds to.
      *

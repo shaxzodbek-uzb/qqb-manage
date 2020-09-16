@@ -12,6 +12,27 @@ use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class PlasticCard extends Resource
 {
+    public static $group = 'Services';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Plastic cards');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Plastic card');
+    }
     /**
      * The model the resource corresponds to.
      *

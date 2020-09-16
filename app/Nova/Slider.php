@@ -10,6 +10,27 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Slider extends Resource
 {
+    public static $group = 'Content';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Sliders');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Slider');
+    }
     /**
      * The model the resource corresponds to.
      *

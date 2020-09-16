@@ -11,6 +11,27 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Vacancies extends Resource
 {
+    public static $group = 'Announcements';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Vacancies');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Vacancy');
+    }
     /**
      * The model the resource corresponds to.
      *
@@ -49,7 +70,7 @@ class Vacancies extends Resource
             Text::make(__('Phones'), 'phones')->rules('required'),
             Text::make(__('Email'), 'email')->rules('required'),
             Text::make(__('Address'), 'address')->rules('required'),
-            HasMany::make(__('Vacancy details'), 'vacancy_details')
+            HasMany::make(__('Vacancy details'), 'vacancy_details', VacancyDetail::class)
         ];
     }
 

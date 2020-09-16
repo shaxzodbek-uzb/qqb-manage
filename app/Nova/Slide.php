@@ -11,6 +11,27 @@ use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class Slide extends Resource
 {
+    public static $group = 'Content';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Documents');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Document');
+    }
     
     /**
      * Determine if this resource is available for navigation.
