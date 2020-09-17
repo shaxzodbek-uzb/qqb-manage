@@ -6,6 +6,7 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsTo;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
@@ -72,7 +73,8 @@ class Document extends Resource
             Text::make(__('Format'),'format'),
             Text::make(__('Size'),'size'),
             BelongsTo::make(__('Document type'), 'document_type', DocumentType::class),
-            MediaLibrary::make(__('Document'), 'document')
+            MediaLibrary::make(__('Document'), 'document'),
+            Boolean::make(__('Active'), 'active'),
         ];
     }
 

@@ -4,11 +4,13 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Currency extends Resource
+class CurrencyRate extends Resource
 {
     public static $group = 'Information';
     
@@ -19,7 +21,7 @@ class Currency extends Resource
      */
     public static function label()
     {
-        return __('Currencies');
+        return __('Курсы валют');
     }
 
     /**
@@ -29,7 +31,7 @@ class Currency extends Resource
      */
     public static function singularLabel()
     {
-        return __('Currency');
+        return __('Курс валюты');
     }
 
     /**
@@ -37,14 +39,14 @@ class Currency extends Resource
      *
      * @var string
      */
-    public static $model = \App\Currency::class;
+    public static $model = \App\CurrencyRate::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -52,7 +54,7 @@ class Currency extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'id',
     ];
 
     /**
@@ -65,10 +67,12 @@ class Currency extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name'),
-            Text::make(__('Slug'), 'slug'),
-            Text::make(__('Symbol'), 'symbol'),
-            Text::make(__('Value'), 'value'),
+            BelongsTo::make(__('Currency'), 'currency', Currency::class),
+            Date::make(__('Date'), 'date'),
+            Text::make(__('Sell rate'), 'sell_rate'),
+            Text::make(__('Buy rate'), 'buy_rate'),
+            Text::make(__('CB rate'), 'cb_rate'),
+            Boolean::make(__('Active'), 'active'),
         ];
     }
 

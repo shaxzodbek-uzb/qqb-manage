@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
@@ -72,7 +73,7 @@ class News extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name')->rules('required'),
+            Text::make(__('Name'), 'name')->rules('required'),
             Tiptap::make(__('Content'), 'content')->buttons([
                   'heading',
                   'italic',
@@ -87,14 +88,11 @@ class News extends Resource
                   'blockquote',
                   'edit_html'
               ])->headingLevels([2, 3, 4])->rules('required'),
-            Textarea::make('Description'),
-            Text::make('Url video','url_video'),
-            Select::make('Is_main')->options([
-                    '0' => 'No',
-                    '1' => 'Yes'
-                ]),
+            Textarea::make(__('Description'), 'description'),
+            Text::make(__('Url video'),'url_video'),
+            Boolean::make(__('Is main'), 'is_main'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
-            BelongsTo::make(__('News Category') ,'newscategory'),
+            BelongsTo::make(__('News category') ,'news_category', NewsCategory::class),
 
         ];
     }

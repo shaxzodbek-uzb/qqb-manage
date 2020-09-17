@@ -64,9 +64,9 @@ class Slider extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name'),
-            Text::make('Slug'),
-            HasMany::make('Slides')
+            Text::make(__('Name'), 'name'),
+            Text::make(__('Slug'), 'slug'),
+            HasMany::make(__('Slides'), 'slides', Slide::class)
         ];
     }
 

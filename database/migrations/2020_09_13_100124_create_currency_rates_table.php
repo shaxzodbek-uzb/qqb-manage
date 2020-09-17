@@ -15,8 +15,11 @@ class CreateCurrencyRatesTable extends Migration
     {
         Schema::create('currency_rates', function (Blueprint $table) {
             $table->id();
+            $table->double('sell_rate');
+            $table->double('buy_rate');
+            $table->double('cb_rate');
+            $table->boolean('active');
             $table->bigInteger('currency_id');
-            $table->integer('rate');
             $table->date('date');
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ class Slide extends Resource
      */
     public static function label()
     {
-        return __('Documents');
+        return __('Slides');
     }
 
     /**
@@ -30,7 +30,7 @@ class Slide extends Resource
      */
     public static function singularLabel()
     {
-        return __('Document');
+        return __('Slide');
     }
     
     /**
@@ -76,8 +76,8 @@ class Slide extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name')->rules('required'),
-            Textarea::make('Description'),  
+            Text::make(__('Name'), 'name')->rules('required'),
+            Textarea::make(__('Description'), 'description'),  
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
 
         ];
