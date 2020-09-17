@@ -414,5 +414,8 @@
     "Today": "Today",
     "Month To Date": "Month To Date",
     "Quarter To Date": "Quarter To Date",
-    "Year To Date": "Year To Date"
+    "Year To Date": "Year To Date",
+    "locale-uz-Latn": "Uzbek",
+    "locale-en": "English",
+    "locale-ru": "Russian"
 }

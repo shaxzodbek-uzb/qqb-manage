@@ -2,14 +2,15 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphMany;
-use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Laravel\Nova\Fields\BelongsTo;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Filters\DocumentType as DocumentTypeFilter;
 
 class Document extends Resource
 {
@@ -70,8 +71,8 @@ class Document extends Resource
             Text::make(__('Name'),'name'),
             Text::make(__('Format'),'format'),
             Text::make(__('Size'),'size'),
-            BelongsTo::make('Documenttype'),
-            MediaLibrary::make('Document')
+            BelongsTo::make(__('Document type'), 'document_type', DocumentType::class),
+            MediaLibrary::make(__('Document'), 'document')
         ];
     }
 
@@ -94,7 +95,9 @@ class Document extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            DocumentTypeFilter::make()
+        ];
     }
 
     /**

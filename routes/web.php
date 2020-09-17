@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/history', 'Api\BankHistoryController@history');
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('locale/{locale}','LanguageController')->name('locale.change');

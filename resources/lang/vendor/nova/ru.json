@@ -404,6 +404,9 @@
     "There was a problem executing the action.": "Во время выполнения действия возникла проблема.",
     "The file was deleted!": "Файл был удалён!",
     "This file field is read-only.": "Это поле для файла доступно только для чтения.",
+    "locale-uz-Latn": "Uzbek",
+    "locale-en": "English",
+    "locale-ru": "Russian",
     "Credits": "Кредиты",
     "Credit": "Кредит",
     "Currencies": "Валюты",
@@ -449,5 +452,8 @@
     "Council items": "Пункты совета",
     "Council item": "Пункт совета",
     "Users": "Пользователи",
-    "User": "Пользователь"
+    "User": "Пользователь",
+    "Name": "Название",
+    "Format": "Формат",
+    "Size": "Размер"
 }
