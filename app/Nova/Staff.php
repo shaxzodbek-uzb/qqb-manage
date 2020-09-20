@@ -4,11 +4,12 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Waynestate\Nova\CKEditor;
 
-class Branches extends Resource
+class Staff extends Resource
 {
     public static $group = 'Information';
     
@@ -19,7 +20,7 @@ class Branches extends Resource
      */
     public static function label()
     {
-        return __('Branches');
+        return __('Staffs');
     }
 
     /**
@@ -29,22 +30,22 @@ class Branches extends Resource
      */
     public static function singularLabel()
     {
-        return __('Branch');
+        return __('Staff');
     }
-
+    
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Branches::class;
+    public static $model = \App\Staff::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'director';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -52,7 +53,7 @@ class Branches extends Resource
      * @var array
      */
     public static $search = [
-        'director',
+        'id',
     ];
 
     /**
@@ -65,13 +66,10 @@ class Branches extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Region'),'region'),
-            Text::make(__('Director'),'director'),
-            Text::make(__('Addres'),'addres'),
-            Text::make(__('Phone'),'phone'),
-            Text::make(__('Email'),'email'),
-            Text::make(__('Lat'),'lat'),
-            Text::make(__('Long'),'long')
+            Text::make(__('Fullname'), 'fulname')->rules('required'),
+            Text::make(__('Phone'), 'phone')->rules('required'),
+            CKEditor::make(__('Meta'), 'meta')->hideFromIndex()->rules('required'),
+            MediaLibrary::make(__('Avatar'),'avatar')->preview('thumb')
         ];
     }
 

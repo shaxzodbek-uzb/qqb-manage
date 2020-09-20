@@ -7,26 +7,44 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\MorphMany;
-use Laravel\Nova\Fields\BelongsToMany;
 
-class BankCouncil extends Resource
+class Branche extends Resource
 {
+    public static $group = 'Information';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Branches');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Branche');
+    }
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\BankCouncil::class;
+    public static $model = \App\Branche::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'director';
 
     /**
      * The columns that should be searched.
@@ -34,7 +52,7 @@ class BankCouncil extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'director',
     ];
 
     /**
@@ -47,23 +65,16 @@ class BankCouncil extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-
-            Text::make(__('Entry name'),'entry_name')->rules('required'),
-            Textarea::make(__('Entry text'), 'entry_text')
+            Text::make(__('Region'),'region'),
+            Text::make(__('Director'),'director'),
+            Text::make(__('Address'),'address'),
+            Text::make(__('Phone'),'phone'),
+            Text::make(__('Email'),'email'),
+            Text::make(__('Lat'),'lat'),
+            Text::make(__('Long'),'long')
         ];
     }
-       
-    /**
-     * Determine if this resource is available for navigation.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
-     */
-    public static function availableForNavigation(Request $request)
-    {
-        return false;
 
-    }
     /**
      * Get the cards available for the request.
      *

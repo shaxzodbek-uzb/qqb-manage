@@ -5,8 +5,10 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsTo;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
@@ -70,10 +72,9 @@ class Document extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'),'name'),
-            Text::make(__('Format'),'format'),
-            Text::make(__('Size'),'size'),
+            DateTime::make(__('Date'), 'release_date'),
             BelongsTo::make(__('Document type'), 'document_type', DocumentType::class),
-            MediaLibrary::make(__('Document'), 'document'),
+            File::make(__('Document'), 'document')->disk('public'),
             Boolean::make(__('Active'), 'active'),
         ];
     }

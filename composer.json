@@ -15,6 +15,7 @@
     ],
     "require": {
         "php": "^7.2.5",
+        "chris-ware/nova-breadcrumbs": "^2.0",
         "classic-o/nova-media-library": "^1.0",
         "coderello/laravel-nova-lang": "^1.5",
         "ellipsesynergie/api-response": "^0.16.0",
@@ -24,9 +25,9 @@
         "laravel/framework": "^7.24",
         "laravel/nova": "*",
         "laravel/tinker": "^2.0",
-        "manogi/nova-tiptap": "^1.0",
         "optimistdigital/nova-menu-builder": "^3.0",
-        "optimistdigital/nova-translatable": "^1.6"
+        "optimistdigital/nova-translatable": "^1.6",
+        "waynestate/nova-ckeditor4-field": "^0.7.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

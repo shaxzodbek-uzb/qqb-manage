@@ -4,9 +4,11 @@ namespace App\Nova;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource as NovaResource;
+use ChrisWare\NovaBreadcrumbs\Traits\Breadcrumbs;
 
 abstract class Resource extends NovaResource
 {
+    use Breadcrumbs;
     /**
      * Get the logical group associated with the resource.
      *
