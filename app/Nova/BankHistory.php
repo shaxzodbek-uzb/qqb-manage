@@ -5,7 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Manogi\Tiptap\Tiptap;
+use Waynestate\Nova\CKEditor;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 
@@ -71,24 +71,8 @@ class BankHistory extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-
             Text::make('Year')->rules('required','numeric'),
-            Tiptap::make(__('Description'), 'description')
-              ->buttons([
-                  'heading',
-                  'italic',
-                  'bold',
-                  'code',
-                  'link',
-                  'strike',
-                  'underline',
-                  'bullet_list',
-                  'ordered_list',
-                  'code_block',
-                  'blockquote',
-                  'edit_html'
-              ])->headingLevels([2, 3, 4]),
-
+            CKEditor::make(__('Description'), 'description')->hideFromIndex(),
         ];
     }
 

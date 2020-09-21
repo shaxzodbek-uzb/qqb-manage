@@ -14,7 +14,7 @@ use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Select;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
-use Manogi\Tiptap\Tiptap;
+use Waynestate\Nova\CKEditor;
 
 class News extends Resource
 {
@@ -74,20 +74,7 @@ class News extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->rules('required'),
-            Tiptap::make(__('Content'), 'content')->buttons([
-                  'heading',
-                  'italic',
-                  'bold',
-                  'code',
-                  'link',
-                  'strike',
-                  'underline',
-                  'bullet_list',
-                  'ordered_list',
-                  'code_block',
-                  'blockquote',
-                  'edit_html'
-              ])->headingLevels([2, 3, 4])->rules('required'),
+            CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
             Textarea::make(__('Description'), 'description'),
             Text::make(__('Url video'),'url_video'),
             Boolean::make(__('Is main'), 'is_main'),

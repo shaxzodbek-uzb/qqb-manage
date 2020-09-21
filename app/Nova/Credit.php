@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\MorphToMany;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
-use Manogi\Tiptap\Tiptap;
+use Waynestate\Nova\CKEditor;
 
 class Credit extends Resource
 {
@@ -73,20 +73,7 @@ class Credit extends Resource
             Text::make('Name'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
             Textarea::make('Description'),
-            Tiptap::make(__('Content'), 'content')->buttons([
-                  'heading',
-                  'italic',
-                  'bold',
-                  'code',
-                  'link',
-                  'strike',
-                  'underline',
-                  'bullet_list',
-                  'ordered_list',
-                  'code_block',
-                  'blockquote',
-                  'edit_html'
-              ])->headingLevels([2, 3, 4])->rules('required'),
+            CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required'),
             MorphMany::make('Resource details'),
             MorphMany::make('Documents'),
             MorphToMany::make(__('Faqs'),'faqs'),

@@ -2,17 +2,42 @@
 namespace QQB\Slider\Repositories;
 
 use App\Slider;
+use QQB\Core\Traits\ResponsibleTrait;
 
 class SliderRepository
 {
-    public function getAll(string $type = null): Slider
+    use ResponsibleTrait;
+
+    private $sliders;
+    private $slideRepo;
+
+    public function __construct(Slider $sliders, SlideRepository $slideRepo)
     {
+        $this->slideRepo = $slideRepo;
+        $this->sliders = $sliders;
+    }
+
+    public function getByType(string $type = null): array
+    {
+        $slider = null;
         switch ($type) {
             case 'main':
-                return Slider::where('slug', 'home-slider')->with('slides')->first();
+                $slider = $this->sliders->where('slug', 'home-slider')->first();
+                break;
             default:
-                return Slider::first();
+                $slider = $this->sliders->first();
         }
+        return $this->transform($slider);
+    }
+
+    public function map(Slider $slider): array
+    {
+        return [
+            'id' => $slider->id,
+            'name' => $slider->name,
+            'slug' => $slider->slug,
+            'slides' => $this->slideRepo->transform($slider->slides),
+        ];
     }
 
 }

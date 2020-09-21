@@ -7,7 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Manogi\Tiptap\Tiptap;
+use Waynestate\Nova\CKEditor;
 
 class Page extends Resource
 {
@@ -68,21 +68,7 @@ class Page extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->rules('required'),
             Textarea::make(__('Description'), 'description'),
-            Tiptap::make(__('Content'), 'content')
-              ->buttons([
-                  'heading',
-                  'italic',
-                  'bold',
-                  'code',
-                  'link',
-                  'strike',
-                  'underline',
-                  'bullet_list',
-                  'ordered_list',
-                  'code_block',
-                  'blockquote',
-                  'edit_html'
-              ])->headingLevels([2, 3, 4])
+            CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required'),
         ];
     }
 

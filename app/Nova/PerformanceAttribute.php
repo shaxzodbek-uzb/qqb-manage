@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
-use Manogi\Tiptap\Tiptap;
+use Waynestate\Nova\CKEditor;
 
 class PerformanceAttribute extends Resource
 {
@@ -55,21 +55,7 @@ class PerformanceAttribute extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->rules('required'),
-            Tiptap::make(__('Content'), 'text')
-              ->buttons([
-                  'heading',
-                  'italic',
-                  'bold',
-                  'code',
-                  'link',
-                  'strike',
-                  'underline',
-                  'bullet_list',
-                  'ordered_list',
-                  'code_block',
-                  'blockquote',
-                  'edit_html'
-              ])->headingLevels([2, 3, 4]),
+            CKEditor::make(__('Text'), 'text')->hideFromIndex()->rules('required'),
             Text::make(__('Total'), 'total')->rules('numeric')
         ];
     }

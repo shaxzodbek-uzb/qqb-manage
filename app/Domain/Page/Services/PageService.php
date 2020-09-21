@@ -1,35 +1,41 @@
 <?php
 namespace QQB\Page\Services;
 
+use QQB\News\Repositories\NewsCategoryRepository;
 use QQB\Slider\Repositories\SliderRepository;
 use QQB\Card\Repositories\CardRepository;
-use QQB\News\Repositories\NewsRepository;
-
+use App\Http\Resources\Slider;
+use QQB\Menu\Repositories\MenuRepository;
 class PageService
 {
     private $sliderRepo;
     private $cardRepo;
     private $newsRepo;
+    private $newsCategoryRepo;
+    private $menuRepo;
 
     public function __construct(
         SliderRepository $sliderRepo,
         CardRepository $cardRepo,
-        NewsRepository $newsRepo
+        NewsCategoryRepository $newsCategoryRepo,
+        MenuRepository $menuRepo
     )
     {
         $this->sliderRepo = $sliderRepo;
         $this->cardRepo = $cardRepo;
-        $this->newsRepo = $newsRepo;
+        $this->newsCategoryRepo = $newsCategoryRepo;
+        $this->menuRepo = $menuRepo;
     }
     public function main(): array
     {
-        $slider = $this->sliderRepo->getAll('main');
+        //TODO use only services
+        $slider = $this->sliderRepo->getByType('main');
         $cards = $this->cardRepo->getBestCards();
-        $news = $this->newsRepo->getAll();
+        $news_categories = $this->newsCategoryRepo->getAll();
         return [
             'slider' => $slider,
             'cards' => $cards,
-            'news' => $news
+            'news_categories' => $news_categories
         ];
     }
     public function dataFor(string $page):array

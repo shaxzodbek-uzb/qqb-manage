@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Manogi\Tiptap\Tiptap;
+use Waynestate\Nova\CKEditor;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class VacancyDetail extends Resource
@@ -66,20 +66,7 @@ class VacancyDetail extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Name detail')->rules('required'),
-             Tiptap::make(__('Text'), 'text_detail')->buttons([
-                  'heading',
-                  'italic',
-                  'bold',
-                  'code',
-                  'link',
-                  'strike',
-                  'underline',
-                  'bullet_list',
-                  'ordered_list',
-                  'code_block',
-                  'blockquote',
-                  'edit_html'
-              ])->headingLevels([2, 3, 4])->rules('required'),
+            CKEditor::make(__('Text'), 'text_detail')->hideFromIndex()->rules('required'),
         ];
     }
 
