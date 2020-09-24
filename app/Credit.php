@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Credit extends Model
 {
-    
+    use HasTranslations;
+
+    public $translatable = ['name', 'description','content'];
+
 	public function resource_details()
 	{
 		return $this->morphMany(ResourceDetail::class,'resource');

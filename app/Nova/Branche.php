@@ -65,9 +65,9 @@ class Branche extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Region'),'region'),
-            Text::make(__('Director'),'director'),
-            Text::make(__('Address'),'address'),
+            Text::make(__('Region'),'region')->translatable(),
+            Text::make(__('Director'),'director')->translatable(),
+            Text::make(__('Address'),'address')->translatable(),
             Text::make(__('Phone'),'phone'),
             Text::make(__('Email'),'email'),
             Text::make(__('Lat'),'lat'),

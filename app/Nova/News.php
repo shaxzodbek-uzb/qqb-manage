@@ -15,9 +15,11 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Select;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Waynestate\Nova\CKEditor;
+use OptimistDigital\NovaTranslatable\HandlesTranslatable;
 
 class News extends Resource
 {
+    use HandlesTranslatable;
     public static $group = 'Announcements';
     
     /**
@@ -73,13 +75,14 @@ class News extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->rules('required'),
+            Text::make(__('Name'), 'name')->rules('required')->translatable(),
+            Text::make('Slug')->rules('required')->hideWhenUpdating(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
-            Textarea::make(__('Description'), 'description'),
+            Textarea::make(__('Description'), 'description')->translatable(),
             Text::make(__('Url video'),'url_video'),
             Boolean::make(__('Is main'), 'is_main'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
-            BelongsTo::make(__('News category') ,'news_category', NewsCategory::class),
+            BelongsTo::make(__('News category') ,'news_category', NewsCategory::class)->showCreateRelationButton(),
 
         ];
     }

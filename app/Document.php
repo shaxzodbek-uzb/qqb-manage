@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Document extends Model
 {
+	use HasTranslations;
+	public $translatable = ['name'];
     protected $casts = [
         'release_date' => 'datetime'
     ];

@@ -11,7 +11,7 @@ class News extends Model
 
     use HasTranslations;
     
-    public $translatable = ['content'];
+    public $translatable = ['name' ,'content', 'description'];
     public function image_file()
     {
         return $this->belongsTo(MediaModel::class, 'image', 'id');

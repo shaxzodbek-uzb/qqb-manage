@@ -20,7 +20,7 @@ class ResourceDocuments extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -28,7 +28,7 @@ class ResourceDocuments extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -41,7 +41,7 @@ class ResourceDocuments extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('name')
+            Text::make('name')->translatable(),
         ];
     }
 

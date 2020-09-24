@@ -32,7 +32,7 @@ class TariffAttribute extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'attribute';
 
     /**
      * The columns that should be searched.
@@ -40,7 +40,7 @@ class TariffAttribute extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'attribute',
     ];
 
     /**
@@ -53,8 +53,8 @@ class TariffAttribute extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Attribute'),
-            Text::make('Value'),
+            Text::make('Attribute')->rules('required')->translatable(),
+            Text::make('Value')->rules('required')->translatable(),
         ];
     }
 

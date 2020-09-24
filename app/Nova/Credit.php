@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\MorphToMany;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Waynestate\Nova\CKEditor;
+use Yassi\NestedForm\NestedForm;
 
 class Credit extends Resource
 {
@@ -70,10 +71,11 @@ class Credit extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name'),
+            Text::make('Name')->rules('required')->translatable(),
+            Text::make('Slug')->rules('required')->hideWhenUpdating(),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
-            Textarea::make('Description'),
-            CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required'),
+            Textarea::make('Description')->translatable(),
+            CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
             MorphMany::make('Resource details'),
             MorphMany::make('Documents'),
             MorphToMany::make(__('Faqs'),'faqs'),

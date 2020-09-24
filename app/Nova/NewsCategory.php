@@ -64,8 +64,9 @@ class NewsCategory extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name')->rules('required'),
-            Textarea::make('Description'),
+            Text::make(__('Name'),'name')->rules('required')->translatable(),
+            Text::make('Slug')->rules('required')->hideWhenUpdating(),
+            Textarea::make('Description')->rules('required')->translatable(),
         ];
     }
 

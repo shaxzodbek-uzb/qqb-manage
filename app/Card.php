@@ -4,9 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use ClassicO\NovaMediaLibrary\Core\Model as MediaModel;
+use Spatie\Translatable\HasTranslations;
+
 
 class Card extends Model //implements HasMedia
 {
+    use HasTranslations;
+    public $translatable = ['name','description','type','type_person'];
 
     public function image_file()
     {

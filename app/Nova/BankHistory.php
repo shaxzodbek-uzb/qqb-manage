@@ -72,7 +72,8 @@ class BankHistory extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Year')->rules('required','numeric'),
-            CKEditor::make(__('Description'), 'description')->hideFromIndex(),
+            Text::make('Slug')->rules('required'),
+            CKEditor::make(__('Description'), 'description')->hideFromIndex()->translatable(),
         ];
     }
 

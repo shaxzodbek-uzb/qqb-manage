@@ -69,8 +69,8 @@ class DocumentType extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name')->rules('required'),
-            Text::make(__('Slug'),'slug'),
+            Text::make(__('Name'),'name')->rules('required')->translatable(),
+            Text::make(__('Slug'),'slug')->rules('required')->hideWhenUpdating(),
         ];
     }
 

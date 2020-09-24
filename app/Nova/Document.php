@@ -71,9 +71,9 @@ class Document extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name'),
+            Text::make(__('Name'),'name')->rules('required')->translatable(),
             DateTime::make(__('Date'), 'release_date'),
-            BelongsTo::make(__('Document type'), 'document_type', DocumentType::class),
+            BelongsTo::make(__('Document type'), 'document_type', DocumentType::class)->showCreateRelationButton(),
             File::make(__('Document'), 'document')->disk('public'),
             Boolean::make(__('Active'), 'active'),
         ];

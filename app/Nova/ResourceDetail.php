@@ -45,9 +45,9 @@ class ResourceDetail extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->rules('required'),
-            CKEditor::make(__('Text'), 'text')->hideFromIndex()->rules('required'),
-              Boolean::make(__('Is main'), 'is_main')
+            Text::make(__('Name'), 'name')->rules('required')->translatable(),
+            CKEditor::make(__('Text'), 'text')->hideFromIndex()->rules('required')->translatable(),
+            Boolean::make(__('Is main'), 'is_main')
                     ->trueValue('1')
                     ->falseValue('0'),
         ];

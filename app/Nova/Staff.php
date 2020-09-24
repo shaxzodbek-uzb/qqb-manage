@@ -45,7 +45,7 @@ class Staff extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'fullname';
 
     /**
      * The columns that should be searched.
@@ -53,7 +53,7 @@ class Staff extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'fullname',
     ];
 
     /**
@@ -66,9 +66,9 @@ class Staff extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Fullname'), 'fulname')->rules('required'),
+            Text::make(__('Fullname'), 'fulname')->rules('required')->translatable(),
             Text::make(__('Phone'), 'phone')->rules('required'),
-            CKEditor::make(__('Meta'), 'meta')->hideFromIndex()->rules('required'),
+            CKEditor::make(__('Meta'), 'meta')->hideFromIndex()->rules('required')->translatable(),
             MediaLibrary::make(__('Avatar'),'avatar')->preview('thumb')
         ];
     }
