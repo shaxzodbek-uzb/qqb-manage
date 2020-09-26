@@ -6,43 +6,24 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\MorphMany;
-use Laravel\Nova\Fields\MorphToMany;
+use Laravel\Nova\Fields\BelongsTo;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Waynestate\Nova\CKEditor;
-use Yassi\NestedForm\NestedForm;
 
-class Credit extends Resource
+class Deposit extends Resource
 {
-    public static $group = 'Services';
-    
-    /**
-     * Get the displayable label of the resource.
-     *
-     * @return string
-     */
-    public static function label()
-    {
-        return __('Credits');
-    }
-
-    /**
-     * Get the displayable singular label of the resource.
-     *
-     * @return string
-     */
-    public static function singularLabel()
-    {
-        return __('Credit');
-    }
-
+      public static $group = 'Information';
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Credit::class;
+    public static $model = \App\Deposit::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -58,7 +39,6 @@ class Credit extends Resource
      */
     public static $search = [
         'name',
-        'id',
     ];
 
     /**
@@ -72,17 +52,11 @@ class Credit extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Name')->rules('required')->translatable(),
-            Text::make('Slug')->rules('required')->hideWhenUpdating(),
-            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
             Textarea::make('Description')->translatable(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
-            Text::make('Grace period'),
-            Text::make('Term'),
-            Text::make('Amout'),
+            MediaLibrary::make('Image'),
+            Text::make('Slug')->rules('required'),
             MorphMany::make('Resource details'),
-            MorphMany::make('Documents'),
-            MorphToMany::make(__('Faqs'),'faqs'),
-            
         ];
     }
 

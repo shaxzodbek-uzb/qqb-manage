@@ -19,6 +19,11 @@ class CardRepository
         $cards = $this->cards->all();
         return $this->transform($cards);
     }
+    public function getAllCards(): array
+    {
+        $cards = $this->cards->all();
+        return $this->transform($cards);
+    }
     public function map(object $item): array
     {
         return [
@@ -27,6 +32,9 @@ class CardRepository
             'description' => $item->description,
             'image' => $item->image_file?$item->image_file->url:'',
             'cover_image' => $item->cover_image_file?$item->cover_image_file->url:'',
+            'resource_details' => $item->resource_details,
+            'advantages' => $item->advantages,
+            'documents' => $item->documents,
         ];
     }
 }

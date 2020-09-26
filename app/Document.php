@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use ClassicO\NovaMediaLibrary\Core\Model as MediaModel;
 
 class Document extends Model
 {
@@ -16,4 +17,9 @@ class Document extends Model
     {
         return $this->belongsTo(DocumentType::class,'type_id');
     }
+    public function document_file()
+    {
+        return $this->belongsTo(MediaModel::class, 'document', 'id');
+    }
+    
 }
