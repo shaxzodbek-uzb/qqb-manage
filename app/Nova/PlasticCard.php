@@ -12,7 +12,7 @@ use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class PlasticCard extends Resource
 {
-    public static $group = 'Services';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.

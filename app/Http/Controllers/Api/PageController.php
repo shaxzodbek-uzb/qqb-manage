@@ -28,4 +28,9 @@ class PageController extends Controller
     	
     	return ['pages' => $pages];
     }
+
+    public function page($slug)
+    {
+        dd('test');
+    }
 }

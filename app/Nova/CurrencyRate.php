@@ -12,7 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class CurrencyRate extends Resource
 {
-    public static $group = 'Information';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.

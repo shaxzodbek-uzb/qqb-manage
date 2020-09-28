@@ -11,7 +11,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Vacancies extends Resource
 {
-    public static $group = 'Announcements';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.

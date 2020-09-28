@@ -11,7 +11,7 @@ use Waynestate\Nova\CKEditor;
 
 class Staff extends Resource
 {
-    public static $group = 'Information';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.

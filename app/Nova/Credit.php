@@ -15,7 +15,7 @@ use Yassi\NestedForm\NestedForm;
 
 class Credit extends Resource
 {
-    public static $group = 'Services';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.
@@ -73,7 +73,7 @@ class Credit extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Name')->rules('required')->translatable(),
             Text::make('Slug')->rules('required')->hideWhenUpdating(),
-            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
+            MediaLibrary::make(__('Image'),'image'),
             Textarea::make('Description')->translatable(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
             Text::make('Grace period'),

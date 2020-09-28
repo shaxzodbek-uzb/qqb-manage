@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\Textarea;
 
 class Branche extends Resource
 {
-    public static $group = 'Information';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.

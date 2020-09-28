@@ -12,7 +12,7 @@ use Laravel\Nova\Fields\Textarea;
 
 class BankHistory extends Resource
 {
-    public static $group = 'Information';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.

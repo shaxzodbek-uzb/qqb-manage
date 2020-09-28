@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\Textarea;
 
 class NewsCategory extends Resource
 {
-    public static $group = 'Announcements';
+    public static $group = 'Information';
     
     /**
      * Get the displayable label of the resource.

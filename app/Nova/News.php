@@ -20,7 +20,7 @@ use OptimistDigital\NovaTranslatable\HandlesTranslatable;
 class News extends Resource
 {
     use HandlesTranslatable;
-    public static $group = 'Announcements';
+   public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.

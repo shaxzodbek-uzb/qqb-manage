@@ -33,4 +33,11 @@ Route::group([
 	// Route::get('/news', 'Api\NewsController@news');
 	Route::resource('pages', 'PageController');
 	Route::resource('menus', 'MenuController');
+	Route::resource('news', 'NewsController');
+	Route::resource('credit', 'CreditController');
+	Route::resource('card', 'CardController');
+	Route::resource('staff', 'StaffController');
+	Route::resource('staff', 'StaffController');
+	Route::resource('deposit', 'DepositController');
+	Route::get('page/{slug}', 'PageController@page');
 });

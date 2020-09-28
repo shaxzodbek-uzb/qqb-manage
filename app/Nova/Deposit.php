@@ -17,7 +17,7 @@ use Waynestate\Nova\CKEditor;
 
 class Deposit extends Resource
 {
-      public static $group = 'Information';
+     public static $group = 'Content';
     /**
      * The model the resource corresponds to.
      *
