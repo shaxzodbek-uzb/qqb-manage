@@ -14,8 +14,6 @@ class DocumentsSeeder extends Seeder
          $data = [
             [
                 'name' => 'Пользование банкоматами',
-                'format' => 'PDF',
-                'size' => '204.5 KB',
                 'type_id' => '1',
                 'resource_type' => 'App\Card',
                 'resource_id' => '1',
@@ -23,8 +21,6 @@ class DocumentsSeeder extends Seeder
             ],
             [
                 'name' => 'Типовой договор',
-                'format' => 'PDF',
-                'size' => '204.5 KB',
                 'type_id' => '2',
                 'resource_type' => 'App\Card',
                 'resource_id' => '2',
@@ -32,8 +28,6 @@ class DocumentsSeeder extends Seeder
             ],
             [
                 'name' => 'Регламент интерактивных услуг',
-                'format' => 'PDF',
-                'size' => '204.5 KB',
                 'type_id' => '3',
                 'resource_type' => 'App\Credit',
                 'resource_id' => '1',

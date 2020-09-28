@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(BankHistoriesSeeder::class);
         $this->call(BranchesSeeder::class);
         $this->call(CardsSeeder::class);
-        $this->call(CouncilItemsSeeder::class);
         $this->call(CreditsSeeder::class);
         $this->call(CurrenciesSeeder::class);
         $this->call(DocumentsSeeder::class);

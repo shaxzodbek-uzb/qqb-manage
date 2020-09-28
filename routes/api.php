@@ -24,7 +24,6 @@ Route::group([
 	// Route::get('/history', 'Api\BankHistoryController@history');
 	// Route::get('/branches', 'Api\BranchesController@branches');
 	// Route::get('/cards', 'Api\CardController@cards');
-	// Route::get('/council-items', 'Api\CouncilItemsController@councilItems');
 	// Route::get('/credits', 'Api\CreditController@credits');
 	// Route::get('/currency', 'Api\CurrencyController@currency');
 	// Route::get('/documents', 'Api\DocumentController@documents');

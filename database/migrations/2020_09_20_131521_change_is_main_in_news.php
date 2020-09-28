@@ -14,7 +14,10 @@ class ChangeIsMainInNews extends Migration
     public function up()
     {
         Schema::table('news', function (Blueprint $table) {
-            $table->boolean('is_main')->change();
+            $table->dropColumn('is_main');
+        });
+        Schema::table('news', function (Blueprint $table) {
+            $table->boolean('is_main')->default(false);
             $table->string('image')->nullable()->change();
             $table->string('url_video')->nullable()->change();
         });
