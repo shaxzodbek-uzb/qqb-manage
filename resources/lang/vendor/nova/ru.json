@@ -482,6 +482,8 @@
     "Menu Items": "Пункты меню",
     "Name detail": "Название детали",
     "Deposits": "Вклады",
-    "Deposit": "Вклад"
+    "Deposit": "Вклад",
+    "Slug": "ЧПУ",
+    "Locale": "Язык"
 }
 

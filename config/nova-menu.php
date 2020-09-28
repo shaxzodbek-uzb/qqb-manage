@@ -49,7 +49,7 @@ return [
     | or a callable (ie 'locales' => 'nova_lang_get_all_locales').
     */
 
-    'locales' => ['en_US' => 'English'],
+    'locales' => ['en_US' => 'English','ru_RU'=> 'Russian', 'uz_Latn' => 'Uzbek'],
 
 
     /*

@@ -29,8 +29,10 @@ class PageController extends Controller
     	return ['pages' => $pages];
     }
 
-    public function page($slug)
+    public function view($slug)
     {
-        dd('test');
+        $page = Page::where('slug', $slug)->get();
+
+        return $page;
     }
 }
