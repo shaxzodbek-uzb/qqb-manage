@@ -39,5 +39,5 @@ Route::group([
 	Route::resource('staff', 'StaffController');
 	Route::resource('staff', 'StaffController');
 	Route::resource('deposit', 'DepositController');
-	Route::get('page/{slug}', 'PageController@page');
+	Route::get('view/{slug}', 'PageController@view');
 });
