@@ -27,6 +27,7 @@ class NewsRepository
             'description' => $item->description,
             'content' => $item->content,
             'image' =>  $item->image_file?$item->image_file->url:'',
+            'category' =>  $item->news_category,
         ];
     }
 }

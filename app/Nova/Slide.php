@@ -76,8 +76,9 @@ class Slide extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->rules('required'),
+            Text::make(__('Name'), 'name'),
             Textarea::make(__('Description'), 'description'),  
+            Text::make(__('Url'), 'url'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
 
         ];

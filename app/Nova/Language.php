@@ -46,7 +46,7 @@ class Language extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -54,7 +54,7 @@ class Language extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -68,7 +68,7 @@ class Language extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'),'name')->rules('required'),
-            Text::make(__('Slug'), 'slug'),
+            Text::make(__('Slug'), 'slug')->rules('required')->hideWhenUpdating(),
             Boolean::make(__('Is default'),'is_default')
         ];
     }

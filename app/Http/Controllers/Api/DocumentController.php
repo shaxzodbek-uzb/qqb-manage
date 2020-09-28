@@ -14,4 +14,11 @@ class DocumentController extends Controller
 
     	return ['documents' => $documents];
     }
+
+    public function show($id)
+    {
+    	$document = Document::find($id);
+
+    	return $document;
+    }
 }

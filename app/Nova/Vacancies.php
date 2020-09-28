@@ -11,7 +11,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Vacancies extends Resource
 {
-    public static $group = 'Announcements';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.
@@ -65,12 +65,12 @@ class Vacancies extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->rules('required'),
-            Text::make(__('Region'), 'region')->rules('required'),
+            Text::make(__('Name'), 'name')->rules('required')->translatable(),
+            Text::make(__('Region'), 'region')->rules('required')->translatable(),
             Text::make(__('Phones'), 'phones')->rules('required'),
             Text::make(__('Email'), 'email')->rules('required'),
-            Text::make(__('Address'), 'address')->rules('required'),
-            HasMany::make(__('Vacancy details'), 'vacancy_details', VacancyDetail::class)
+            Text::make(__('Address'), 'address')->rules('required')->translatable(),
+            HasMany::make(__('Vacancy details'), 'vacancy_details', VacancyDetail::class),
         ];
     }
 

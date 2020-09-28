@@ -14,4 +14,16 @@ class CardController extends Controller
 
     	return ['cards' => $cards];
     }
+
+
+    public function show($id)
+    {
+    	$card = Card::find($id);
+
+    	$resource_details = $card->resource_details;
+    	$documents = $card->documents;
+    	$faqs = $card->faqs;
+		//dd($card->documents);
+    	return $card;
+    }
 }

@@ -8,9 +8,9 @@ use App\News;
 
 class NewsController extends Controller
 {
-    public function news()
+    public function show($id)
     {
-    	$news = News::all();
+    	$news = News::find($id);
     	
     	return ['news' => $news];
     }

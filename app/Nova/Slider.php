@@ -8,6 +8,8 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use Yassi\NestedForm\NestedForm;
+
 class Slider extends Resource
 {
     public static $group = 'Content';
@@ -64,9 +66,10 @@ class Slider extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name'),
-            Text::make(__('Slug'), 'slug'),
+            Text::make(__('Name'), 'name')->rules('required')->translatable(),
+            Text::make(__('Slug'), 'slug')->rules('required')->hideWhenUpdating(),
             HasMany::make(__('Slides'), 'slides', Slide::class)
+            // NestedForm::make('Slides')->open(true),
         ];
     }
 

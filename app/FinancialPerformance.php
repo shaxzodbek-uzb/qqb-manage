@@ -3,10 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class FinancialPerformance extends Model
 {
-   
+   	use HasTranslations;
+
+    public $translatable = ['definition'];
 
     public function performanceAttributes()
     {

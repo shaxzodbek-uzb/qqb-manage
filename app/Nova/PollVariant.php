@@ -53,8 +53,8 @@ class PollVariant extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name')->rules('required'),
-            Text::make('Count')->rules('numeric')
+            Text::make('Name')->rules('required')->translatable(),
+            Text::make('Count')->rules('numeric')->rules('required')
         ];
     }
 

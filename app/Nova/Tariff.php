@@ -72,7 +72,7 @@ class Tariff extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name'),
+            Text::make(__('Name'),'name')->rules('required')->translatable(),
             HasMany::make(__('Tariff attributes'), 'tariff_attributes')
         ];
     }

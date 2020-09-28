@@ -11,10 +11,11 @@ use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\MorphToMany;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Waynestate\Nova\CKEditor;
+use Yassi\NestedForm\NestedForm;
 
 class Credit extends Resource
 {
-    public static $group = 'Services';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.
@@ -70,10 +71,14 @@ class Credit extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name'),
-            MediaLibrary::make(__('Image'),'image')->preview('thumb'),
-            Textarea::make('Description'),
-            CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required'),
+            Text::make('Name')->rules('required')->translatable(),
+            Text::make('Slug')->rules('required')->hideWhenUpdating(),
+            MediaLibrary::make(__('Image'),'image'),
+            Textarea::make('Description')->translatable(),
+            CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
+            Text::make('Grace period'),
+            Text::make('Term'),
+            Text::make('Amout'),
             MorphMany::make('Resource details'),
             MorphMany::make('Documents'),
             MorphToMany::make(__('Faqs'),'faqs'),

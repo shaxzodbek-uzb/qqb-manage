@@ -23,7 +23,7 @@ class Advantage extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -31,7 +31,7 @@ class Advantage extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -44,8 +44,8 @@ class Advantage extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->rules('required'),
-            Textarea::make(__('Text advantage'), 'text_advantage')->rules('required'),
+            Text::make(__('Name'), 'name')->rules('required')->translatable(),
+            Textarea::make(__('Text advantage'), 'text_advantage')->rules('required')->translatable(),
             MediaLibrary::make(__('Icon image'), 'icon_image')
         ];
     }

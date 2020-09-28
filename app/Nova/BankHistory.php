@@ -12,7 +12,7 @@ use Laravel\Nova\Fields\Textarea;
 
 class BankHistory extends Resource
 {
-    public static $group = 'Information';
+    public static $group = 'Content';
     
     /**
      * Get the displayable label of the resource.
@@ -72,7 +72,8 @@ class BankHistory extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Year')->rules('required','numeric'),
-            CKEditor::make(__('Description'), 'description')->hideFromIndex(),
+            Text::make('Slug')->rules('required'),
+            CKEditor::make(__('Description'), 'description')->hideFromIndex()->translatable(),
         ];
     }
 

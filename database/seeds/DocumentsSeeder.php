@@ -15,6 +15,7 @@ class DocumentsSeeder extends Seeder
             [
                 'name' => 'Пользование банкоматами',
                 'type_id' => '1',
+                'active' =>'1',
                 'resource_type' => 'App\Card',
                 'resource_id' => '1',
                 'document' => ' ' ,
@@ -22,6 +23,7 @@ class DocumentsSeeder extends Seeder
             [
                 'name' => 'Типовой договор',
                 'type_id' => '2',
+                'active' =>'1',
                 'resource_type' => 'App\Card',
                 'resource_id' => '2',
                 'document' => ' ' 
@@ -29,6 +31,7 @@ class DocumentsSeeder extends Seeder
             [
                 'name' => 'Регламент интерактивных услуг',
                 'type_id' => '3',
+                'active' =>'1',
                 'resource_type' => 'App\Credit',
                 'resource_id' => '1',
                 'document' => ' ' 
