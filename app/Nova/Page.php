@@ -67,7 +67,7 @@ class Page extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->rules('required')->translatable(),
-            Text::make('Slug')->rules('required')->hideWhenUpdating(),
+            Text::make(__('Slug'),'slug')->rules('required')->hideWhenUpdating(),
             Textarea::make(__('Description'), 'description')->rules('required')->translatable(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
         ];

@@ -53,8 +53,8 @@ class TariffAttribute extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Attribute')->rules('required')->translatable(),
-            Text::make('Value')->rules('required')->translatable(),
+            Text::make(__('Attribute'),'attribute')->rules('required')->translatable(),
+            Text::make(__('Value'),'value')->rules('required')->translatable(),
         ];
     }
 
