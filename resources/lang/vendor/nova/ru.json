@@ -484,6 +484,11 @@
     "Deposits": "Вклады",
     "Deposit": "Вклад",
     "Slug": "ЧПУ",
-    "Locale": "Язык"
-}
+    "Locale": "Язык",
+    "Count": "Cчитать",
+    "Year": "Год",
+    "Grace period": "Льготный период",
+    "Term": "Срок",
+    "Amount": "Vумма"
+ }
 
