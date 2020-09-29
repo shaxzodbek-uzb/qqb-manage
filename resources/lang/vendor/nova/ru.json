@@ -492,5 +492,12 @@
     "Amount": "Vумма",
     "Type person": "Тип лица",
     "Type": "Тип",
+    "Static URL": "Статический URL",
+    "Text": "Текст",
+    "parameters": "Параметры",
+    "Open in": "Oткрыть в браузере",
+    "Same window": "То же окно",
+    "New window": "Новое окно",
+    "Add Menu item": "Добавить пункт меню"
  }
 
