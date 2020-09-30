@@ -106,5 +106,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 Route::get('/login', 'LoginController@showLoginForm');
                 Route::post('/login', 'LoginController@login')->name('login');
             });
+         Route::namespace('Laravel\Nova\Http\Controllers')
+            ->domain(config('nova.domain', null))
+            ->middleware(config('nova.middleware', []))
+            ->prefix(Nova::path())
+            ->group(function () {
+                Route::get('/logout', 'LoginController@logout')->name('nova.logout');
+            });
     }   
 }
