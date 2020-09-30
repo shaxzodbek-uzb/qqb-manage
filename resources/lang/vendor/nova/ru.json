@@ -494,10 +494,12 @@
     "Type": "Тип",
     "Static URL": "Статический URL",
     "Text": "Текст",
-    "parameters": "Параметры",
+    "Parameters": "Параметры",
     "Open in": "Oткрыть в браузере",
     "Same window": "То же окно",
     "New window": "Новое окно",
-    "Add Menu item": "Добавить пункт меню"
+    "Add Menu item": "Добавить пункт меню",
+    "Create menu item": "Создать пункт меню",
+    "Username": "Логин"
  }
 
