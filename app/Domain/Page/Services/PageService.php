@@ -211,7 +211,7 @@ class PageService
                 return $this->credits();
             default:
                 # code...`
-                break;
+            break;
         }
     }
 }

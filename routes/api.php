@@ -35,7 +35,7 @@ Route::group([
 	Route::resource('news', 'NewsController');
 	Route::resource('credit', 'CreditController');
 	Route::resource('card', 'CardController');
-	Route::resource('staff', 'StaffController');
+	Route::resource('vacancy', 'VacancyController');
 	Route::resource('staff', 'StaffController');
 	Route::resource('deposit', 'DepositController');
 	Route::get('view/{slug}', 'PageController@view');
