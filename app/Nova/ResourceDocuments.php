@@ -41,7 +41,7 @@ class ResourceDocuments extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('name')->translatable(),
+            Text::make(__('Name'),'name')->translatable(),
         ];
     }
 

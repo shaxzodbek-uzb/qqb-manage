@@ -51,11 +51,11 @@ class Deposit extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name')->rules('required')->translatable(),
-            Textarea::make('Description')->translatable(),
+            Text::make(__('Name'),'name')->rules('required')->translatable(),
+            Textarea::make(__('Description'),'description')->translatable(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
-            MediaLibrary::make('Image'),
-            Text::make('Slug')->rules('required'),
+            MediaLibrary::make(__('Image'),'image'),
+            Text::make(__('Slug'),'slug')->rules('required'),
             MorphMany::make('Resource details'),
         ];
     }

@@ -76,7 +76,7 @@ class News extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->rules('required')->translatable(),
-            Text::make('Slug')->rules('required')->hideWhenUpdating(),
+            Text::make(__('Slug'),'slug')->rules('required')->hideWhenUpdating(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
             Textarea::make(__('Description'), 'description')->translatable(),
             Text::make(__('Url video'),'url_video'),

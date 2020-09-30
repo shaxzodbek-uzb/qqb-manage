@@ -65,7 +65,7 @@ class VacancyDetail extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name detail')->rules('required')->translatable(),
+            Text::make(__('Name detail'),'name_detail')->rules('required')->translatable(),
             CKEditor::make(__('Text'), 'text_detail')->hideFromIndex()->translatable(),
         ];
     }

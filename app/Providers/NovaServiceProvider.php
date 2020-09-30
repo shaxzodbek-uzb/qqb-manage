@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -26,8 +27,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function routes()
     {
+        $this->myLoginRoutes();
         Nova::routes()
-                ->withAuthenticationRoutes()
+                // ->withAuthenticationRoutes()
                 ->withPasswordResetRoutes()
                 ->register();
     }
@@ -93,4 +95,23 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         //
     }
+    /** ADD YOUR OWN LOGIN ROUTE */
+    public function myLoginRoutes($middleware = ['web'])
+    {
+        Route::namespace('App\Http\Controllers\Auth')
+            ->middleware($middleware)
+            ->as('nova.')
+            ->prefix(Nova::path())
+            ->group(function () {
+                Route::get('/login', 'LoginController@showLoginForm');
+                Route::post('/login', 'LoginController@login')->name('login');
+            });
+         Route::namespace('Laravel\Nova\Http\Controllers')
+            ->domain(config('nova.domain', null))
+            ->middleware(config('nova.middleware', []))
+            ->prefix(Nova::path())
+            ->group(function () {
+                Route::get('/logout', 'LoginController@logout')->name('nova.logout');
+            });
+    }   
 }
