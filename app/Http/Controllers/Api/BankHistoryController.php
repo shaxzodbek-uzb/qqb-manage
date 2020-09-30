@@ -11,7 +11,6 @@ class BankHistoryController extends ApiController
     public function history()
     {
     	$history = BankHistory::all();
-
-    	return ['history' => $history];
+        return ['history' => $history];
     }
 }

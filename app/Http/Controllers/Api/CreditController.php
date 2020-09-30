@@ -11,7 +11,6 @@ class CreditController extends Controller
     public function credits()
     {
     	$credits = Credit::all();
-
     	return $credits;
     }
 
