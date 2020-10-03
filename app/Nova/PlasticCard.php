@@ -67,11 +67,11 @@ class PlasticCard extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'),'name')->rules('required')->translatable(),
-            Text::make(__('Type'),'type')->translatable(),
-            Text::make(__('Type person'),'type_person')->translatable(),
-            MediaLibrary::make(__('Cover image'),'cover_image')->preview('thumb'),
-            MediaLibrary::make(__('Image'),'image'),
-            Textarea::make(__('Description') ,'description')->translatable(),
+            Text::make(__('Type'),'type')->rules('required')->translatable(),
+            Text::make(__('Type person'),'type_person')->rules('required')->translatable(),
+            MediaLibrary::make(__('Cover image'),'cover_image')->rules('required')->preview('thumb'),
+            MediaLibrary::make(__('Image'),'image')->rules('required'),
+            Textarea::make(__('Description') ,'description')->rules('required')->translatable(),
             MorphMany::make('Resource details'),
             MorphMany::make('Documents'),
             MorphMany::make('Advantages')

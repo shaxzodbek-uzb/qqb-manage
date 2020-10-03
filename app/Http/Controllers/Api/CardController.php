@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Card;
+use Lang;
 
 class CardController extends Controller
 {
@@ -23,7 +24,8 @@ class CardController extends Controller
     	$resource_details = $card->resource_details;
     	$documents = $card->documents;
     	$faqs = $card->faqs;
-		//dd($card->documents);
+        $locale = \Lang::getLocale();
+		// dd($locale);
     	return $card;
     }
 }
