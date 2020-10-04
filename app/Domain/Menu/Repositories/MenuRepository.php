@@ -9,6 +9,6 @@ class MenuRepository
     }
     public function getBySlug($slug): array
     {
-        return (array)nova_get_menu($slug);
+        return (array)nova_get_menu($slug, app()->getLocale());
     }
 }
