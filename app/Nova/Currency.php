@@ -66,7 +66,7 @@ class Currency extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->sortable(),
-            Text::make(__('Slug'), 'slug')->hideWhenUpdating(),
+            Text::make(__('Code'), 'slug'),
             Text::make(__('Symbol'), 'symbol'),
             Text::make(__('Value'), 'value'),
         ];
