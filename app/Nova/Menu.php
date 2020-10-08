@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use ChrisWare\NovaBreadcrumbs\Traits\Breadcrumbs;
-use OptimistDigital\MenuBuilder\Http\Resources\MenuResource;
+use OptimistDigital\MenuBuilder\Nova\Resources\MenuResource;
 
 class Menu extends MenuResource
 {    

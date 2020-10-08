@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13137e26aaed453e5b0d044d5dbe5e0e",
+    "content-hash": "45297a2d37ac1ed1df1978388e692fca",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2491,78 +2491,24 @@
             "time": "2020-09-06T17:02:15+00:00"
         },
         {
-            "name": "optimistdigital/nova-locale-field",
-            "version": "2.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/optimistdigital/nova-locale-field.git",
-                "reference": "c1a1b2f2d1a423ff7aad94307ee4dfb8548893e7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/optimistdigital/nova-locale-field/zipball/c1a1b2f2d1a423ff7aad94307ee4dfb8548893e7",
-                "reference": "c1a1b2f2d1a423ff7aad94307ee4dfb8548893e7",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/nova": "^2.0.11 || ^3.0",
-                "php": ">=7.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "OptimistDigital\\NovaLocaleField\\FieldServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "OptimistDigital\\NovaLocaleField\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tarvo Reinpalu",
-                    "email": "tarvoreinpalu@gmail.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Optimist Digital",
-                    "email": "info@optimistdigital.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "A Laravel Nova field.",
-            "keywords": [
-                "field",
-                "laravel",
-                "nova",
-                "optimistdigital"
-            ],
-            "time": "2020-04-24T08:45:16+00:00"
-        },
-        {
             "name": "optimistdigital/nova-menu-builder",
-            "version": "3.0.3",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/optimistdigital/nova-menu-builder.git",
-                "reference": "96e2e6044c9c3e3d090974d8f670073985d88286"
+                "reference": "2e86fcb179b65a137a22759b829eb738fafeca5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/optimistdigital/nova-menu-builder/zipball/96e2e6044c9c3e3d090974d8f670073985d88286",
-                "reference": "96e2e6044c9c3e3d090974d8f670073985d88286",
+                "url": "https://api.github.com/repos/optimistdigital/nova-menu-builder/zipball/2e86fcb179b65a137a22759b829eb738fafeca5b",
+                "reference": "2e86fcb179b65a137a22759b829eb738fafeca5b",
                 "shasum": ""
             },
             "require": {
-                "laravel/nova": "^2.0.11 || ^3.0",
-                "optimistdigital/nova-locale-field": "^2.0.0",
+                "doctrine/dbal": ">=2.0.0",
+                "laravel/nova": "^3.0",
+                "optimistdigital/nova-tailwind": "^1.0.2",
+                "optimistdigital/nova-translations-loader": "^1.0.3",
                 "php": ">=7.1.0"
             },
             "type": "library",
@@ -2597,7 +2543,7 @@
                     "role": "Maintainer"
                 }
             ],
-            "description": "Menu Builder Tool for Laravel Nova.",
+            "description": "This Laravel Nova package allows you to create and manage menus and menu items.",
             "keywords": [
                 "builder",
                 "laravel",
@@ -2605,7 +2551,63 @@
                 "nova",
                 "optimistdigital"
             ],
-            "time": "2020-09-02T07:04:11+00:00"
+            "time": "2020-10-06T14:07:56+00:00"
+        },
+        {
+            "name": "optimistdigital/nova-tailwind",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/optimistdigital/nova-tailwind.git",
+                "reference": "0eceb682f9a275d2d5e3b45917ea12c91c643d11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/optimistdigital/nova-tailwind/zipball/0eceb682f9a275d2d5e3b45917ea12c91c643d11",
+                "reference": "0eceb682f9a275d2d5e3b45917ea12c91c643d11",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^1.0 || ^2.0 || ^3.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OptimistDigital\\Tailwind\\TailwindServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OptimistDigital\\Tailwind\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tarvo Reinpalu",
+                    "email": "tarvoreinpalu@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Optimist Digital",
+                    "email": "info@optimistdigital.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Tailwind loader for Laravel Nova.",
+            "keywords": [
+                "css",
+                "laravel",
+                "nova",
+                "tailwind"
+            ],
+            "time": "2020-08-31T07:54:36+00:00"
         },
         {
             "name": "optimistdigital/nova-translatable",
@@ -2664,6 +2666,50 @@
                 "translate"
             ],
             "time": "2020-09-03T13:43:28+00:00"
+        },
+        {
+            "name": "optimistdigital/nova-translations-loader",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/optimistdigital/nova-translations-loader.git",
+                "reference": "7121b70b4462e421066d9f834b555f65139558a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/optimistdigital/nova-translations-loader/zipball/7121b70b4462e421066d9f834b555f65139558a1",
+                "reference": "7121b70b4462e421066d9f834b555f65139558a1",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.0 || ^7.0 || ^8.0",
+                "laravel/nova": "^2.0 || ^3.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OptimistDigital\\NovaTranslationsLoader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "This Laravel Nova package helps developers load translations into their packages.",
+            "keywords": [
+                "laravel",
+                "nova",
+                "optimistdigital",
+                "translations"
+            ],
+            "time": "2020-09-17T10:27:02+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -6848,6 +6894,62 @@
                 }
             ],
             "time": "2020-04-04T19:56:08+00:00"
+        },
+        {
+            "name": "optimistdigital/nova-locale-field",
+            "version": "2.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/optimistdigital/nova-locale-field.git",
+                "reference": "c1a1b2f2d1a423ff7aad94307ee4dfb8548893e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/optimistdigital/nova-locale-field/zipball/c1a1b2f2d1a423ff7aad94307ee4dfb8548893e7",
+                "reference": "c1a1b2f2d1a423ff7aad94307ee4dfb8548893e7",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^2.0.11 || ^3.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OptimistDigital\\NovaLocaleField\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OptimistDigital\\NovaLocaleField\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tarvo Reinpalu",
+                    "email": "tarvoreinpalu@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Optimist Digital",
+                    "email": "info@optimistdigital.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "field",
+                "laravel",
+                "nova",
+                "optimistdigital"
+            ],
+            "time": "2020-04-24T08:45:16+00:00"
         },
         {
             "name": "phar-io/manifest",
