@@ -67,8 +67,12 @@ class Vacancies extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->rules('required')->translatable(),
             Text::make(__('Region'), 'region')->rules('required')->translatable(),
-            Text::make(__('Phones'), 'phones')->rules('required'),
-            Text::make(__('Email'), 'email')->rules('required'),
+            Text::make(__('Phones'), 'phones')->rules('required')->displayUsing(function ($value) {
+                return "<span class=\"font-bold\">$value</span>";
+            })->asHtml(),
+            Text::make(__('Email'), 'email')->rules('required')->displayUsing(function ($value) {
+                return "<span class=\"font-bold\">$value</span>";
+            })->asHtml(),
             Text::make(__('Address'), 'address')->rules('required')->translatable(),
             HasMany::make(__('Vacancy details'), 'vacancy_details', VacancyDetail::class),
         ];

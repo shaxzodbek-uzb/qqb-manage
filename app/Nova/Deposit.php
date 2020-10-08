@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsTo;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Waynestate\Nova\CKEditor;
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class Deposit extends Resource
 {
@@ -51,11 +52,11 @@ class Deposit extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name')->rules('required')->translatable(),
+            TextWithSlug::make(__('Name'),'name')->rules('required')->translatable()->slug('slug'),
+            Slug::make(__('Slug'),'slug')->rules('required'),
             Textarea::make(__('Description'),'description')->translatable(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
             MediaLibrary::make(__('Image'),'image'),
-            Text::make(__('Slug'),'slug')->rules('required'),
             MorphMany::make('Resource details'),
         ];
     }

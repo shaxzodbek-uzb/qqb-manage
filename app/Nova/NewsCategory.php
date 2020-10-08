@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class NewsCategory extends Resource
 {
@@ -64,8 +65,8 @@ class NewsCategory extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name')->rules('required')->translatable(),
-            Text::make(__('Slug'),'slug')->rules('required')->hideWhenUpdating(),
+            TextWithSlug::make(__('Name'),'name')->rules('required')->translatable()->slug('slug'),
+            Slug::make(__('Slug'),'slug')->rules('required'),
             Textarea::make(__('Description'),'description')->rules('required')->translatable(),
         ];
     }

@@ -15,6 +15,7 @@
     ],
     "require": {
         "php": "^7.2.5",
+        "benjaminhirsch/nova-slug-field": "^1.2",
         "chris-ware/nova-breadcrumbs": "^2.0",
         "classic-o/nova-media-library": "^1.0",
         "coderello/laravel-nova-lang": "^1.5",

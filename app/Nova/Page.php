@@ -8,6 +8,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Waynestate\Nova\CKEditor;
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class Page extends Resource
 {
@@ -66,8 +67,8 @@ class Page extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->rules('required')->translatable(),
-            Text::make(__('Slug'),'slug')->rules('required')->hideWhenUpdating(),
+            TestSlug::make(__('Name'), 'name')->rules('required')->translatable()->slug('slug'),
+            Slug::make(__('Slug'),'slug')->rules('required'),
             Textarea::make(__('Description'), 'description')->rules('required')->translatable(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
         ];

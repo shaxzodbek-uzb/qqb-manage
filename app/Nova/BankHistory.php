@@ -8,7 +8,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-
+use Benjaminhirsch\NovaSlugField\{Slug};
 
 class BankHistory extends Resource
 {
@@ -47,17 +47,15 @@ class BankHistory extends Resource
      * @var string
      */
 
-    public static $title = 'name';
-
+    public static $title = 'year';
+    
     /**
      * The columns that should be searched.
      *
      * @var array
      */
     public static $search = [
-
-        'name',
-
+        'year',
         'id',
     ];
 
@@ -72,7 +70,7 @@ class BankHistory extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Year'),'year')->rules('required','numeric'),
-            Text::make(__('Slug'),'slug')->rules('required'),
+            Slug::make(__('Slug'),'slug')->rules('required'),
             CKEditor::make(__('Description'), 'description')->hideFromIndex()->translatable(),
         ];
     }

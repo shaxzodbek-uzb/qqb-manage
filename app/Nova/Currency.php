@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class Currency extends Resource
 {
@@ -65,8 +66,8 @@ class Currency extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->sortable(),
-            Text::make(__('Code'), 'slug'),
+            TextWithSlug::make(__('Name'), 'name')->sortable()->translatable()->slug('slug'),
+            Slug::make(__('Slug'), 'slug'),
             Text::make(__('Symbol'), 'symbol'),
             Text::make(__('Value'), 'value'),
         ];

@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Select;
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class DocumentType extends Resource
 {
@@ -69,8 +70,8 @@ class DocumentType extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name')->rules('required')->translatable(),
-            Text::make(__('Slug'),'slug')->rules('required')->hideWhenUpdating(),
+            TextWithSlug::make(__('Name'),'name')->rules('required')->translatable()->slug('slug'),
+            Slug::make(__('Slug'),'slug')->rules('required'),
         ];
     }
 

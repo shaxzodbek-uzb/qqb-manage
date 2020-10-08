@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Select;
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class Language extends Resource
 {
@@ -67,8 +68,8 @@ class Language extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'),'name')->rules('required'),
-            Text::make(__('Slug'), 'slug')->rules('required')->hideWhenUpdating(),
+            TextWithSlug::make(__('Name'),'name')->rules('required')->slug('slug'),
+            Slug::make(__('Slug'), 'slug')->rules('required'),
             Boolean::make(__('Is default'),'is_default')
         ];
     }
