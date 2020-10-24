@@ -6,13 +6,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\MorphMany;
-use App\Nova\TariffAttribute;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\BelongsTo;
 
 class Tariff extends Resource
 {
@@ -73,10 +68,17 @@ class Tariff extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'),'name')->rules('required')->translatable(),
-            HasMany::make(__('Tariff attributes'), 'tariff_attributes')
+            Text::make(__('Value'),'value')->rules('required')->translatable(),
+            HasMany::make(__('Tariffs'), 'tariffs', Tariff::class),
+            BelongsTo::make(__('Type'), 'type', TariffType::class)
         ];
     }
 
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if(!$request->viaRelationship)
+            $query->where('parent_id', null);
+    }
     /**
      * Get the cards available for the request.
      *

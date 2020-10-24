@@ -4,43 +4,52 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
-class TariffAttribute extends Resource
+class TariffType extends Resource
 {
-    
-    /**
-     * Determine if this resource is available for navigation.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
-     */
-    public static function availableForNavigation(Request $request)
-    {
-        return false;
-    }
+    public static $group = 'Content';
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\TariffAttribute::class;
+    public static $model = \App\TariffType::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'attribute';
+    public static $title = 'name';
 
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('TariffTypes');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('TariffType');
+    }
     /**
      * The columns that should be searched.
      *
      * @var array
      */
     public static $search = [
-        'attribute',
+        'id',
     ];
 
     /**
@@ -53,8 +62,8 @@ class TariffAttribute extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Attribute'),'attribute')->rules('required')->translatable(),
-            Text::make(__('Value'),'value')->rules('required')->translatable(),
+            TextWithSlug::make(__('Name'),'name')->rules('required')->translatable()->slug('slug'),
+            Slug::make(__('Slug'),'slug')->rules('required'),
         ];
     }
 

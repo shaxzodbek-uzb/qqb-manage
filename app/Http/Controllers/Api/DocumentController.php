@@ -4,15 +4,24 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Document;
+use QQB\Documents\Services\DocumentService;
 
 class DocumentController extends Controller
 {
-   public function documents()
-    {
-    	$documents = Document::all();
+    private $service;
 
-    	return ['documents' => $documents];
+    public function __construct()
+    {
+        $this->service = new DocumentService;
+    }
+
+    public function index()
+    {
+    	$documents = $this->service->allDocuments();
+    	return response()->json([
+            'success' => true,
+            'data' => $documents
+        ]);
     }
 
     public function show($id)

@@ -7,7 +7,6 @@ use QQB\Branche\Repositories\BrancheRepository;
 use QQB\Card\Repositories\CardRepository;
 use QQB\Credits\Repositories\CreditRepository;
 use QQB\Deposit\Repositories\DepositRepository;
-use QQB\Documents\Repositories\DocumentRepository;
 use QQB\Faqs\Repositories\FaqsRepository;
 use QQB\FinancialPerformance\Repositories\FinancialPerRepository;
 use QQB\Menu\Repositories\MenuRepository;
@@ -19,6 +18,7 @@ use QQB\Slider\Repositories\SliderRepository;
 use QQB\Staff\Repositories\StaffRepository;
 use QQB\Tariff\Repositories\TariffRepository;
 use QQB\Vacancy\Repositories\VacancyRepository;
+use QQB\Documents\Services\DocumentService;
 
 class PageService
 {
@@ -27,7 +27,6 @@ class PageService
     private $cardRepo;
     private $creditRepo;
     private $depositRepo;
-    private $docRepo;
     private $faqsRepo;
     private $finperRepo;
     private $menuRepo;
@@ -46,7 +45,6 @@ class PageService
         CardRepository          $cardRepo,
         CreditRepository        $creditRepo,
         DepositRepository       $depositRepo,
-        DocumentRepository      $docRepo,
         FaqsRepository          $faqsRepo,
         FinancialPerRepository  $finperRepo,
         MenuRepository          $menuRepo,
@@ -65,7 +63,6 @@ class PageService
         $this->cardRepo = $cardRepo;
         $this->creditRepo = $creditRepo;
         $this->depositRepo = $depositRepo;
-        $this->docRepo = $docRepo;
         $this->faqsRepo = $faqsRepo;
         $this->finperRepo = $finperRepo;
         $this->menuRepo = $menuRepo;
@@ -112,15 +109,6 @@ class PageService
         $bankHistories = $this->bankHistoryRepo->allHistories();
         return [
             'bankHistories' => $bankHistories,
-        ];
-    }
-
-
-    public function documents(): array
-    {
-        $documents = $this->docRepo->documents();
-        return [
-            'documents' => $documents,
         ];
     }
 
@@ -212,7 +200,7 @@ class PageService
             case 'financial-performance':
                 return $this->finPer();
             case 'documents':
-                return $this->documents();
+                return (new DocumentService)->getDataForPage();
             case 'polls':
                 return $this->polls();
             case 'vacancies':

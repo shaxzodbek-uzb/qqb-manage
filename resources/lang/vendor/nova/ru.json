@@ -502,6 +502,8 @@
     "Create menu item": "Создать пункт меню",
     "Username": "Логин",
     "Add item": "Добавить пункт",
-    "Code": "Код"
+    "Code": "Код",
+    "TariffTypes": "Тип тарифа",
+    "TariffType": "Тип тарифов"
  }
 

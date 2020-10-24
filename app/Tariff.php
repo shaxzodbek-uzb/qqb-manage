@@ -9,11 +9,15 @@ class Tariff extends Model
 {
 
 	use HasTranslations;
-    public $translatable = ['name'];
+    public $translatable = ['name', 'value'];
 	protected $table = 'tariffs';
 
-	public function tariff_attributes()
+	public function tariffs()
     {
-    	 return $this->hasMany(TariffAttribute::class,'tariff_id');
+        return $this->hasMany(Tariff::class,'parent_id');
+    }
+    public function type()
+    {
+        return $this->belongsTo(TariffType::class, 'type_id');
     }
 }

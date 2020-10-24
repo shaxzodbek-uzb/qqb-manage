@@ -2,37 +2,24 @@
 
 namespace QQB\Documents\Repositories;
 
-use QQB\Core\Traits\ResponsibleTrait;
-use Illuminate\Support\Collection;
 use App\Document;
-
+use App\DocumentCategory;
+use Illuminate\Support\Collection;
+use QQB\Core\Traits\ResponsibleTrait;
+use QQB\Documents\Resources\DocumentResource;
 
 class DocumentRepository
 {
-	use ResponsibleTrait;
-
     protected $documents;
-    public function __construct(Document $documents)
+
+    public function __construct()
     {
-        $this->documents = $documents;
+        $this->documents = new Document;
     }
 
-    public function documents()
+    public function documents(): array
     {
-    	$documents = $this->documents->all();
-    	return $this->transform($documents);
-
-    }
-
-     public function map(object $item): array
-    {
-        return [
-            'id' => $item->id,
-            'name' => $item->name,
-            'document' => $item->document_file?$item->document_file->url:'',
-            'active' => $item->active,
-            'document_type' => $item->document_type,
-            'release_date' => $item->release_date
-        ];
+        $documents = $this->documents->all();
+    	return ['document' => DocumentResource::collection($documents)];
     }
 }

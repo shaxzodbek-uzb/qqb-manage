@@ -417,5 +417,7 @@
     "Year To Date": "Year To Date",
     "locale-uz-Latn": "Uzbek",
     "locale-en": "English",
-    "locale-ru": "Russian"
+    "locale-ru": "Russian",
+    "TariffTypes": "Types of tariff",
+    "TariffType": "Type of tariff"
 }
