@@ -1,75 +1,82 @@
 <?php
 namespace QQB\Page\Services;
 
-use QQB\News\Repositories\NewsCategoryRepository;
-use QQB\News\Repositories\NewsRepository;
-use QQB\Slider\Repositories\SliderRepository;
-use QQB\Card\Repositories\CardRepository;
 use App\Http\Resources\Slider;
-use QQB\Menu\Repositories\MenuRepository;
-use QQB\Branche\Repositories\BrancheRepository;
 use QQB\BankHistory\Repositories\BankHistoryRepository;
+use QQB\Branche\Repositories\BrancheRepository;
+use QQB\Card\Repositories\CardRepository;
+use QQB\Credits\Repositories\CreditRepository;
 use QQB\Deposit\Repositories\DepositRepository;
-use QQB\Staff\Repositories\StaffRepository;
+use QQB\Documents\Repositories\DocumentRepository;
 use QQB\Faqs\Repositories\FaqsRepository;
 use QQB\FinancialPerformance\Repositories\FinancialPerRepository;
-use QQB\Documents\Repositories\DocumentRepository;
+use QQB\Menu\Repositories\MenuRepository;
+use QQB\News\Repositories\NewsCategoryRepository;
+use QQB\News\Repositories\NewsRepository;
+use QQB\Page\Repositories\PageRepository;
 use QQB\Poll\Repositories\PollRepository;
+use QQB\Slider\Repositories\SliderRepository;
+use QQB\Staff\Repositories\StaffRepository;
 use QQB\Tariff\Repositories\TariffRepository;
 use QQB\Vacancy\Repositories\VacancyRepository;
-use QQB\Credits\Repositories\CreditRepository;
 
 class PageService
 {
-    private $sliderRepo;
+    private $brancheRepo;
+    private $bankHistoryRepo;
     private $cardRepo;
-    private $newsRepo;
-    private $newsCategoryRepo;
-    private $menuRepo;
+    private $creditRepo;
     private $depositRepo;
+    private $docRepo;
     private $faqsRepo;
     private $finperRepo;
-    private $docRepo;
+    private $menuRepo;
+    private $newsCategoryRepo;
+    private $newsRepo;
+    private $pageRepo;
     private $pollRepo;
+    private $sliderRepo;
+    private $staffRepo;
     private $tariffRepo;
     private $vacancyRepo;
-    private $creditRepo;
 
     public function __construct(
-        SliderRepository $sliderRepo,
-        CardRepository $cardRepo,
-        BrancheRepository $brancheRepo,
-        NewsCategoryRepository $newsCategoryRepo,
-        NewsRepository $newsRepo,
-        MenuRepository $menuRepo,
-        BankHistoryRepository $bankHistoryRepo,
-        DepositRepository $depositRepo,
-        StaffRepository $staffRepo,
-        FinancialPerRepository $finperRepo,
-        FaqsRepository $faqsRepo,
-        PollRepository $pollRepo,
-        TariffRepository $tariffRepo,
-        DocumentRepository $docRepo,
-        VacancyRepository $vacancyRepo,
-        CreditRepository $creditRepo
+        BankHistoryRepository   $bankHistoryRepo,
+        BrancheRepository       $brancheRepo,
+        CardRepository          $cardRepo,
+        CreditRepository        $creditRepo,
+        DepositRepository       $depositRepo,
+        DocumentRepository      $docRepo,
+        FaqsRepository          $faqsRepo,
+        FinancialPerRepository  $finperRepo,
+        MenuRepository          $menuRepo,
+        NewsCategoryRepository  $newsCategoryRepo,
+        NewsRepository          $newsRepo,
+        PageRepository          $pageRepo,
+        PollRepository          $pollRepo,
+        SliderRepository        $sliderRepo,
+        StaffRepository         $staffRepo,
+        TariffRepository        $tariffRepo,
+        VacancyRepository       $vacancyRepo
     )
     {
-        $this->sliderRepo = $sliderRepo;
-        $this->cardRepo = $cardRepo;
+        $this->bankHistoryRepo = $bankHistoryRepo;
         $this->brancheRepo = $brancheRepo;
+        $this->cardRepo = $cardRepo;
+        $this->creditRepo = $creditRepo;
+        $this->depositRepo = $depositRepo;
+        $this->docRepo = $docRepo;
+        $this->faqsRepo = $faqsRepo;
+        $this->finperRepo = $finperRepo;
+        $this->menuRepo = $menuRepo;
         $this->newsCategoryRepo = $newsCategoryRepo;
         $this->newsRepo = $newsRepo;
-        $this->menuRepo = $menuRepo;
-        $this->bankHistoryRepo = $bankHistoryRepo;
-        $this->depositRepo = $depositRepo;
-        $this->staffRepo = $staffRepo;
-        $this->finperRepo = $finperRepo;
-        $this->faqsRepo = $faqsRepo;
-        $this->docRepo = $docRepo;
+        $this->pageRepo = $pageRepo;
         $this->pollRepo = $pollRepo;
+        $this->sliderRepo = $sliderRepo;
+        $this->staffRepo = $staffRepo;
         $this->tariffRepo = $tariffRepo;
         $this->vacancyRepo = $vacancyRepo;
-        $this->creditRepo = $creditRepo;
     }
     public function main(): array
     {
@@ -180,7 +187,12 @@ class PageService
         ];
     }
 
-    public function dataFor(string $page):array
+    public function pageModel($slug): array
+    {
+        return $this->pageRepo->getBySlug($slug);
+    }
+
+    public function dataFor(string $page)
     {
         switch ($page) {
             case 'main':
@@ -210,7 +222,7 @@ class PageService
             case 'credits':
                 return $this->credits();
             default:
-                # code...`
+                return $this->pageModel($page);
             break;
         }
     }
