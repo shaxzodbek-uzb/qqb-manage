@@ -68,9 +68,9 @@ class Tariff extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'),'name')->rules('required')->translatable(),
-            Text::make(__('Value'),'value')->rules('required')->translatable(),
+            Text::make(__('Value'),'value')->translatable(),
             HasMany::make(__('Tariffs'), 'tariffs', Tariff::class),
-            BelongsTo::make(__('Type'), 'type', TariffType::class)
+            BelongsTo::make(__('Type'), 'type', TariffType::class)->nullable(),
         ];
     }
 
