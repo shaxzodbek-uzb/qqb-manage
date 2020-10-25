@@ -16,9 +16,9 @@ use QQB\Page\Repositories\PageRepository;
 use QQB\Poll\Repositories\PollRepository;
 use QQB\Slider\Repositories\SliderRepository;
 use QQB\Staff\Repositories\StaffRepository;
-use QQB\Tariff\Repositories\TariffRepository;
 use QQB\Vacancy\Repositories\VacancyRepository;
 use QQB\Documents\Services\DocumentService;
+use QQB\Tariff\Services\TariffService;
 
 class PageService
 {
@@ -36,7 +36,6 @@ class PageService
     private $pollRepo;
     private $sliderRepo;
     private $staffRepo;
-    private $tariffRepo;
     private $vacancyRepo;
 
     public function __construct(
@@ -54,7 +53,6 @@ class PageService
         PollRepository          $pollRepo,
         SliderRepository        $sliderRepo,
         StaffRepository         $staffRepo,
-        TariffRepository        $tariffRepo,
         VacancyRepository       $vacancyRepo
     )
     {
@@ -72,7 +70,6 @@ class PageService
         $this->pollRepo = $pollRepo;
         $this->sliderRepo = $sliderRepo;
         $this->staffRepo = $staffRepo;
-        $this->tariffRepo = $tariffRepo;
         $this->vacancyRepo = $vacancyRepo;
     }
     public function main(): array
@@ -201,6 +198,8 @@ class PageService
                 return $this->finPer();
             case 'documents':
                 return (new DocumentService)->getDataForPage();
+            case 'tariffs':
+                return (new TariffService)->getDataForPage();
             case 'polls':
                 return $this->polls();
             case 'vacancies':
