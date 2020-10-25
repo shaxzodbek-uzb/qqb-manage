@@ -13,7 +13,7 @@ class MakeNameTextInTariff extends Migration
      */
     public function up()
     {
-        Schema::table('tariff', function (Blueprint $table) {
+        Schema::table('tariffs', function (Blueprint $table) {
             $table->text('name')->change();
         });
     }
@@ -25,7 +25,7 @@ class MakeNameTextInTariff extends Migration
      */
     public function down()
     {
-        Schema::table('tariff', function (Blueprint $table) {
+        Schema::table('tariffs', function (Blueprint $table) {
             //
         });
     }
