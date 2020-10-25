@@ -5,7 +5,6 @@ namespace QQB\Documents\Repositories;
 use App\Document;
 use App\DocumentCategory;
 use Illuminate\Support\Collection;
-use QQB\Core\Traits\ResponsibleTrait;
 use QQB\Documents\Resources\DocumentResource;
 
 class DocumentRepository
@@ -20,6 +19,13 @@ class DocumentRepository
     public function documents(): array
     {
         $documents = $this->documents->all();
-    	return ['document' => DocumentResource::collection($documents)];
+    	return ['documents' => DocumentResource::collection($documents)];
+    }
+    public function documentsByType($slug):array
+    {
+        $documents = $this->documents->whereHas('document_type', function($q) use ($slug){
+            $q->where('slug', $slug);
+        })->get();
+    	return ['documents' => DocumentResource::collection($documents)];
     }
 }

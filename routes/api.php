@@ -32,7 +32,9 @@ Route::group([
 	// Route::get('/news', 'Api\NewsController@news');
 	Route::resource('pages', 'PageController');
 	Route::resource('documents', 'DocumentController');
+	Route::resource('document-types', 'DocumentTypeController');
 	Route::resource('tariffs', 'TariffController');
+	Route::resource('tariff-types', 'TariffTypeController');
 	Route::resource('menus', 'MenuController');
 	Route::resource('news', 'NewsController');
 	Route::resource('credit', 'CreditController');

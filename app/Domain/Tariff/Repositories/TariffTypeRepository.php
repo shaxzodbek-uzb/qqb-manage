@@ -4,12 +4,10 @@ namespace QQB\Tariff\Repositories;
 
 use App\TariffType;
 use Illuminate\Support\Collection;
-use QQB\Core\Traits\ResponsibleTrait;
 use QQB\Tariff\Resources\TariffTypeResource;
 
 class TariffTypeRepository
 {
-	use ResponsibleTrait;
 
     protected $tariffs;
     public function __construct()
@@ -21,7 +19,11 @@ class TariffTypeRepository
     {
     	$tariffTypes = $this->tariffTypes->all();
     	return ['tariff_types' => TariffTypeResource::collection($tariffTypes)];
-
+    }
+    public function getBySlug($slug): array
+    {
+    	$tariffTypes = $this->tariffTypes->where('slug', $slug)->first();
+    	return ['tariff_type' => new TariffTypeResource($tariffTypes)];
     }
 }
 

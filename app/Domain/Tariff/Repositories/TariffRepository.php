@@ -4,12 +4,10 @@ namespace QQB\Tariff\Repositories;
 
 use App\Tariff;
 use Illuminate\Support\Collection;
-use QQB\Core\Traits\ResponsibleTrait;
 use QQB\Tariff\Resources\TariffResource;
 
 class TariffRepository
 {
-	use ResponsibleTrait;
 
     protected $tariffs;
     public function __construct()
@@ -17,25 +15,28 @@ class TariffRepository
         $this->tariffs = new Tariff;
     }
 
-    public function allTariffs()
+    public function allTariffs(): array
     {
     	$tariffs = $this->tariffs->all();
     	return ['tariffs' => TariffResource::collection($tariffs)];
     }
-
-    public function allRootTariffsWithChildren()
+    public function tariffsByType($slug): array
     {
-    	$tariffs = $this->tariffs->where('parent_id', null)->with('tariffs.tariffs')->get();
-    	return ['tariffs' => TariffResource::collection($tariffs)];
+        $tariffs = $this->tariffs->whereHas('type', function($q) use ($slug){
+            $q->where('slug', $slug);
+        })->get();
+    	return ['tariffs' => DocumentResource::collection($tariffs)];
     }
 
-     public function map(object $item): array
+    public function allRootTariffsWithChildren($slug = null)
     {
-        return [
-            'id' => $item->id,
-            'name' => $item->name,
-            'tariff_attributes' => $item->tariff_attributes
-        ];
+        $tariffs = $this->tariffs->where('parent_id', null)->with('tariffs.tariffs');
+        if($slug)
+            $tariffs->whereHas('type', function($q) use ($slug){
+                $q->where('slug', $slug);
+            });
+        $tariffs = $tariffs->get();
+    	return ['tariffs' => TariffResource::collection($tariffs)];
     }
 }
 

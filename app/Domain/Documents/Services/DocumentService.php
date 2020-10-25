@@ -20,7 +20,12 @@ class DocumentService
 
     public function allDocuments(): array
     {
-        $documents = $this->documentRepo->documents();
+        $documents = [];
+        if(request()->get('slug'))
+            $documents = $this->documentRepo->documentsByType(request()->get('slug'));
+        else
+            $documents = $this->documentRepo->documents();
+
         return $documents;
     }
     public function documentTypes(): array
@@ -31,5 +36,9 @@ class DocumentService
     public function getDataForPage(): array
     {
         return $this->documentTypes();
+    }
+    public function getTypeBySlug($slug): array
+    {
+        return $this->documentTypeRepo->getBySlug($slug);
     }
 }
