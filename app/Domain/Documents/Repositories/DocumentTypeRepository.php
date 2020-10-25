@@ -21,7 +21,7 @@ class DocumentTypeRepository
     public function document_types()
     {
     	$document_types = $this->document_types->all();
-    	return [DocumentTypeResource::collection($document_types)];
+    	return ['document_types' => DocumentTypeResource::collection($document_types)];
 
     }
     public function map(object $item): array

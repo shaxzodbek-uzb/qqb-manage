@@ -26,9 +26,7 @@ class DocumentService
     public function documentTypes(): array
     {
         $document_types = $this->documentTypeRepo->document_types();
-        return [
-            'document_types' => $document_types,
-        ];
+        return $document_types;
     }
     public function getDataForPage(): array
     {

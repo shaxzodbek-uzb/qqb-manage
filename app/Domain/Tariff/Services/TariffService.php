@@ -31,9 +31,7 @@ class TariffService
     public function tariffTypes(): array
     {
         $tariff_types = $this->tariffTypeRepo->allTariffTypes();
-        return [
-            'tariff_types' => $tariff_types,
-        ];
+        return $tariff_types;
     }
     public function getDataForPage(): array
     {
