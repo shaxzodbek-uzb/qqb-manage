@@ -24,7 +24,7 @@ class DocumentResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'release_date' => $this->release_date
+            'slug' => $this->slug
         ];
     }
 }
