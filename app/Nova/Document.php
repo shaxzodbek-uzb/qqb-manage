@@ -74,7 +74,7 @@ class Document extends Resource
             Text::make(__('Name'),'name')->rules('required')->translatable(),
             DateTime::make(__('Date'), 'release_date'),
             BelongsTo::make(__('Document type'), 'document_type', DocumentType::class)->showCreateRelationButton(),
-            File::make(__('Document'), 'document')->disk('public')->creationRules('required'),
+            File::make(__('Document'), 'document')->disk('public')->path('documents')->creationRules('required'),
             Boolean::make(__('Active'), 'active'),
         ];
     }
