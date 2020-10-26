@@ -80,7 +80,7 @@ class PageService
         $news_categories = $this->newsCategoryRepo->getAll();
         return [
             'slider' => $slider,
-            'cards' => $cards,
+            'cards' => $cards['cards'],
             'news_categories' => $news_categories
         ];
     }

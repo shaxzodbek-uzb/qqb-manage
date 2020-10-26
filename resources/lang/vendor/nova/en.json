@@ -419,5 +419,12 @@
     "locale-en": "English",
     "locale-ru": "Russian",
     "TariffType": "Types of tariff",
-    "TariffTypes": "Type of tariff"
+    "TariffTypes": "Type of tariff",
+    "Advantages": "Преимущества",
+    "Advantage": "Преимущество",
+    "Resource details": "Детали ресурса",
+    "Resource detail":"Деталь ресурса",
+    "Cost": "Стоимость",
+    "Validity": "Срок действия",
+    "Required documents": "Необходимые документы"
 }

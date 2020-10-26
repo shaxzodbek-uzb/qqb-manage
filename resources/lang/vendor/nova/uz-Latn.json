@@ -415,5 +415,12 @@
     "Bank histories": "Bank tarixlari",
     "Bank history": "Bank tarixi",
     "TariffType": "Tarif turi",
-    "TariffTypes": "Tarif turlari"
+    "TariffTypes": "Tarif turlari",
+    "Advantages": "Преимущества",
+    "Advantage": "Преимущество",
+    "Resource details": "Детали ресурса",
+    "Resource detail":"Деталь ресурса",
+    "Cost": "Стоимость",
+    "Validity": "Срок действия",
+    "Required documents": "Необходимые документы"
 }

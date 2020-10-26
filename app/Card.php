@@ -10,7 +10,7 @@ use Spatie\Translatable\HasTranslations;
 class Card extends Model //implements HasMedia
 {
     use HasTranslations;
-    public $translatable = ['name','description','type','type_person'];
+    public $translatable = ['name', 'description', 'type', 'type_person', 'cost', 'validity', 'required_documents'];
 
     public function image_file()
     {

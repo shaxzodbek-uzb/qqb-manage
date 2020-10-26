@@ -504,6 +504,13 @@
     "Add item": "Добавить пункт",
     "Code": "Код",
     "TariffType": "Тип тарифа",
-    "TariffTypes": "Тип тарифов"
+    "TariffTypes": "Тип тарифов",
+    "Advantages": "Преимущества",
+    "Advantage": "Преимущество",
+    "Resource details": "Детали ресурса",
+    "Resource detail":"Деталь ресурса",
+    "Cost": "Стоимость",
+    "Validity": "Срок действия",
+    "Required documents": "Необходимые документы"
  }
 
