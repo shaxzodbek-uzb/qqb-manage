@@ -10,9 +10,21 @@ class CardService
     {
         $this->repo = new CardRepository;
     }
-    public function getDataForPage()
+    public function getAll():array
     {
         $cards = $this->repo->getAllCards();
         return $cards;
+    }
+
+    public function getDataForPage()
+    {
+        $cards = $this->repo->getBestCards();
+        return $cards;
+    }
+
+    public function getById($id): array
+    {
+        $card = $this->repo->getById($id);
+        return $card;
     }
 }

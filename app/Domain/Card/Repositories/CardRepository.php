@@ -9,9 +9,9 @@ class CardRepository
 {
 
     protected $cards;
-    public function __construct(Card $cards)
+    public function __construct()
     {
-        $this->cards = $cards;
+        $this->cards = new Card;
     }
     public function getBestCards(): array
     {
@@ -20,7 +20,12 @@ class CardRepository
     }
     public function getAllCards(): array
     {
-        $cards = $this->cards->with('resource_details','advantages', 'documents')->get();
+        $cards = $this->cards->get();
         return ['cards' => CardResource::collection($cards)];
+    }
+    public function getById($id):array
+    {
+        $card = $this->cards->with('resource_details','advantages', 'documents', 'faqs')->find($id);
+        return ['card' => new CardResource($card)];
     }
 }

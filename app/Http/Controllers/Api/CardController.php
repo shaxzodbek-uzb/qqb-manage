@@ -6,26 +6,31 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Card;
 use Lang;
+use QQB\Card\Services\CardService;
 
 class CardController extends Controller
 {
-   public function cards()
+    public function __construct() {
+        $this->service = new CardService;
+    }
+   public function index()
     {
-    	$cards = Card::all();
+    	$cards = $this->service->getAll();
 
-    	return ['cards' => $cards];
+    	return response()->json([
+            'success' => true,
+            'data' => $cards
+        ]);
     }
 
 
     public function show($id)
     {
-    	$card = Card::find($id);
+    	$card = $this->service->getById($id);
 
-    	$resource_details = $card->resource_details;
-    	$documents = $card->documents;
-    	$faqs = $card->faqs;
-        $locale = \Lang::getLocale();
-		// dd($locale);
-    	return $card;
+    	return response()->json([
+            'success' => true,
+            'data' => $card
+        ]);
     }
 }

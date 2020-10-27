@@ -77,7 +77,8 @@ class PlasticCard extends Resource
             Textarea::make(__('Description') ,'description')->rules('required')->translatable(),
             MorphMany::make(__('Resource details'),'resource_details', ResourceDetail::class),
             MorphMany::make(__('Documents'),'documents', Document::class),
-            MorphMany::make(__('Advantages'), 'advantages', Advantage::class)
+            MorphMany::make(__('Advantages'), 'advantages', Advantage::class),
+            MorphMany::make(__('Faqs'), 'faqs', Faq::class)
         ];
     }
 

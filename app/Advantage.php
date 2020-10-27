@@ -9,7 +9,7 @@ use Spatie\Translatable\HasTranslations;
 class Advantage extends Model
 {
     use HasTranslations;
-    public $translatable = ['name','text_advantage'];
+    public $translatable = ['name','value'];
     
     public function icon_file()
     {

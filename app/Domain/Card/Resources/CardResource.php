@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use QQB\ResourceDetail\Resources\ResourceDetailResource;
 use QQB\Advantage\Resources\AdvantageResource;
 use QQB\Documents\Resources\DocumentResource;
+use QQB\Faqs\Resources\FaqsResource;
+
 class CardResource extends JsonResource
 {
     /**
@@ -35,7 +37,8 @@ class CardResource extends JsonResource
             'required_documents' => $this->required_documents,
             'resource_details' => ResourceDetailResource::collection($this->whenLoaded('resource_details')),
             'advantages' => AdvantageResource::collection($this->whenLoaded('advantages')),
-            'documents' => DocumentResource::collection($this->whenLoaded('documents'))
+            'documents' => DocumentResource::collection($this->whenLoaded('documents')),
+            'faqs' => FaqsResource::collection($this->whenLoaded('faqs')),
         ];
     }
 }
