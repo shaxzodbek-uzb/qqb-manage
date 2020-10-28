@@ -4,8 +4,8 @@ namespace QQB\Page\Services;
 use App\Http\Resources\Slider;
 use QQB\BankHistory\Repositories\BankHistoryRepository;
 use QQB\Branche\Repositories\BrancheRepository;
+use QQB\Credits\Services\CreditService;
 use QQB\Card\Repositories\CardRepository;
-use QQB\Credits\Repositories\CreditRepository;
 use QQB\Deposit\Repositories\DepositRepository;
 use QQB\Faqs\Repositories\FaqsRepository;
 use QQB\FinancialPerformance\Repositories\FinancialPerRepository;
@@ -24,7 +24,6 @@ class PageService
 {
     private $brancheRepo;
     private $bankHistoryRepo;
-    private $cardRepo;
     private $creditRepo;
     private $depositRepo;
     private $faqsRepo;
@@ -42,7 +41,6 @@ class PageService
         BankHistoryRepository   $bankHistoryRepo,
         BrancheRepository       $brancheRepo,
         CardRepository          $cardRepo,
-        CreditRepository        $creditRepo,
         DepositRepository       $depositRepo,
         FaqsRepository          $faqsRepo,
         FinancialPerRepository  $finperRepo,
@@ -59,7 +57,6 @@ class PageService
         $this->bankHistoryRepo = $bankHistoryRepo;
         $this->brancheRepo = $brancheRepo;
         $this->cardRepo = $cardRepo;
-        $this->creditRepo = $creditRepo;
         $this->depositRepo = $depositRepo;
         $this->faqsRepo = $faqsRepo;
         $this->finperRepo = $finperRepo;
@@ -82,14 +79,6 @@ class PageService
             'slider' => $slider,
             'cards' => $cards['cards'],
             'news_categories' => $news_categories
-        ];
-    }
-
-    public function cards(): array
-    {
-        $allcards = $this->cardRepo->getAllCards();
-        return [
-            "cards" => $allcards,
         ];
     }
 
@@ -164,14 +153,6 @@ class PageService
         ];
     }
 
-    public function credits(): array
-    {
-        $credits = $this->creditRepo->getAll();
-        return [
-            'credit' => $credits,
-        ];
-    }
-
     public function pageModel($slug): array
     {
         return $this->pageRepo->getBySlug($slug);
@@ -207,7 +188,7 @@ class PageService
             case 'news':
                 return $this->news();
             case 'credits':
-                return $this->credits();
+                return (new CreditService)->getDataForPage();
             default:
                 return $this->pageModel($page);
             break;

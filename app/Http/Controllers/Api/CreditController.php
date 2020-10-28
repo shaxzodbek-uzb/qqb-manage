@@ -2,26 +2,36 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Credit;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-Use App\Credit;
+use QQB\Credits\Services\CreditService;
 
 class CreditController extends Controller
 {
-    public function credits()
+    private $service;
+
+    public function __construct()
     {
-    	$credits = Credit::all();
-    	return $credits;
+        $this->service = new CreditService;
+    }
+    public function index()
+    {
+    	$credits = $this->service->getAll(request()->get('slug'));
+    	
+    	return response()->json([
+            'success' => true,
+            'data' => $credits
+        ]);
     }
 
     public function show($id)
     {
-    	$credit = Credit::find($id);
-
-    	$resource_details = $credit->resource_details;
-    	$documents = $credit->documents;
-    	$faqs = $credit->faqs;
-		//dd($credit->documents);
-    	return $credit;
+    	$credit = $this->service->getById($id);
+    	
+    	return response()->json([
+            'success' => true,
+            'data' => $credit
+        ]);
     }
 }

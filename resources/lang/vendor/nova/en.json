@@ -426,5 +426,7 @@
     "Resource detail":"Деталь ресурса",
     "Cost": "Стоимость",
     "Validity": "Срок действия",
-    "Required documents": "Необходимые документы"
+    "Required documents": "Необходимые документы",
+    "CreditTypes": "Типы кредитов",
+    "CreditType": "Тип кредита"
 }

@@ -489,7 +489,7 @@
     "Year": "Год",
     "Grace period": "Льготный период",
     "Term": "Срок",
-    "Amount": "Vумма",
+    "Amount": "Сумма",
     "Type person": "Тип лица",
     "Type": "Тип",
     "Static URL": "Статический URL",
@@ -511,6 +511,8 @@
     "Resource detail":"Деталь ресурса",
     "Cost": "Стоимость",
     "Validity": "Срок действия",
-    "Required documents": "Необходимые документы"
+    "Required documents": "Необходимые документы",
+    "CreditTypes": "Типы кредитов",
+    "CreditType": "Тип кредита"
  }
 

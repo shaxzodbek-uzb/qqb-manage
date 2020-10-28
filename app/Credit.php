@@ -10,7 +10,7 @@ class Credit extends Model
 {
     use HasTranslations;
 
-    public $translatable = ['name', 'description','content'];
+    public $translatable = ['name', 'description','content', 'grace_period', 'term', 'amount'];
 
 	public function resource_details()
 	{
@@ -30,5 +30,8 @@ class Credit extends Model
     {
         return $this->belongsTo(MediaModel::class, 'image', 'id');
     }
-    
+    public function credit_type()
+    {
+        return $this->belongsTo(CreditType::class, 'type_id', 'id');
+    }
 }

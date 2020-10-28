@@ -23,10 +23,7 @@ Route::group([
 ], function ($router) {
 	// Route::get('/history', 'Api\BankHistoryController@history');
 	// Route::get('/branches', 'Api\BranchesController@branches');
-	// Route::get('/cards', 'Api\CardController@cards');
-	// Route::get('/credits', 'Api\CreditController@credits');
 	// Route::get('/currency', 'Api\CurrencyController@currency');
-	// Route::get('/documents', 'Api\DocumentController@documents');
 	// Route::get('/faqs', 'Api\FaqsController@faqs');
 	// Route::get('/financial-performances', 'Api\FinancialPerformanceController@financial_performances');
 	// Route::get('/news', 'Api\NewsController@news');
@@ -37,7 +34,7 @@ Route::group([
 	Route::resource('tariff-types', 'TariffTypeController');
 	Route::resource('menus', 'MenuController');
 	Route::resource('news', 'NewsController');
-	Route::resource('credit', 'CreditController');
+	Route::resource('credits', 'CreditController');
 	Route::resource('cards', 'CardController');
 	Route::resource('vacancy', 'VacancyController');
 	Route::resource('staff', 'StaffController');

@@ -2,38 +2,34 @@
 
 namespace QQB\Credits\Repositories;
 
-use QQB\Core\Traits\ResponsibleTrait;
-use Illuminate\Support\Collection;
 use App\Credit;
+use Illuminate\Support\Collection;
+use QQB\Credits\Resources\CreditResource;
 
 class CreditRepository
 {
-	use ResponsibleTrait;
 
     private $credits;
 
-    public function __construct(Credit $credits) {
-        $this->credits = $credits;
+    public function __construct() {
+        $this->credits = new Credit;
     }
     public function getAll(): array
     {
-        return $this->transform($this->credits->get());
+        return ['credits' => CreditResource::collection($this->credits->all())];
     }
-    public function map(object $item): array
+    public function getAllByTypeSlug($slug): array
     {
-        return [
-            'id' => $item->id,
-            'name' => $item->name,
-            'description' => $item->description,
-            'content' => $item->content,
-            'image' =>  $item->image_file?$item->image_file->url:'',
-            'slug' =>  $item->slug,
-            'term' =>  $item->term,
-            'grace_period' =>  $item->grace_period,
-            'about' =>  $item->about,
-            'resource_details' =>  $item->resource_details,
-            'documents' =>  $item->documents,
-            'faqs' =>  $item->faqs,
-        ];
+        $credits = $this->credits
+        ->whereHas('credit_type', function($q) use ($slug){
+            $q->where('slug',$slug);
+        })
+        ->get();
+        return ['credits' => CreditResource::collection($credits)];
+    }
+    public function getById($id): array
+    {
+        $credit = $this->credits->with('credit_type','documents','faqs')->find($id);
+        return ['credit' => new CreditResource($credit)];
     }
 }
