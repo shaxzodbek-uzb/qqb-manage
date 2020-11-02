@@ -19,6 +19,7 @@ use QQB\Staff\Repositories\StaffRepository;
 use QQB\Vacancy\Repositories\VacancyRepository;
 use QQB\Documents\Services\DocumentService;
 use QQB\Tariff\Services\TariffService;
+use QQB\Deposit\Services\DepositService;
 
 class PageService
 {
@@ -98,14 +99,6 @@ class PageService
         ];
     }
 
-    public function deposits(): array
-    {
-        $deposits = $this->depositRepo->deposits();
-        return [
-            'deposits' => $deposits,
-        ];
-    }
-
     public function staffs(): array
     {
         $staffs = $this->staffRepo->staffs();
@@ -158,7 +151,7 @@ class PageService
         return $this->pageRepo->getBySlug($slug);
     }
 
-    public function dataFor(string $page)
+    public function dataFor(string $page):array
     {
         switch ($page) {
             case 'main':
@@ -170,7 +163,7 @@ class PageService
             case 'bank-histories':
                 return $this->bankHistories();
             case 'deposits':
-                return $this->deposits();
+                return(new DepositService())->getDataForPage();
             case 'staffs':
                 return $this->staffs();
             case 'faqs':

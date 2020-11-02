@@ -4,14 +4,26 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Deposit;
+use QQB\Deposit\Services\DepositService;
 
 class DepositController extends Controller
-{ 
-   public function show($id)
+{
+    private $service;
+    public function __construct() {
+        $this->service = new DepositService;
+    }
+    public function index()
     {
-    	$deposit = Deposit::find($id);
+        $deposits = $this->service->getAllDeposits();
+    	return response()->json([
+            'success' => true,
+            'data' => $deposits
+        ]);
+    }
+    public function show($id)
+    {
+        $deposit = Deposit::find($id);
 
-    	return $deposit;
+        return $deposit;
     }
 }

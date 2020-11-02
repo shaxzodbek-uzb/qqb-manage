@@ -2,36 +2,23 @@
 
 namespace QQB\Deposit\Repositories;
 
-use QQB\Core\Traits\ResponsibleTrait;
 use Illuminate\Support\Collection;
 use App\Deposit;
+use QQB\Deposit\Resources\DepositResource;
 
 class DepositRepository
 {
-	use ResponsibleTrait;
 
     protected $deposits;
-    public function __construct(Deposit $deposits)
+    public function __construct()
     {
-        $this->deposits = $deposits;
+        $this->deposits = new Deposit;
     }
 
-    public function deposits()
+    public function getAll(): array
     {
     	$deposits = $this->deposits->all();
-    	return $this->transform($deposits);
+    	return ['deposits' => DepositResource::collection($deposits)];
 
-    }
-
-     public function map(object $item): array
-    {
-        return [
-            'id' => $item->id,
-            'name' => $item->name,
-            'description' => $item->description,
-            'image' => $item->image_file?$item->image_file->url:'',
-            'content' => $item->content,
-            'slug' => $item->slug,
-        ];
     }
 }

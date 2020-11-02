@@ -18,7 +18,26 @@ use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class Deposit extends Resource
 {
-     public static $group = 'Content';
+    public static $group = 'Content';
+    /**
+     * Get the displayable label of the resource.
+    *
+    * @return string
+    */
+    public static function label()
+    {
+        return __('Deposits');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+    *
+    * @return string
+    */
+    public static function singularLabel()
+    {
+        return __('Deposit');
+    }
     /**
      * The model the resource corresponds to.
      *
@@ -55,9 +74,12 @@ class Deposit extends Resource
             TextWithSlug::make(__('Name'),'name')->rules('required')->translatable()->slug('slug'),
             Slug::make(__('Slug'),'slug')->rules('required'),
             Textarea::make(__('Description'),'description')->translatable(),
+            Text::make(__('Term'),'term')->translatable(),
+            Text::make(__('Rate'),'rate')->translatable(),
+            Text::make(__('Amount'),'summ')->translatable(),
+            Text::make(__('Type'),'type')->translatable(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
             MediaLibrary::make(__('Image'),'image'),
-            MorphMany::make('Resource details'),
         ];
     }
 

@@ -9,12 +9,7 @@ use Spatie\Translatable\HasTranslations;
 class Deposit extends Model
 {
     use HasTranslations;
-	public $translatable = ['name','description','content'];
-
-    public function resource_details()
-	{
-		return $this->morphMany(ResourceDetail::class,'resource');
-	}
+	public $translatable = ['name','description','content', 'term', 'rate', 'summ', 'type'];
 
 	public function image_file()
     {

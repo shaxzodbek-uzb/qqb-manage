@@ -513,6 +513,9 @@
     "Validity": "Срок действия",
     "Required documents": "Необходимые документы",
     "CreditTypes": "Типы кредитов",
-    "CreditType": "Тип кредита"
+    "CreditType": "Тип кредита",
+    "Rate": "Ставка",
+    "DepositType": "Тип депозита",
+    "DepositTypes": "Типы депозита"
  }
 
