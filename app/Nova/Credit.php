@@ -78,7 +78,7 @@ class Credit extends Resource
             MediaLibrary::make(__('Image'),'image'),
             Textarea::make(__('Description'),'description')->translatable(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
-            Text::make(__('Rate'),'rate')->translatable(),
+            Text::make(__('Rate'),'grace_period')->translatable(),
             Text::make(__('Term'),'term')->translatable(),
             Text::make(__('Amount'),'amount')->translatable(),
             BelongsTo::make(__('CreditType'), 'credit_type', CreditType::class),
