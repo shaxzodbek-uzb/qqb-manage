@@ -13,6 +13,6 @@ class GalleryRepository {
 
     public function getAll(): array
     {
-        return ['gallery' => GalleryResource::collection($this->entity->all())];
+        return ['galleries' => GalleryResource::collection($this->entity->all())];
     }
 }
