@@ -516,6 +516,9 @@
     "CreditType": "Тип кредита",
     "Rate": "Ставка",
     "DepositType": "Тип депозита",
-    "DepositTypes": "Типы депозита"
- }
+    "DepositTypes": "Типы депозита",
+    "Gallery": "Галерея",
+    "Galleries": "Галереи",
+    "Images": "Изображений"
+}
 

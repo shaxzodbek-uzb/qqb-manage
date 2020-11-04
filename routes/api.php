@@ -29,6 +29,7 @@ Route::group([
 	// Route::get('/news', 'Api\NewsController@news');
 	Route::resource('pages', 'PageController');
 	Route::resource('deposits', 'DepositController');
+	Route::resource('galleries', 'GalleryController');
 	Route::resource('documents', 'DocumentController');
 	Route::resource('document-types', 'DocumentTypeController');
 	Route::resource('tariffs', 'TariffController');
