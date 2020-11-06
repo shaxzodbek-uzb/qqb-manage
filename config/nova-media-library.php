@@ -108,30 +108,31 @@ return [
 	 * @var array
 	 */
 
-	'resize' => [
+    'resize' => null
+    // [
 
-		# `gd` or `imagick`
-		'driver' => 'gd',
+	// 	# `gd` or `imagick`
+	// 	'driver' => 'gd',
 
-		# 0 - 100
-		'quality' => 80,
+	// 	# 0 - 100
+	// 	'quality' => 80,
 
-		# Cropping image on the frontend
-		'front_crop' => true,
+	// 	# Cropping image on the frontend
+	// 	'front_crop' => true,
 
-		# Maximum width and height in pixels for the original image [ width, height, upSize, upWH ]
-		# upSize {bool} - Crop image even if size will be larger. (If set to `false` - size image will be as original).
-		# upWH {bool} - Crop even if width and height image less than limits.
-		'original' => [ 1200, null, false, false ],
+	// 	# Maximum width and height in pixels for the original image [ width, height, upSize, upWH ]
+	// 	# upSize {bool} - Crop image even if size will be larger. (If set to `false` - size image will be as original).
+	// 	# upWH {bool} - Crop even if width and height image less than limits.
+	// 	'original' => [ 1200, null, false, false ],
 
-		# Crop additional image variations [ width, height, upSize, upWH ]
-		'sizes' => [
-			'thumb' => [ 200, 200, true, false ],
-			'medium' => [ 800, null, true, false ],
-		],
+	// 	# Crop additional image variations [ width, height, upSize, upWH ]
+	// 	'sizes' => [
+	// 		'thumb' => [ 200, 200, true, false ],
+	// 		'medium' => [ 800, null, true, false ],
+	// 	],
 
-		# Set `size name` from `sizes` above for preview in admin area or leave `null`
-		'preview' => 'thumb'
-	]
+	// 	# Set `size name` from `sizes` above for preview in admin area or leave `null`
+	// 	'preview' => 'thumb'
+	// ]
 
 ];

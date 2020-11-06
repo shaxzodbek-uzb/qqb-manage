@@ -22,6 +22,11 @@ class Card extends Model //implements HasMedia
         return $this->belongsTo(MediaModel::class, 'cover_image', 'id');
     }
     
+    public function big_image_file()
+    {
+        return $this->belongsTo(MediaModel::class, 'big_image', 'id');
+    }
+    
     public function resource_details()
 	{
 		return $this->morphMany(ResourceDetail::class,'resource');

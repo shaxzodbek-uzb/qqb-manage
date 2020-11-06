@@ -31,6 +31,7 @@ class CardResource extends JsonResource
             'description' => $this->description,
             'image' => $this->image_file?$this->image_file->url:'',
             'cover_image' => $this->cover_image_file?$this->cover_image_file->url:'',
+            'big_image' => $this->big_image_file?$this->big_image_file->url:'',
             'type' => $this->type,
             'cost' => $this->cost,
             'validity' => $this->validity,

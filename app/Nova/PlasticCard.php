@@ -73,6 +73,7 @@ class PlasticCard extends Resource
             Text::make(__('Validity'),'validity')->rules('required')->translatable(),
             Text::make(__('Required documents'),'required_documents')->rules('required')->translatable(),
             MediaLibrary::make(__('Cover image'),'cover_image')->rules('required')->preview('thumb'),
+            MediaLibrary::make(__('Big image'),'big_image')->rules('required')->preview('thumb'),
             MediaLibrary::make(__('Image'),'image')->rules('required'),
             Textarea::make(__('Description') ,'description')->rules('required')->translatable(),
             MorphMany::make(__('Resource details'),'resource_details', ResourceDetail::class),
