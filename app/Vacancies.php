@@ -9,7 +9,7 @@ class Vacancies extends Model
 {
 	use HasTranslations;
     
-    public $translatable = ['name' ,'region', 'address'];
+    public $translatable = ['name' ,'region', 'address', 'requirements', 'duties'];
     public function vacancy_details()
     {
     	 return $this->hasMany(VacancyDetail::class,'vacancy_id');

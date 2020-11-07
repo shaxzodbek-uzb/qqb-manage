@@ -41,5 +41,7 @@ Route::group([
 	Route::resource('vacancy', 'VacancyController');
 	Route::resource('staff', 'StaffController');
 	Route::resource('deposit', 'DepositController');
+	Route::resource('bank-histories', 'BankHistoryController');
+	Route::resource('vacancies', 'VacancyController');
 	Route::get('view/{slug}', 'PageController@view');
 });

@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers\Api;
 
+use QQB\BankHistory\Services\BankHistoryService;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\BankHistory;
 
 class BankHistoryController extends ApiController
 {
-    public function history()
+    private $service;
+
+    public function __construct(BankHistoryService $service)
     {
-    	$history = BankHistory::all();
-        return ['history' => $history];
+        $this->service = $service;
+    }
+    public function index()
+    {
+        $histories = $this->service->getAll();
+
+    	return response()->json([
+            'success' => true,
+            'data' => $histories
+        ]);
     }
 }

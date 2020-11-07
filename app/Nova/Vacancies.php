@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Waynestate\Nova\CKEditor;
 
 class Vacancies extends Resource
 {
@@ -74,7 +75,9 @@ class Vacancies extends Resource
                 return "<span class=\"font-bold\">$value</span>";
             })->asHtml(),
             Text::make(__('Address'), 'address')->rules('required')->translatable(),
-            HasMany::make(__('Vacancy details'), 'vacancy_details', VacancyDetail::class),
+            CKEditor::make(__('Requirements'), 'requirements')->hideFromIndex()->rules('required')->translatable(),
+            CKEditor::make(__('Duties'), 'duties')->hideFromIndex()->rules('required')->translatable(),
+
         ];
     }
 

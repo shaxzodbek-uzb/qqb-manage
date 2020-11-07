@@ -2,6 +2,7 @@
 
 namespace QQB\BankHistory\Repositories;
 
+use QQB\BankHistory\Resources\BankHistoryResource;
 use QQB\Core\Traits\ResponsibleTrait;
 use Illuminate\Support\Collection;
 use App\BankHistory;
@@ -9,10 +10,9 @@ use App\BankHistory;
 
 class BankHistoryRepository 
 {
-	use ResponsibleTrait;
-
+	
     protected $bankHistories;
-    public function __construct(bankHistory $bankHistories)
+    public function __construct(BankHistory $bankHistories)
     {
         $this->bankHistories = $bankHistories;
     }
@@ -20,15 +20,7 @@ class BankHistoryRepository
     public function allHistories(): array
     {
     	 $bankHistories = $this->bankHistories->all();
-        return $this->transform($bankHistories);
+        return ['bank-histories' => BankHistoryResource::collection($bankHistories)];
     }
 
-    public function map(object $item): array
-    {
-        return [
-            'id' => $item->id,
-            'year' => $item->year,
-            'description' => $item->description,
-        ];
-    }
 }

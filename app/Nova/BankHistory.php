@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Benjaminhirsch\NovaSlugField\{Slug};
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class BankHistory extends Resource
 {
@@ -69,8 +67,8 @@ class BankHistory extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Year'),'year')->rules('required','numeric'),
-            Slug::make(__('Slug'),'slug')->rules('required'),
+            TextWithSlug::make(__('Year'),'year')->rules('required', 'numeric')->slug('slug'),
+            Slug::make(__('Slug'),'slug')->rules('required'),            
             CKEditor::make(__('Description'), 'description')->hideFromIndex()->translatable(),
         ];
     }
