@@ -24,7 +24,7 @@ class VacancyRepository
     public function getById($id)
     {
         $vacancy = $this->vacancies->find($id);
-        return ['vacancies' => new VacancyResource($vacancy)];
+        return ['vacancy' => new VacancyResource($vacancy)];
     }
 
 }

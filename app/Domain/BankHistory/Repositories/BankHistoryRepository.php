@@ -19,7 +19,7 @@ class BankHistoryRepository
 
     public function allHistories(): array
     {
-    	 $bankHistories = $this->bankHistories->all();
+    	 $bankHistories = $this->bankHistories->orderBy('year')->get();
         return ['bank-histories' => BankHistoryResource::collection($bankHistories)];
     }
 

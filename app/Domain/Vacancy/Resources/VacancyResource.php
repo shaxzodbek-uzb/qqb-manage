@@ -29,7 +29,8 @@ class VacancyResource extends JsonResource
             'email' => $this->email,
             'address' => $this->address,
             'requirements' => $this->requirements,
-            'duties' => $this->duties
+            'duties' => $this->duties,
+            'created_at' => $this->created_at->format('Y-m-d H:i'),
         ];
     }
 }
