@@ -30,7 +30,9 @@ class VacancyResource extends JsonResource
             'address' => $this->address,
             'requirements' => $this->requirements,
             'duties' => $this->duties,
-            'created_at' => $this->created_at->format('Y-m-d H:i'),
+            'created_at' => $this->created_at?
+                $this->created_at->format('Y-m-d H:i'):
+                    ($this->update_at ? $this->update_at->format('Y-m-d H:i') : now()->format('Y-m-d H:i')),
         ];
     }
 }
