@@ -22,7 +22,6 @@ class CurrencyRateRepository
     }
     public function getLastWithCurrency(): array
     {
-        // dd($this->currency_rates->with('currencies')->latest()->first());
-        return ['currency_rates' => new CurrencyRateResource($this->currency_rates->with('currencies')->latest()->first())];
+        return ['currency_rate' => new CurrencyRateResource($this->currency_rates->with('currencies')->latest()->first())];
     }
 }
