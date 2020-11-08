@@ -28,6 +28,7 @@ Route::group([
 	// Route::get('/financial-performances', 'Api\FinancialPerformanceController@financial_performances');
 	// Route::get('/news', 'Api\NewsController@news');
 	Route::resource('pages', 'PageController');
+	Route::resource('branches', 'BrancheController');
 	Route::resource('deposits', 'DepositController');
 	Route::resource('galleries', 'GalleryController');
 	Route::resource('documents', 'DocumentController');

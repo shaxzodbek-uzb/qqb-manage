@@ -9,5 +9,5 @@ class Branche extends Model
 {
     use HasTranslations;
 
-    public $translatable = ['region','director','address'];
+    public $translatable = ['name','region','director','address'];
 }

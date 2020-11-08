@@ -1,36 +1,19 @@
 <?php
 namespace QQB\Branche\Repositories;
 
-use QQB\Core\Traits\ResponsibleTrait;
-use Illuminate\Support\Collection;
 use App\Branche;
+use QQB\Branche\Resources\BrancheResource;
 
 class BrancheRepository
 {
-    use ResponsibleTrait;
-
     protected $branches;
-    public function __construct(branche $branches)
-    {
+    public function __construct(Branche $branches) {
         $this->branches = $branches;
     }
-    public function getAllBranches(): array
+
+    public function getAll(): array
     {
         $branches = $this->branches->all();
-        return $this->transform($branches);
-    }
-
-    public function map(object $item): array
-    {
-        return [
-            'id' => $item->id,
-            'region' => $item->region,
-            'director' => $item->director,
-            'address' => $item->address,
-            'phone' => $item->phone,
-            'email' => $item->email,
-            'long' => $item->long,
-            'lat' => $item->lat,
-        ];
+        return ['branches' => BrancheResource::collection($branches)];
     }
 }

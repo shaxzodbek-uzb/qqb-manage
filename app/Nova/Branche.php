@@ -44,7 +44,7 @@ class Branche extends Resource
      *
      * @var string
      */
-    public static $title = 'director';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -52,7 +52,7 @@ class Branche extends Resource
      * @var array
      */
     public static $search = [
-        'director',
+        'name',
     ];
 
     /**
@@ -65,6 +65,7 @@ class Branche extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('Name'),'name')->translatable(),
             Text::make(__('Region'),'region')->translatable(),
             Text::make(__('Director'),'director')->translatable(),
             Text::make(__('Address'),'address')->translatable(),
