@@ -2,14 +2,12 @@
 
 namespace QQB\Staff\Repositories;
 
-use QQB\Core\Traits\ResponsibleTrait;
-use Illuminate\Support\Collection;
+use QQB\Staff\Resources\StaffResource;
 use App\Staff;
 
 
 class StaffRepository
 {
-	use ResponsibleTrait;
 
     protected $staffs;
     public function __construct(Staff $staffs)
@@ -17,22 +15,10 @@ class StaffRepository
         $this->staffs = $staffs;
     }
 
-    public function staffs()
+    public function getAll()
     {
     	$staffs = $this->staffs->all();
-    	return $this->transform($staffs);
-
-    }
-
-    public function map(object $item): array
-    {
-        return [
-            'id' => $item->id,
-            'fullname' => $item->fullname,
-            'avatar' => $item->avatar,
-            'phone' => $item->phone,
-            'meta' => $item->meta,
-    	    ];
+    	return ['staffs' => StaffResource::collection($staffs)];
     }
 
 }

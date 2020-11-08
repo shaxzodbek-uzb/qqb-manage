@@ -66,10 +66,11 @@ class Staff extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            MediaLibrary::make(__('Avatar'),'avatar')->preview('thumb'),
             Text::make(__('Fullname'), 'fulname')->rules('required')->translatable(),
+            Text::make(__('Position'), 'position')->rules('required')->translatable(),
+            Text::make(__('Confirmation document'), 'confirmation_document')->rules('required')->translatable(),
             Text::make(__('Phone'), 'phone')->rules('required'),
-            CKEditor::make(__('Meta'), 'meta')->hideFromIndex()->rules('required')->translatable(),
-            MediaLibrary::make(__('Avatar'),'avatar')->preview('thumb')
         ];
     }
 

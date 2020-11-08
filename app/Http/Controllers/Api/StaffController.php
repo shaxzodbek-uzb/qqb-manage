@@ -4,14 +4,22 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Staff;
+use QQB\Staff\Services\StaffService;
 
 class StaffController extends Controller
 {
-    public function show($id)
-    {
-    	$staff = Staff::find($id);
+    private $service;
+    
+    public function __construct(StaffService $service) {
+        $this->service = $service;
+    }
 
-    	return $staff;
+    public function index()
+    {
+        $staffs = $this->service->getAll();
+        return response()->json([
+            'success' => true,
+            'data' => $staffs
+        ]);
     }
 }

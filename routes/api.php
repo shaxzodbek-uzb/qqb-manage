@@ -39,7 +39,7 @@ Route::group([
 	Route::resource('credits', 'CreditController');
 	Route::resource('cards', 'CardController');
 	Route::resource('vacancy', 'VacancyController');
-	Route::resource('staff', 'StaffController');
+	Route::resource('staffs', 'StaffController');
 	Route::resource('deposit', 'DepositController');
 	Route::resource('bank-histories', 'BankHistoryController');
 	Route::resource('vacancies', 'VacancyController');
