@@ -9,8 +9,8 @@ class CurrencyRate extends Model
     protected $dates = [
         'date',
     ];
-    public function currency()
+    public function currencies()
     {
-        return $this->belongsTo(Currency::class);
+        return $this->belongsToMany(Currency::class, 'currency_rate_currency', 'currency_rate_id', 'currency_id')->withPivot(["sell_rate", 'buy_rate', 'cb_rate']);
     }
 }

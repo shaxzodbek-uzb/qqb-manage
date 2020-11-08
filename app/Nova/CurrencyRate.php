@@ -7,7 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class CurrencyRate extends Resource
@@ -67,12 +67,17 @@ class CurrencyRate extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            BelongsTo::make(__('Currency'), 'currency', Currency::class),
+            // BelongsTo::make(__('Currency'), 'currency', Currency::class),
             Date::make(__('Date'), 'date'),
-            Text::make(__('Sell rate'), 'sell_rate'),
-            Text::make(__('Buy rate'), 'buy_rate'),
-            Text::make(__('CB rate'), 'cb_rate'),
             Boolean::make(__('Active'), 'active'),
+            BelongsToMany::make('Currencies')
+            ->fields(function () {
+                return [
+                    Text::make(__('Sell rate'), 'sell_rate'),
+                    Text::make(__('Buy rate'), 'buy_rate'),
+                    Text::make(__('CB rate'), 'cb_rate'),
+                ];
+            })
         ];
     }
 
