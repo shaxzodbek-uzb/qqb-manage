@@ -1,18 +1,18 @@
 <?php
 
-namespace QQB\News\Resources;
+namespace QQB\Poll\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
-class NewsResource extends JsonResource
+class PollResource extends JsonResource
 {
     /**
      * The "data" wrapper that should be applied.
      *
      * @var string
      */
-    public static $wrap = 'news';
+    public static $wrap = 'polls';
 
     /**
      * Transform the resource into an array.
@@ -25,10 +25,9 @@ class NewsResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description,
-            'content' => $this->content,
-            'image' =>  $this->image_file?$this->image_file->url:'',
-            'category' =>  new NewsCategoryResource($this->whenLoaded('news_category')),
+            'active' => $this->active,
+            'count' => $this->count,
+            'poll_variants' => PollVariantResource::collection($this->whenLoaded('poll_variants')),
             'created_at' => $this->created_at?
                 $this->created_at->format('Y-m-d'):
                     ($this->update_at ? $this->update_at->format('Y-m-d') : now()->format('Y-m-d')),

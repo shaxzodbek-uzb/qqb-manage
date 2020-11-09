@@ -42,6 +42,7 @@ Route::group([
 	Route::resource('news', 'NewsController');
 	Route::resource('news-categories', 'NewsCategoryController');
 	Route::resource('pages', 'PageController');
+	Route::resource('polls', 'PollController');
 	Route::resource('staffs', 'StaffController');
 	Route::resource('tariffs', 'TariffController');
 	Route::resource('tariff-types', 'TariffTypeController');
