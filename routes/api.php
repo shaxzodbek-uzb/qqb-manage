@@ -40,6 +40,7 @@ Route::group([
 	Route::resource('galleries', 'GalleryController');
 	Route::resource('menus', 'MenuController');
 	Route::resource('news', 'NewsController');
+	Route::resource('news-categories', 'NewsCategoryController');
 	Route::resource('pages', 'PageController');
 	Route::resource('staffs', 'StaffController');
 	Route::resource('tariffs', 'TariffController');

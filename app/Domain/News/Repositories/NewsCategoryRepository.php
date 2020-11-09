@@ -1,32 +1,28 @@
 <?php
 namespace QQB\News\Repositories;
 
-use QQB\Core\Traits\ResponsibleTrait;
 use Illuminate\Support\Collection;
+use QQB\News\Resources\NewsCategoryResource;
 use App\NewsCategory;
 
 class NewsCategoryRepository
 {
-    use ResponsibleTrait;
 
-    private $newsRepo;
     private $newsCategory;
 
-    public function __construct(NewsCategory $newsCategories, NewsRepository $newsRepo) {
-        $this->newsRepo = $newsRepo;
+    public function __construct(NewsCategory $newsCategories) {
         $this->newsCategories = $newsCategories;
     }
-    public function getAll(): array
+    public function getAll()
     {
-        return $this->transform($this->newsCategories->with('news')->get());
+        return NewsCategoryResource::collection($this->newsCategories->with('news')->get());
     }
-    public function map(object $item): array
+    public function getAllWithoutNews(): array
     {
-        return [
-            'id' => $item->id,
-            'name' => $item->name,
-            'description' => $item->description,
-            'news' => $this->newsRepo->transform($item->news),
-        ];
+        return ['news_categories' => NewsCategoryResource::collection($this->newsCategories->all())];
+    }
+    public function getById($id): array
+    {
+        return ['news_category' => new NewsCategoryResource($this->newsCategories->with('news')->find($id))];
     }
 }
