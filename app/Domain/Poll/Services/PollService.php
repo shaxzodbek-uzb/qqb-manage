@@ -20,6 +20,7 @@ class PollService{
         $poll = $this->repo->getChildById($request->poll_variant_id);
         // dd($request->poll_variant_id);
         $poll->increment('count');
+        $poll->poll->increment('count');
         return $this->repo->getById($poll->poll_id);
     }
 }

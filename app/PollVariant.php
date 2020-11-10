@@ -11,4 +11,8 @@ class PollVariant extends Model
     public $translatable = ['name'];
 
    public $timestamps = false;
+   public function poll()
+   {
+       return $this->belongsTo(Poll::class);
+   }
 }

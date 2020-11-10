@@ -11,6 +11,6 @@ class Poll extends Model
     public $translatable = ['name'];
     public function poll_variants()
     {
-    	 return $this->hasMany(PollVariant::class);
+    	 return $this->hasMany(PollVariant::class)->orderBy('id');
     }
 }

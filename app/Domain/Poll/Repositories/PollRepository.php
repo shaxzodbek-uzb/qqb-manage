@@ -20,7 +20,7 @@ class PollRepository
 
     public function getAll()
     {
-    	$polls = $this->polls->with('poll_variants')->get();
+    	$polls = $this->polls->with('poll_variants')->orderByDesc('id')->get();
     	return ['polls' => PollResource::collection($polls)];
     }
     public function getById($id)
