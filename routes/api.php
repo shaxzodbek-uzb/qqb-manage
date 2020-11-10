@@ -27,6 +27,7 @@ Route::group([
 	// Route::get('/faqs', 'Api\FaqsController@faqs');
 	// Route::get('/financial-performances', 'Api\FinancialPerformanceController@financial_performances');
 	// Route::get('/news', 'Api\NewsController@news');
+	Route::resource('appeals', 'AppealController');
 	Route::resource('bank-histories', 'BankHistoryController');
 	Route::resource('branches', 'BrancheController');
 	Route::resource('credits', 'CreditController');
