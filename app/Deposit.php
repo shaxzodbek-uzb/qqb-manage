@@ -8,6 +8,18 @@ use Spatie\Translatable\HasTranslations;
 
 class Deposit extends Model
 {
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::addGlobalScope('active', function (Builder $builder) {
+            $builder->where('active', true);
+        });
+    }
+
     use HasTranslations;
 	public $translatable = ['name','description','content', 'term', 'rate', 'summ', 'type'];
 
