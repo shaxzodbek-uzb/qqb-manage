@@ -24,10 +24,11 @@ class AppealStore extends FormRequest
     public function rules()
     {
         return [
+            'type' => 'required',
             'title' => 'required',
             'address' => 'required',
             'content' => 'required',
-            'upload_files.*' => 'file'
+            'upload_files.*' => 'file',
         ];
     }
 }

@@ -10,7 +10,30 @@ class AppealRepository{
     public function __construct(Appeal $appeals) {
         $this->appeals = $appeals;
     }
+    
     public function store($request): array
+    {
+        $files = $this->uploadFiles($request);
+        $params = [
+            'title' => $request->title,
+            'address' => $request->address,
+            'content' => $request->content,
+            'type' => $request->type,
+            'status' => $this->appeals::STATUS_NEW,
+            'files' => $files
+        ];
+        $appeal = $this->appeals->create($params);
+        if($request->additional_params)
+            foreach ($request->additional_params as $item) {
+                $resource = $appeal->resource_details()->create([
+                    'name' => $item['label'],
+                    'text' => $item['value'],
+                ]);
+            }
+        return ['appeal' => new AppealResource($appeal)];
+    }
+
+    public function uploadFiles($request): array
     {
         $files = [];
         foreach ($request->upload_files as $file) {
@@ -35,14 +58,6 @@ class AppealRepository{
                 $files[] = $item->id;
             }
         }
-        $params = [
-            'title' => $request->title,
-            'address' => $request->address,
-            'content' => $request->content,
-            'type' => $this->appeals::TYPE_ANONYMOUS,
-            'status' => $this->appeals::STATUS_NEW,
-            'files' => $files
-        ];
-        return ['appeal' => new AppealResource($this->appeals->create($params))];
+        return $files;
     }
 }

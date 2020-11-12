@@ -17,7 +17,18 @@ class Appeal extends Model
         'STATUS_NEW' => self::STATUS_NEW,
     ];
     const TYPE_ANONYMOUS = 'anonymous';
+    const TYPE_CREDIT = 'credit';
+    const TYPE_CREDIT_LEGAL = 'credit-legal';
+    const TYPE_DEPOSIT = 'deposit';
     const TYPES = [
         'TYPE_ANONYMOUS' => self::TYPE_ANONYMOUS,
+        'TYPE_CREDIT' => self::TYPE_CREDIT,
+        'TYPE_CREDIT_LEGAL' => self::TYPE_CREDIT_LEGAL,
+        'TYPE_DEPOSIT' => self::TYPE_DEPOSIT,
     ];
+        
+    public function resource_details()
+	{
+		return $this->morphMany(ResourceDetail::class,'resource');
+	}
 }

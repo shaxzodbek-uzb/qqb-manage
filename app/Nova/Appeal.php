@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Select;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
@@ -51,6 +52,7 @@ class Appeal extends Resource
             Select::make(__('Type'), 'type')->options(\App\Appeal::TYPES)->displayUsingLabels(),
             Select::make(__('Status'), 'status')->options(\App\Appeal::STATUSES)->displayUsingLabels(),
             MediaLibrary::make(__('Files'),'files')->array('list'),
+            MorphMany::make(__('Resource details'),'resource_details', ResourceDetail::class),
         ];
     }
 

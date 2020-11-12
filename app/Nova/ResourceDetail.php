@@ -44,10 +44,10 @@ class ResourceDetail extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make(__('ID'), 'id')->sortable(),
+            ID::make(__('ID'), 'id')->sortable()->hideFromIndex(),
             Text::make(__('Name'), 'name')->rules('required')->translatable(),
-            CKEditor::make(__('Text'), 'text')->hideFromIndex()->rules('required')->translatable(),
-            Boolean::make(__('Is main'), 'is_main')
+            CKEditor::make(__('Text'), 'text')->rules('required')->translatable(),
+            Boolean::make(__('Is main'), 'is_main')->hideFromIndex()
                     ->trueValue('1')
                     ->falseValue('0'),
         ];

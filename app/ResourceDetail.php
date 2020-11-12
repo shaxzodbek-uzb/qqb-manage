@@ -13,6 +13,7 @@ class ResourceDetail extends Model
 	use HasTranslations;
 	
     public $translatable = ['name','text'];
+    public $fillable = ['name','text'];
 
     public function cards()
     {
