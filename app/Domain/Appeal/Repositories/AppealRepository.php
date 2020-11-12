@@ -36,28 +36,29 @@ class AppealRepository{
     public function uploadFiles($request): array
     {
         $files = [];
-        foreach ($request->upload_files as $file) {
-            $upload = new Upload($file);
+        if($request->upload_files)
+            foreach ($request->upload_files as $file) {
+                $upload = new Upload($file);
 
-            if ( !$upload->setType() )
-                abort(422, __('Forbidden file format'));
+                if ( !$upload->setType() )
+                    abort(422, __('Forbidden file format'));
 
-            $upload->setWH();
+                $upload->setWH();
 
-            $upload->setFolder(request('folder'));
+                $upload->setFolder(request('folder'));
 
-            $upload->setPrivate();
+                $upload->setPrivate();
 
-            $upload->setFile();
+                $upload->setFile();
 
-            if ( !$upload->checkSize() )
-                abort(422, __('File size limit exceeded') . $file_name);
+                if ( !$upload->checkSize() )
+                    abort(422, __('File size limit exceeded') . $file_name);
 
-            $item = $upload->save();
-            if($item){
-                $files[] = $item->id;
+                $item = $upload->save();
+                if($item){
+                    $files[] = $item->id;
+                }
             }
-        }
         return $files;
     }
 }
