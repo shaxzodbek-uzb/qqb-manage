@@ -25,5 +25,15 @@ class AppealService {
         $appeal = $this->repo->store($request);
         return $appeal;
     }
+    public function allAppealTypes(): array
+    {
+        $appealTypes = $this->typeRepository->getAll();
+        return $appealTypes;
+    }
+    public function getAppealTypeBySlug($slug): array
+    {
+        $appealType = $this->typeRepository->getBySlug($slug);
+        return $appealType;
+    }
 
 }

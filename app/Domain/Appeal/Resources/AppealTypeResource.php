@@ -25,6 +25,7 @@ class AppealTypeResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
+            'description' => $this->description,
             'active' => $this->active,
         ];
     }

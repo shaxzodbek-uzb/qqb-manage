@@ -13,6 +13,11 @@ class AppealTypeRepository{
     public function getAll(): array
     {
         $appealTypes = $this->appealTypes->all();
-        return ['appealTypes' => AppealTypeResource::collection($appealTypes)];
+        return ['appeal_types' => AppealTypeResource::collection($appealTypes)];
+    }
+    public function getBySlug($slug): array
+    {
+        $appealType = $this->appealTypes->where('slug', $slug)->first();
+        return ['appeal_type' => new AppealTypeResource($appealType)];
     }
 }
