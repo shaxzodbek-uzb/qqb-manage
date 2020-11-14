@@ -33,7 +33,7 @@ class SliderRepository
         if($slider)
             return $this->transform($slider);
         else
-            return [];
+            return ['slides'=> []];
     }
 
     public function map(Slider $slider): array
