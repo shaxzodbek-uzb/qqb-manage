@@ -11,6 +11,6 @@ class CurrencyRate extends Model
     ];
     public function currencies()
     {
-        return $this->belongsToMany(Currency::class, 'currency_rate_currency', 'currency_rate_id', 'currency_id')->withPivot(["sell_rate", 'buy_rate', 'cb_rate']);
+        return $this->belongsToMany(Currency::class, 'currency_rate_currency', 'currency_rate_id', 'currency_id')->withPivot(["sell_rate", 'buy_rate', 'cb_rate'])->orderBy('currencies.value');
     }
 }

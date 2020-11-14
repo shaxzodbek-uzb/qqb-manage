@@ -14,7 +14,7 @@ class CurrencyRateRepository
 
     public function getAllWithCurrency(): array
     {
-        return ['currency_rates' => CurrencyRateResource::collection($this->currency_rates->with('currencies')->all())];
+        return ['currency_rates' => CurrencyRateResource::collection($this->currency_rates->with('currencies')->orderBy('currencies.value')->all())];
     }
     public function getByIdWithCurrency($id): array
     {
