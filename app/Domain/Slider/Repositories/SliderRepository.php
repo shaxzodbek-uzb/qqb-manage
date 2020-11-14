@@ -42,6 +42,7 @@ class SliderRepository
             'id' => $slider->id,
             'name' => $slider->name,
             'slug' => $slider->slug,
+            'url' => $slider->url,
             'slides' => $this->slideRepo->transform($slider->slides),
         ];
     }
