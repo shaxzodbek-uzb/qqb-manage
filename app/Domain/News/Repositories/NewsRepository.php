@@ -21,4 +21,8 @@ class NewsRepository
     {
         return ['news' => new NewsResource($this->news->find($id))];
     }
+    public function getLastMainNews(): array
+    {
+        return ['main_news' => NewsResource::collection($this->news->orderBy('id', 'desc')->where('is_main', true)->limit(3)->get())];
+    }
 }

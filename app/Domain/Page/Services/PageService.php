@@ -77,11 +77,13 @@ class PageService
         $slider_popular = $this->sliderRepo->getByType('popular-products');
         $cards = $this->cardRepo->getBestCards();
         $news_categories = $this->newsCategoryRepo->getAll();
+        $main_news = $this->newsRepo->getLastMainNews()['main_news'];
         return [
             'slider' => $slider,
             'popular_products' => $slider_popular,
             'cards' => $cards['cards'],
-            'news_categories' => $news_categories
+            'news_categories' => $news_categories,
+            'main_news' => $main_news
         ];
     }
 
