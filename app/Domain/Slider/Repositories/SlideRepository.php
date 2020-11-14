@@ -18,7 +18,7 @@ class SlideRepository
         return [
             'id' => $slide->id,
             'name' => $slide->name,
-            'url' => $slider->url,
+            'url' => $slide->url,
             'description' => $slide->description,
             'image' => $slide->image_file?$slide->image_file->url:'',
         ];
