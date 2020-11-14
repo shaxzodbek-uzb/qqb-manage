@@ -83,8 +83,16 @@ class PageService
             'popular_products' => $slider_popular,
             'cards' => $cards['cards'],
             'news_categories' => $news_categories,
-            'main_news' => $main_news
+            'main_news' => $main_news,
+            'last_update' => $this->getLastUpdate($this->newsRepo->getLastAdded())
         ];
+    }
+    public function getLastUpdate($news) {
+        if(is_null($news)){
+            return now()->format('Y-m-d H:i');
+        }
+        return $news->created_at? $news->created_at->format('Y-m-d H:i'):
+            ($news->update_at ? $news->update_at->format('Y-m-d H:i') : now()->format('Y-m-d H:i'));
     }
 
     public function branches(): array

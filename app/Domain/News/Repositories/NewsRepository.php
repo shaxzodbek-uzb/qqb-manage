@@ -25,4 +25,7 @@ class NewsRepository
     {
         return ['main_news' => NewsResource::collection($this->news->orderBy('id', 'desc')->where('is_main', true)->limit(3)->get())];
     }
+    public function getLastAdded(){
+        return $this->news->latest('created_at')->first();
+    }
 }
