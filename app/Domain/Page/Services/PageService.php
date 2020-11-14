@@ -74,10 +74,12 @@ class PageService
     {
         //TODO use only services
         $slider = $this->sliderRepo->getByType('main');
+        $slider_popular = $this->sliderRepo->getByType('popular-products');
         $cards = $this->cardRepo->getBestCards();
         $news_categories = $this->newsCategoryRepo->getAll();
         return [
             'slider' => $slider,
+            'popular_products' => $slider_popular,
             'cards' => $cards['cards'],
             'news_categories' => $news_categories
         ];

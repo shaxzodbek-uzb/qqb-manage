@@ -8,7 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
-
+use Waynestate\Nova\CKEditor;
 class Slide extends Resource
 {
     public static $group = 'Content';
@@ -77,7 +77,7 @@ class Slide extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Name'), 'name')->translatable(),
-            Textarea::make(__('Description'), 'description')->translatable(),  
+            CKEditor::make(__('Description'), 'description')->translatable(),  
             Text::make(__('Url'), 'url'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
 

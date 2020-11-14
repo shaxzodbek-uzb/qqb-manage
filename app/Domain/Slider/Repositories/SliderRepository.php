@@ -24,10 +24,16 @@ class SliderRepository
             case 'main':
                 $slider = $this->sliders->where('slug', 'home-slider')->first();
                 break;
+            case 'popular-products':
+                $slider = $this->sliders->where('slug', 'popular-products')->first();
+                break;
             default:
                 $slider = $this->sliders->first();
         }
-        return $this->transform($slider);
+        if($slider)
+            return $this->transform($slider);
+        else
+            return [];
     }
 
     public function map(Slider $slider): array
