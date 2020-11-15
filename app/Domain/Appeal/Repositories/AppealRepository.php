@@ -26,8 +26,16 @@ class AppealRepository{
         if($request->additional_params)
             foreach ($request->additional_params as $item) {
                 $resource = $appeal->resource_details()->create([
-                    'name' => $item['label'],
-                    'text' => $item['value'],
+                    'name' => [
+                        'uz'=>$item['label'],
+                        'en'=>$item['label'],
+                        'ru'=>$item['label'],
+                    ],
+                    'text' => [
+                        'uz'=>$item['value'],
+                        'en'=>$item['value'],
+                        'ru'=>$item['value'],
+                    ],
                 ]);
             }
         return ['appeal' => new AppealResource($appeal)];
