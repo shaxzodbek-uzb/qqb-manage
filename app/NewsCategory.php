@@ -16,7 +16,7 @@ class NewsCategory extends Model
     protected static function booted()
     {
         static::addGlobalScope('orderBy', function (Builder $builder) {
-            $builder->orderBy('id', 'desc');
+            $builder->orderBy('id', 'asc');
         });
     }
 	use HasTranslations;

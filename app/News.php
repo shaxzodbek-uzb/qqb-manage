@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use ClassicO\NovaMediaLibrary\Core\Model as MediaModel;
 use Spatie\Translatable\HasTranslations;
-use Illuminate\Database\Eloquent\Builder;
+// use Illuminate\Database\Eloquent\Builder;
 
 class News extends Model
 {
@@ -16,9 +16,9 @@ class News extends Model
      */
     protected static function booted()
     {
-        static::addGlobalScope('orderBy', function (Builder $builder) {
-            $builder->orderBy('id', 'desc');
-        });
+        // static::addGlobalScope('orderBy', function (Builder $builder) {
+        //     $builder->orderBy('id', 'asc');
+        // });
     }
     use HasTranslations;
     
