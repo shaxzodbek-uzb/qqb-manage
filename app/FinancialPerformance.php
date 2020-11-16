@@ -13,6 +13,6 @@ class FinancialPerformance extends Model
 
     public function performanceAttributes()
     {
-    	return $this->hasMany('App\PerformanceAttributes','performance_id');
+    	return $this->hasMany('App\PerformanceAttributes','performance_id')->orderByDesc('order');
     }
 }

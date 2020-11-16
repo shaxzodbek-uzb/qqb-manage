@@ -48,7 +48,7 @@ class FinancialPerformance extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'year';
 
     /**
      * The columns that should be searched.
@@ -56,7 +56,7 @@ class FinancialPerformance extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'year',
         'id',
     ];
 
