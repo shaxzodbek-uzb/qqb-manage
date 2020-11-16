@@ -7,7 +7,7 @@ use QQB\Branche\Repositories\BrancheRepository;
 use QQB\Credits\Services\CreditService;
 use QQB\Card\Repositories\CardRepository;
 use QQB\Deposit\Repositories\DepositRepository;
-fixuse QQB\Faqs\Repositories\FaqsRepository;
+use QQB\Faqs\Repositories\FaqsRepository;
 use QQB\Menu\Repositories\MenuRepository;
 use QQB\News\Repositories\NewsCategoryRepository;
 use QQB\News\Repositories\NewsRepository;
