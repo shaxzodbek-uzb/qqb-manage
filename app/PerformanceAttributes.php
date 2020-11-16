@@ -3,10 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class PerformanceAttributes extends Model
 {
-     protected $table = 'performance_attributes';
+    use HasTranslations;
 
-     public $timestamps = false;
+    public $translatable = ['name', 'text'];
+
+    protected $table = 'performance_attributes';
+
+    public $timestamps = false;
 }

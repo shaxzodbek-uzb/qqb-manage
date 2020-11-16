@@ -9,7 +9,7 @@ class FinancialPerformance extends Model
 {
    	use HasTranslations;
 
-    public $translatable = ['definition'];
+    public $translatable = ['year', 'definition'];
 
     public function performanceAttributes()
     {
