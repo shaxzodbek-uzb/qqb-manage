@@ -7,8 +7,7 @@ use QQB\Branche\Repositories\BrancheRepository;
 use QQB\Credits\Services\CreditService;
 use QQB\Card\Repositories\CardRepository;
 use QQB\Deposit\Repositories\DepositRepository;
-use QQB\Faqs\Repositories\FaqsRepository;
-use QQB\FinancialPerformance\Repositories\FinancialPerRepository;
+fixuse QQB\Faqs\Repositories\FaqsRepository;
 use QQB\Menu\Repositories\MenuRepository;
 use QQB\News\Repositories\NewsCategoryRepository;
 use QQB\News\Repositories\NewsRepository;
@@ -28,7 +27,6 @@ class PageService
     private $creditRepo;
     private $depositRepo;
     private $faqsRepo;
-    private $finperRepo;
     private $menuRepo;
     private $newsCategoryRepo;
     private $newsRepo;
@@ -44,7 +42,6 @@ class PageService
         CardRepository          $cardRepo,
         DepositRepository       $depositRepo,
         FaqsRepository          $faqsRepo,
-        FinancialPerRepository  $finperRepo,
         MenuRepository          $menuRepo,
         NewsCategoryRepository  $newsCategoryRepo,
         NewsRepository          $newsRepo,
@@ -60,7 +57,6 @@ class PageService
         $this->cardRepo = $cardRepo;
         $this->depositRepo = $depositRepo;
         $this->faqsRepo = $faqsRepo;
-        $this->finperRepo = $finperRepo;
         $this->menuRepo = $menuRepo;
         $this->newsCategoryRepo = $newsCategoryRepo;
         $this->newsRepo = $newsRepo;
