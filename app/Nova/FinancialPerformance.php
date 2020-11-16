@@ -70,7 +70,7 @@ class FinancialPerformance extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Year'), 'year'),
+            Text::make(__('Year'), 'year')->translatable(),
             Textarea::make(__('Definition'),'definition')->translatable(),
             HasMany::make(__('Performance Attributes'), 'performanceAttributes'),
         ];
