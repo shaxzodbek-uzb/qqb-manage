@@ -29,6 +29,7 @@ Route::group([
 	// Route::get('/news', 'Api\NewsController@news');
 	Route::resource('appeals', 'AppealController');
 	Route::resource('appeal-types', 'AppealTypeController');
+	Route::resource('anual-reports', 'AnualReportController');
 	Route::resource('bank-histories', 'BankHistoryController');
 	Route::resource('branches', 'BrancheController');
 	Route::resource('credits', 'CreditController');

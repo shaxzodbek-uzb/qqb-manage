@@ -2,38 +2,29 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Text;
-use Waynestate\Nova\CKEditor;
 
-class PerformanceAttribute extends Resource
+use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\File;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Http\Requests\NovaRequest;
+
+class AnualReport extends Resource
 {
-    
-    /**
-     * Determine if this resource is available for navigation.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
-     */
-    public static function availableForNavigation(Request $request)
-    {
-        return false;
-    }
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\PerformanceAttributes::class;
+    public static $model = \App\AnualReport::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -41,11 +32,9 @@ class PerformanceAttribute extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'id',
     ];
 
-    public static $perPageOptions = [50, 100, 150];
-    
     /**
      * Get the fields displayed by the resource.
      *
@@ -56,9 +45,12 @@ class PerformanceAttribute extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            CKEditor::make(__('Name'), 'name')->rules('required')->translatable(),
-            CKEditor::make(__('Text'), 'text')->rules('required')->translatable(),
-            Text::make(__('Order'), 'order')->rules('numeric')->sortable()
+            Text::make(__('Name'),'name')->rules('required')->translatable(),
+            Text::make(__('Description'),'description')->rules('required')->translatable(),
+            Text::make(__('Format'),'format')->rules('required')->translatable(),
+            File::make(__('Image'), 'image')->disk('public')->path('anual_reports')->creationRules('required'),
+            File::make(__('File'), 'file')->disk('public')->path('anual_reports')->creationRules('required'),
+            Boolean::make(__('Active'), 'active'),
         ];
     }
 
