@@ -21,9 +21,9 @@ class CurrencyRateService {
         return $currency_rate;
     }
 
-    public function getLast():array
+    public function getLast($limit = null):array
     {
-        $currency_rate = $this->repo->getLastWithCurrency();
+        $currency_rate = $this->repo->getLastWithCurrency($limit);
         return $currency_rate;
     }
 }

@@ -15,7 +15,7 @@ class LastCurrencyRateController extends Controller
     
     public function index()
     {
-        $curreny_rate = $this->service->getLast();
+        $curreny_rate = $this->service->getLast(request()->get('limit', null));
         return response()->json([
             'success' => true,
             'data' => $curreny_rate

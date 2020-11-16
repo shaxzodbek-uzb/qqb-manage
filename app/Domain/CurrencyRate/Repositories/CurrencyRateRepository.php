@@ -3,7 +3,7 @@ namespace QQB\CurrencyRate\Repositories;
 
 use App\CurrencyRate;
 use QQB\CurrencyRate\Resources\CurrencyRateResource;
-
+use Carbon\Carbon;
 class CurrencyRateRepository
 {
     private $currency_rates;
@@ -20,8 +20,16 @@ class CurrencyRateRepository
     {
         return ['currency_rate' => new CurrencyRateResource($this->currency_rates->with('currencies')->find($id))];
     }
-    public function getLastWithCurrency(): array
+    public function getLastWithCurrency($limit): array
     {
-        return ['currency_rate' => new CurrencyRateResource($this->currency_rates->with('currencies')->latest()->first())];
+        $date = now();
+        if($limit)
+            $date = new Carbon($limit);
+        $currency_rate = $this->currency_rates->with('currencies')->where('date', "<=", $date)->latest()->first();
+        if ($currency_rate)
+            $currency_rate = new CurrencyRateResource($currency_rate);
+        else
+            $currency_rate = [];
+        return ['currency_rate' => $currency_rate];
     }
 }

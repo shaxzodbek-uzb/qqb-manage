@@ -3,6 +3,7 @@
 namespace QQB\CurrencyRate\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Carbon\Carbon;
 
 class CurrencyRateResource extends JsonResource
 {
@@ -23,7 +24,7 @@ class CurrencyRateResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'date' => $this->date,
+            'date' => (new Carbon($this->date))->format('Y-m-d'),
             'avtive' => $this->avtive,
             'currencies' => CurrencyResource::collection($this->whenLoaded('currencies'))
         ];
