@@ -39,6 +39,7 @@ Route::group([
 	Route::resource('deposits', 'DepositController');
 	Route::resource('documents', 'DocumentController');
 	Route::resource('document-types', 'DocumentTypeController');
+	Route::resource('financial-performances', 'FinancialPerformanceController');
 	Route::resource('galleries', 'GalleryController');
 	Route::resource('menus', 'MenuController');
 	Route::resource('news', 'NewsController');

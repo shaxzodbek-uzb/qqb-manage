@@ -4,14 +4,19 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\FinancialPerformance;
+use QQB\FinancialPerformance\Services\FinancialPerformanceService;
 
 class FinancialPerformanceController extends Controller
 {
-    public function financial_performances()
+    private $service;
+    public function __construct(FinancialPerformanceService $service) {
+        $this->service = $service;
+    }
+    public function index()
     {
-    	$financial_performances = FinancialPerformance::all();
-    	
-    	return ['financial_performances' => $financial_performances];
+        return response()->json([
+            'success' => true,
+            'data' => $this->service->getAllWithAttributes()
+        ]);
     }
 }

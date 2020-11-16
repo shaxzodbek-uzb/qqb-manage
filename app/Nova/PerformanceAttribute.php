@@ -54,9 +54,9 @@ class PerformanceAttribute extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Name'), 'name')->rules('required')->translatable(),
-            CKEditor::make(__('Text'), 'text')->hideFromIndex()->rules('required')->translatable(),
-            Text::make(__('Total'), 'total')->rules('numeric')
+            CKEditor::make(__('Name'), 'name')->rules('required')->translatable(),
+            CKEditor::make(__('Text'), 'text')->rules('required')->translatable(),
+            Text::make(__('Order'), 'Order')->hideFromIndex()->rules('numeric')
         ];
     }
 

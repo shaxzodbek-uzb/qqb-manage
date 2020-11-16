@@ -126,14 +126,7 @@ class PageService
             'faqs' => $faqs,
         ];
     }
-
-    public function finPer(): array
-    {
-        $finPer = $this->finperRepo->financialPerformance();
-        return [
-            'finPer' => $finPer,
-        ];
-    }
+    
     public function polls(): array
     {
         $polls = $this->pollRepo->polls();
@@ -180,8 +173,6 @@ class PageService
                 return $this->staffs();
             case 'faqs':
                 return $this->faqs();
-            case 'financial-performance':
-                return $this->finPer();
             case 'documents':
                 return (new DocumentService)->getDataForPage();
             case 'tariffs':
