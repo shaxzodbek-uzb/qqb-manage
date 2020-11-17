@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
 
 class Branche extends Resource
 {
@@ -73,7 +74,9 @@ class Branche extends Resource
             Text::make(__('Email'),'email'),
             Text::make(__('Lat'),'lat'),
             Text::make(__('Long'),'long'),
-            Boolean::make(__('Cash machine'),'cash_machine')
+            Boolean::make(__('Active'),'active'),
+            HasMany::make(__('Cash machines'), 'cash_machines', CashMachine::class),
+
         ];
     }
 

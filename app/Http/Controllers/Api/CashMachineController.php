@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use QQB\Branche\Services\BrancheService;
+use Illuminate\Http\Request;
+use QQB\CashMachine\Services\CashMachineService;
 
-class BrancheController extends ApiController
+class CashMachineController extends Controller
 {
-    
-    public function __construct(BrancheService $service)
+    private $service;
+    public function __construct(CashMachineService $service)
     {
         $this->service = $service;
     }
-
     public function index()
     {
-    	return response()->json([
+        return response()->json([
             'success' => true,
             'data' => $this->service->getAll()
         ]);

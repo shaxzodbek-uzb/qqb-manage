@@ -12,6 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class AnualReport extends Resource
 {
+    public static $group = 'Content';
     /**
      * The model the resource corresponds to.
      *

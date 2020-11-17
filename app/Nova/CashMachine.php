@@ -5,13 +5,11 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
-use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Select;
-use ClassicO\NovaMediaLibrary\MediaLibrary;
 
-class Appeal extends Resource
+class CashMachine extends Resource
 {
     public static $group = 'Content';
     
@@ -22,7 +20,7 @@ class Appeal extends Resource
      */
     public static function label()
     {
-        return __('Appeals');
+        return __('Cash machines');
     }
 
     /**
@@ -32,21 +30,21 @@ class Appeal extends Resource
      */
     public static function singularLabel()
     {
-        return __('Appeal');
+        return __('Cash machine');
     }
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Appeal::class;
+    public static $model = \App\CashMachine::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'address';
 
     /**
      * The columns that should be searched.
@@ -67,13 +65,10 @@ class Appeal extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('Title'), 'title')->required(),
-            Text::make(__('Address'), 'address')->required(),
-            Trix::make(__('Content'), 'content')->required(),
-            Select::make(__('Type'), 'type')->options(\App\Appeal::TYPES)->displayUsingLabels(),
-            Select::make(__('Status'), 'status')->options(\App\Appeal::STATUSES)->displayUsingLabels(),
-            MediaLibrary::make(__('Files'),'files')->array('list'),
-            MorphMany::make(__('Resource details'),'resource_details', ResourceDetail::class),
+            Text::make(__('Address'), 'address'),
+            Text::make(__('Position of cash machine'), 'position'),
+            Boolean::make(__('Active'),'active'),
+            BelongsTo::make(__('Branche'), 'branche', Branche::class),
         ];
     }
 

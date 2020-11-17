@@ -11,9 +11,9 @@ class BrancheService {
         $this->repo = $repo;
     }
 
-    public function getAll($cash_machine = false): array
+    public function getAll(): array
     {
-        return $this->repo->getAll($cash_machine);
+        return $this->repo->getAll();
     }
 
 }

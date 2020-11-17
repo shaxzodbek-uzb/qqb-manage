@@ -71,6 +71,7 @@ class Staff extends Resource
             Text::make(__('Position'), 'position')->rules('required')->translatable(),
             Text::make(__('Confirmation document'), 'confirmation_document')->rules('required')->translatable(),
             Text::make(__('Phone'), 'phone')->rules('required'),
+            Text::make(__('Order'), 'order')->rules('numeric'),
         ];
     }
 

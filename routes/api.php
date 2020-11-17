@@ -32,8 +32,9 @@ Route::group([
 	Route::resource('anual-reports', 'AnualReportController');
 	Route::resource('bank-histories', 'BankHistoryController');
 	Route::resource('branches', 'BrancheController');
-	Route::resource('credits', 'CreditController');
 	Route::resource('cards', 'CardController');
+	Route::resource('cash-machines', 'CashMachineController');
+	Route::resource('credits', 'CreditController');
 	Route::resource('currency-rates/last', 'LastCurrencyRateController');
 	Route::resource('currency-rates', 'CurrencyRateController');
 	Route::resource('deposit', 'DepositController');

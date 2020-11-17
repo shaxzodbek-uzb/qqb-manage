@@ -11,6 +11,27 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class AppealType extends Resource
 {
+    public static $group = 'Content';
+    
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Appeal types');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Appeal type');
+    }
     /**
      * The model the resource corresponds to.
      *

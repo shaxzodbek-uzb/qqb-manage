@@ -524,6 +524,15 @@
     "Fullname": "ФИО",
     "Avatar": "Аватар",
     "Position": "Занимаемая должность",
-    "Confirmation document": "Подтверждающий документ"
+    "Confirmation document": "Подтверждающий документ",
+    "Cash machine": "Банкомат",
+    "Cash machines": "Банкоматы",
+    "Position of cash machine": "Расположение банкомата",
+    "Appeals": "Обращений",
+    "Appeal": "Обращение",
+    "Appeal types": "Типы обращений",
+    "Appeal type": "Тип обращения",
+    "Anual Reports": "Ежегодные отчеты",
+    "Anual Report": "Годовой отчет"
 }
 

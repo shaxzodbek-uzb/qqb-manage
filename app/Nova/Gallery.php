@@ -10,6 +10,7 @@ use ClassicO\NovaMediaLibrary\MediaLibrary;
 
 class Gallery extends Resource
 {
+    public static $group = 'Content';
     /**
      * The model the resource corresponds to.
      *
