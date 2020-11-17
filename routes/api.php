@@ -38,6 +38,7 @@ Route::group([
 	Route::resource('currency-rates', 'CurrencyRateController');
 	Route::resource('deposit', 'DepositController');
 	Route::resource('deposits', 'DepositController');
+	Route::resource('deposit-types', 'DepositTypeController');
 	Route::resource('documents', 'DocumentController');
 	Route::resource('document-types', 'DocumentTypeController');
 	Route::resource('financial-performances', 'FinancialPerformanceController');

@@ -16,5 +16,9 @@ class Deposit extends Model
     {
         return $this->belongsTo(MediaModel::class, 'image', 'id');
     }
+    public function type()
+    {
+        return $this->belongsTo(DepositType::class, 'type_id');
+    }
     
 }

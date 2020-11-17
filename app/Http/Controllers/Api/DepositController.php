@@ -22,8 +22,11 @@ class DepositController extends Controller
     }
     public function show($id)
     {
-        $deposit = Deposit::find($id);
+        $deposits = $this->service->getById($id);
 
-        return $deposit;
+        return response()->json([
+            'success' => true,
+            'data' => $deposits
+        ]);
     }
 }

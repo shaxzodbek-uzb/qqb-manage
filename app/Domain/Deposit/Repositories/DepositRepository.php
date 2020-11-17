@@ -19,6 +19,9 @@ class DepositRepository
     {
     	$deposits = $this->deposits->all();
     	return ['deposits' => DepositResource::collection($deposits)];
-
+    }
+    public function getById($id): array
+    {
+        return ['deposit' => new DepositResource($this->deposits->find($id))];
     }
 }

@@ -17,7 +17,7 @@ class BrancheController extends ApiController
     {
     	return response()->json([
             'success' => true,
-            'data' => $this->service->getAll()
+            'data' => $this->service->getAll(request()->get('cash_machine', false))
         ]);
     }
 }

@@ -22,4 +22,8 @@ class DepositType extends Model
     }
     use HasTranslations;
     protected $translatable = ['name'];
+    public function deposits()
+    {
+        return $this->hasMany(Deposit::class, 'type_id', 'id');
+    }
 }

@@ -11,9 +11,9 @@ class BrancheRepository
         $this->branches = $branches;
     }
 
-    public function getAll(): array
+    public function getAll($cash_machine): array
     {
-        $branches = $this->branches->all();
+        $branches = $this->branches->where('cash_machine', $cash_machine)->orderBy('id')->get();
         return ['branches' => BrancheResource::collection($branches)];
     }
 }

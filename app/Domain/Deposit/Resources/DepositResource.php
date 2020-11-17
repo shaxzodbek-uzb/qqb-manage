@@ -30,10 +30,14 @@ class DepositResource extends JsonResource
             'content' => $this->content,
             'description' => $this->description,
             'image' => $this->image_file?$this->image_file->url:'',
-            'type' => $this->type,
+            'type' => new DepositTypeResource($this->whenLoaded('type')),
             'term' => $this->term,
             'rate' => $this->rate,
             'summ' => $this->summ,
+            'created_at' => $this->created_at?
+                $this->created_at->format('Y-m-d'):
+                    ($this->update_at ? $this->update_at->format('Y-m-d') : now()->format('Y-m-d')),
+    
         ];
     }
 }

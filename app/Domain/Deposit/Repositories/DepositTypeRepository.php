@@ -19,6 +19,11 @@ class DepositTypeRepository
     {
     	$types = $this->types->all();
     	return ['types' => DepositTypeResource::collection($types)];
-
+    }
+    
+    public function getBySlug($slug): array
+    {
+        $type = $this->types->where('slug', $slug)->with('deposits')->first();
+        return ['deposit_type' => new DepositTypeResource($type)];
     }
 }

@@ -2,19 +2,15 @@
 
 namespace App\Nova;
 
+use ClassicO\NovaMediaLibrary\MediaLibrary;
+use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsTo;
-use ClassicO\NovaMediaLibrary\MediaLibrary;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
-use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class Deposit extends Resource
 {
@@ -77,7 +73,7 @@ class Deposit extends Resource
             Text::make(__('Term'),'term')->translatable(),
             Text::make(__('Rate'),'rate')->translatable(),
             Text::make(__('Amount'),'summ')->translatable(),
-            Text::make(__('Type'),'type')->translatable(),
+            BelongsTo::make(__('Type') ,'type', DepositType::class)->showCreateRelationButton(),
             CKEditor::make(__('Content'), 'content')->hideFromIndex()->rules('required')->translatable(),
             MediaLibrary::make(__('Image'),'image'),
         ];
