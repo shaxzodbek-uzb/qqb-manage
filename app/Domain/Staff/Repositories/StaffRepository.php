@@ -17,7 +17,7 @@ class StaffRepository
 
     public function getAll()
     {
-    	$staffs = $this->staffs->orderByDesc('order')->get();
+    	$staffs = $this->staffs->orderBy('order')->get();
     	return ['staffs' => StaffResource::collection($staffs)];
     }
 
