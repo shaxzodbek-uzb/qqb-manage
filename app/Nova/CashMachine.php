@@ -67,6 +67,10 @@ class CashMachine extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Address'), 'address'),
             Text::make(__('Position of cash machine'), 'position'),
+            Text::make(__('Phone'),'phone'),
+            Text::make(__('Email'),'email'),
+            Text::make(__('Lat'),'lat'),
+            Text::make(__('Long'),'long'),
             Boolean::make(__('Active'),'active'),
             BelongsTo::make(__('Branche'), 'branche', Branche::class),
         ];

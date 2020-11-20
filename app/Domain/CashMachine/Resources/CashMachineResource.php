@@ -27,6 +27,10 @@ class CashMachineResource extends JsonResource
             'address' => $this->address,
             'position' => $this->position,
             'branche' => new BrancheResource($this->whenLoaded('branche')),
+            'phone' => $this->phone,
+            'email' => $this->email,
+            'lat' => $this->lat,
+            'long' => $this->long,
         ];
     }
 }
