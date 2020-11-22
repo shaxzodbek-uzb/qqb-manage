@@ -13,7 +13,7 @@ use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
 class Language extends Resource
 {
-    public static $group = 'Content';
+    public static $group = 'Information';
     
     /**
      * Get the displayable label of the resource.

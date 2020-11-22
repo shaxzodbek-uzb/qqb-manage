@@ -26,7 +26,10 @@ class GalleryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'images' => $this->get_medias()
+            'images' => $this->get_medias(),
+            'created_at' => $this->created_at?
+                $this->created_at->format('Y-m-d'):
+                    ($this->update_at ? $this->update_at->format('Y-m-d') : now()->format('Y-m-d')),
         ];
     }
 }

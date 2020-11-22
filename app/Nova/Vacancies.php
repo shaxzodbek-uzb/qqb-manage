@@ -12,7 +12,7 @@ use Waynestate\Nova\CKEditor;
 
 class Vacancies extends Resource
 {
-    public static $group = 'Content';
+    public static $group = 'Information';
     
     /**
      * Get the displayable label of the resource.
