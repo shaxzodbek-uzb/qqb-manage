@@ -50,6 +50,7 @@ Route::group([
 	Route::resource('pages', 'PageController');
 	Route::resource('polls', 'PollController');
 	Route::resource('staffs', 'StaffController');
+	Route::resource('subscribers', 'SubscriberController');
 	Route::resource('tariffs', 'TariffController');
 	Route::resource('tariff-types', 'TariffTypeController');
 	Route::resource('vacancy', 'VacancyController');
