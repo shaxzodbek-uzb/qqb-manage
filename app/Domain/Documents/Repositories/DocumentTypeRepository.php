@@ -18,7 +18,7 @@ class DocumentTypeRepository
 
     public function document_types()
     {
-    	$document_types = $this->document_types->all();
+    	$document_types = $this->document_types->where('show_in_tab', true)->get();
     	return ['document_types' => DocumentTypeResource::collection($document_types)];
     }
     public function getBySlug($slug): array

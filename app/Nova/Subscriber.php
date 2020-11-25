@@ -5,45 +5,22 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Boolean;
-use Benjaminhirsch\NovaSlugField\{Slug, TextWithSlug};
 
-class DocumentType extends Resource
+class Subscriber extends Resource
 {
-    public static $group = 'Information';
-    
-    /**
-     * Get the displayable label of the resource.
-     *
-     * @return string
-     */
-    public static function label()
-    {
-        return __('Document types');
-    }
-
-    /**
-     * Get the displayable singular label of the resource.
-     *
-     * @return string
-     */
-    public static function singularLabel()
-    {
-        return __('Document type');
-    }
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\DocumentType::class;
+    public static $model = \App\Subscriber::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -51,7 +28,7 @@ class DocumentType extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'id',
     ];
 
     /**
@@ -64,9 +41,6 @@ class DocumentType extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            TextWithSlug::make(__('Name'),'name')->rules('required')->translatable()->slug('slug'),
-            Slug::make(__('Slug'),'slug')->rules('required'),
-            Boolean::make(__('Show in tab'),'show_in_tab')->rules('required'),
         ];
     }
 
