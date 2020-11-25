@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\News;
+use App\Observers\NewsObserver;
+use Laravel\Nova\Nova;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Nova::serving(function () {
+            News::observe(NewsObserver::class);
+        });
     }
 }

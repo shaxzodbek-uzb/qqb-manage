@@ -82,6 +82,7 @@ class News extends Resource
             Textarea::make(__('Description'), 'description')->translatable(),
             Text::make(__('Url video'),'url_video'),
             Boolean::make(__('Is main'), 'is_main'),
+            Boolean::make(__('Notify'), 'notify'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
             BelongsTo::make(__('News category') ,'news_category', NewsCategory::class)->showCreateRelationButton(),
 
