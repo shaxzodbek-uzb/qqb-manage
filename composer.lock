@@ -268,16 +268,16 @@
         },
         {
             "name": "chris-ware/nova-breadcrumbs",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chris-ware/nova-breadcrumbs.git",
-                "reference": "68d0a7a81f9659c638277f724e536063cf9f908b"
+                "reference": "0e085833aa940a6a7e11a93f8470d707d10b8ae6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chris-ware/nova-breadcrumbs/zipball/68d0a7a81f9659c638277f724e536063cf9f908b",
-                "reference": "68d0a7a81f9659c638277f724e536063cf9f908b",
+                "url": "https://api.github.com/repos/chris-ware/nova-breadcrumbs/zipball/0e085833aa940a6a7e11a93f8470d707d10b8ae6",
+                "reference": "0e085833aa940a6a7e11a93f8470d707d10b8ae6",
                 "shasum": ""
             },
             "require": {
@@ -306,7 +306,11 @@
                 "laravel",
                 "nova"
             ],
-            "time": "2020-09-14T09:21:32+00:00"
+            "support": {
+                "issues": "https://github.com/chris-ware/nova-breadcrumbs/issues",
+                "source": "https://github.com/chris-ware/nova-breadcrumbs/tree/2.1.0"
+            },
+            "time": "2020-11-09T19:27:59+00:00"
         },
         {
             "name": "classic-o/nova-media-library",
@@ -8308,5 +8312,5 @@
         "php": "^7.2.5"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
