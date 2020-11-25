@@ -1,0 +1,1 @@
+hello news created: {{ $news->title }}

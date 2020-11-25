@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+use QQB\Mail\Services\MailService;
+use App\News;
+
+Route::get('/mail', function () {
+    $service = app()->make(MailService::class);
+    $service->sendNews(News::first());
     return view('welcome');
 });
 Route::get('locale/{locale}','LanguageController')->name('locale.change');

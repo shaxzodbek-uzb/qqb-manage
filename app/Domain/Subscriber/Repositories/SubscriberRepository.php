@@ -19,4 +19,8 @@ class SubscriberRepository {
             $subscriber = $this->subscribers->create($params);
         return [ 'subscribers' => new SubscriberResource($subscriber) ];
     }
+    public function getEmails(): array
+    {
+        return $this->subscribers->pluck('email')->toArray();
+    }
 }
