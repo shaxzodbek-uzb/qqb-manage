@@ -24,12 +24,12 @@ Route::group([
 	// Route::get('/history', 'Api\BankHistoryController@history');
 	// Route::get('/branches', 'Api\BranchesController@branches');
 	// Route::get('/currency', 'Api\CurrencyController@currency');
-	// Route::get('/faqs', 'Api\FaqsController@faqs');
 	// Route::get('/financial-performances', 'Api\FinancialPerformanceController@financial_performances');
 	// Route::get('/news', 'Api\NewsController@news');
 	Route::resource('appeals', 'AppealController');
 	Route::resource('appeal-types', 'AppealTypeController');
 	Route::resource('anual-reports', 'AnualReportController');
+	Route::resource('faqs', 'FaqsController');
 	Route::resource('bank-histories', 'BankHistoryController');
 	Route::resource('branches', 'BrancheController');
 	Route::resource('cards', 'CardController');

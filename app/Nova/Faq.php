@@ -7,11 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\MorphMany;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Boolean;
 
 class Faq extends Resource
 {
@@ -70,8 +66,8 @@ class Faq extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('Question'),'question')->rules('required')->translatable(),
-            Textarea::make(__('Answer'),'answer')->rules('required')->translatable()         
-
+            Textarea::make(__('Answer'),'answer')->rules('required')->translatable(),
+            Boolean::make(__('Main'),'main')
         ];
     }
 

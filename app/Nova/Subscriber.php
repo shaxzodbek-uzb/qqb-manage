@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Subscriber extends Resource
@@ -28,7 +29,7 @@ class Subscriber extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'email',
     ];
 
     /**
@@ -41,6 +42,7 @@ class Subscriber extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make(_('Email'), 'email')->sortable(),
         ];
     }
 
