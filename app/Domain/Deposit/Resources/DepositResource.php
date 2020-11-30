@@ -37,7 +37,8 @@ class DepositResource extends JsonResource
             'created_at' => $this->created_at?
                 $this->created_at->format('Y-m-d'):
                     ($this->update_at ? $this->update_at->format('Y-m-d') : now()->format('Y-m-d')),
-    
+            'updated_at' => $this->updated_at?
+                $this->updated_at->format('Y-m-d H:i'): now()->format('Y-m-d H:i'),
         ];
     }
 }

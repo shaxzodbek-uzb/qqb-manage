@@ -37,7 +37,9 @@ class CreditResource extends JsonResource
             'resource_details' => ResourceDetailResource::collection($this->whenLoaded('resource_details')),
             'documents' => DocumentResource::collection($this->whenLoaded('documents')),
             'faqs' => FaqsResource::collection($this->whenLoaded('faqs')),
-            'credit_type' => new CreditTypeResource($this->whenLoaded('credit_type'))
+            'credit_type' => new CreditTypeResource($this->whenLoaded('credit_type')),
+            'updated_at' => $this->updated_at?
+            $this->updated_at->format('Y-m-d H:i'): now()->format('Y-m-d H:i'),
         ];
     }
 }

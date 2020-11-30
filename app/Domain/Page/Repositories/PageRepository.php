@@ -25,6 +25,8 @@ class PageRepository
             'description' => $page->description,
             'content' => $page->content,
             'slug' => $page->slug,
+            'updated_at' => $page->updated_at?
+            $page->updated_at->format('Y-m-d H:i'): now()->format('Y-m-d H:i'),
         ];
     }
 }
