@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\DateTime;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Waynestate\Nova\CKEditor;
 use OptimistDigital\NovaTranslatable\HandlesTranslatable;
@@ -85,6 +86,7 @@ class News extends Resource
             Boolean::make(__('Notify'), 'notify'),
             MediaLibrary::make(__('Image'),'image')->preview('thumb'),
             BelongsTo::make(__('News category') ,'news_category', NewsCategory::class)->showCreateRelationButton(),
+            DateTime::make(__('Published at') ,'created_at'),
 
         ];
     }
