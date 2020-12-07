@@ -25,6 +25,6 @@ class NewsCategory extends Model
 
     public function news()
     {
-        return $this->hasMany(News::class, 'category_id');
+        return $this->hasMany(News::class, 'category_id')->orderBy('id', 'desc');
     }
 }
