@@ -15,7 +15,7 @@ class NewsRepository
     }
     public function getAll(): array
     {
-        return ['news' => NewsResource::collection($this->news->get())];
+        return ['news' => NewsResource::collection($this->news->orderBy('id', 'desc')->get())];
     }
     public function getById(int $id): array
     {
