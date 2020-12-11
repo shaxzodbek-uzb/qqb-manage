@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\BelongsTo;
@@ -81,6 +82,11 @@ class Credit extends Resource
             Text::make(__('Rate'),'grace_period')->translatable(),
             Text::make(__('Term'),'term')->translatable(),
             Text::make(__('Amount'),'amount')->translatable(),
+            Number::make('calculator_min_amount')->hideFromIndex()->min(0),
+            Number::make('calculator_max_amount')->hideFromIndex()->min(0),
+            Number::make('calculator_period')->hideFromIndex()->min(0),
+            Number::make('calculator_grace_period')->hideFromIndex()->min(0),
+            Number::make('calculator_initial_amount')->hideFromIndex()->min(0),
             BelongsTo::make(__('CreditType'), 'credit_type', CreditType::class),
             MorphMany::make(__('Resource details'),'resource_details', ResourceDetail::class),
             MorphMany::make(__('Documents'),'documents', Document::class),
