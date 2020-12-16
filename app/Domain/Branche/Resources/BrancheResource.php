@@ -31,6 +31,9 @@ class BrancheResource extends JsonResource
             'email' => $this->email,
             'lat' => $this->lat,
             'long' => $this->long,
+            'work_days' => $this->work_days,
+            'additional_phone' => $this->additional_phone,
+            'mfo' => $this->mfo,
         ];
     }
 }
