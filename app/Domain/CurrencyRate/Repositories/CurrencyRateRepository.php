@@ -25,11 +25,18 @@ class CurrencyRateRepository
         $date = now();
         if($limit)
             $date = new Carbon($limit);
+        $prev_date = $date->subDays(6);
+        $$prev_currency_rate = $this->currency_rates->with('currencies')->where('date', "<=", $prev_date)->latest()->first();
+        
         $currency_rate = $this->currency_rates->with('currencies')->where('date', "<=", $date)->latest()->first();
         if ($currency_rate)
             $currency_rate = new CurrencyRateResource($currency_rate);
         else
             $currency_rate = [];
-        return ['currency_rate' => $currency_rate];
+        if ($prev_currency_rate)
+            $prev_currency_rate = new CurrencyRateResource($prev_currency_rate);
+        else
+            $prev_currency_rate = [];
+        return ['currency_rate' => $currency_rate,'prev_currency_rate' => $prev_currency_rate];
     }
 }
