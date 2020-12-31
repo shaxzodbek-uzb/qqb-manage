@@ -26,7 +26,7 @@ class CurrencyRateRepository
         if($limit)
             $date = new Carbon($limit);
         $prev_date = $date->subDays(6);
-        $$prev_currency_rate = $this->currency_rates->with('currencies')->where('date', "<=", $prev_date)->latest()->first();
+        $prev_currency_rate = $this->currency_rates->with('currencies')->where('date', "<=", $prev_date)->latest()->first();
         
         $currency_rate = $this->currency_rates->with('currencies')->where('date', "<=", $date)->latest()->first();
         if ($currency_rate)
