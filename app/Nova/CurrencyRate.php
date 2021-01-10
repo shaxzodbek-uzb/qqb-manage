@@ -46,7 +46,7 @@ class CurrencyRate extends Resource
      *
      * @var string
      */
-    public static $title = 'date';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.

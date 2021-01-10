@@ -27,6 +27,7 @@ class DocumentResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'release_date' => $this->release_date->format('Y-m-d'),
             'file' => Storage::disk('public')->url($this->document),
             'mime' => $file_info['mime'],
             'extension' => $file_info['extension'],

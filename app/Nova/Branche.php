@@ -74,7 +74,7 @@ class Branche extends Resource
             Text::make(__('Email'),'email'),
             Text::make(__('Work days'),'work_days')->translatable(),
             Text::make(__('Call-center'),'additional_phone'),
-            Text::make(__('MFO'),'mfo')->translatable(),
+            Text::make(__('MFO'),'mfo'),
             Text::make(__('Lat'),'lat'),
             Text::make(__('Long'),'long'),
             Boolean::make(__('Active'),'active'),
