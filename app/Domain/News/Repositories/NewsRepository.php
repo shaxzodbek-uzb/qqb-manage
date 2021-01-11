@@ -15,7 +15,7 @@ class NewsRepository
     }
     public function getAll(): array
     {
-        return ['news' => NewsResource::collection($this->news->orderBy('id', 'desc')->get())];
+        return ['news' => NewsResource::collection($this->news->latest('created_at')->get())];
     }
     public function getById(int $id): array
     {
@@ -23,7 +23,7 @@ class NewsRepository
     }
     public function getLastMainNews(): array
     {
-        return ['main_news' => NewsResource::collection($this->news->orderBy('id', 'desc')->where('is_main', true)->limit(3)->get())];
+        return ['main_news' => NewsResource::collection($this->news->latest('created_at')->where('is_main', true)->limit(3)->get())];
     }
     public function getLastAdded(){
         return $this->news->latest('created_at')->first();
