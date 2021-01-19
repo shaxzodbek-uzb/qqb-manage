@@ -22,11 +22,14 @@ class NewsCategoryResource extends JsonResource
      */
     public function toArray($request)
     {
+        $news = $this->whenLoaded('news');
+        if($this->whenLoaded('limited_news'))
+            $news = $this->whenLoaded('limited_news');
         return [
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'news' => NewsResource::collection($this->whenLoaded('news')),
+            'news' => NewsResource::collection($news),
         ];
     }
 }
