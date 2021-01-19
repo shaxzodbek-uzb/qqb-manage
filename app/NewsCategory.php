@@ -27,4 +27,9 @@ class NewsCategory extends Model
     {
         return $this->hasMany(News::class, 'category_id')->latest('created_at');
     }
+    public function limited_news()
+    {
+        return $this->hasMany(News::class, 'category_id')->latest('created_at')->limit(5);
+    }
+    
 }

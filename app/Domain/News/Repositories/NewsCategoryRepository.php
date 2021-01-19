@@ -15,7 +15,7 @@ class NewsCategoryRepository
     }
     public function getAll()
     {
-        return NewsCategoryResource::collection($this->newsCategories->with('news')->get());
+        return NewsCategoryResource::collection($this->newsCategories->with('limited_news')->get());
     }
     public function getAllWithoutNews(): array
     {
